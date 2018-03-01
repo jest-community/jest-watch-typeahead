@@ -1,0 +1,46 @@
+{
+  "name": "jest-plugin-filename",
+  "version": "0.0.1",
+  "main": "build/index.js",
+  "author": "Rogelio Guzman <rogelioguzmanh@gmail.com>",
+  "description": "Jest plugin for filtering by filename",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rogeliog/jest-plugin-filename.git"
+  },
+  "homepage": "https://github.com/rogeliog/jest-plugin-filename",
+  "files": ["build/"],
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint .",
+    "watch": "babel src -w --ignore **/*.test.js,integration -d build",
+    "build": "babel src --ignore **/*.test.js,integration -d build",
+    "prepublish": "yarn build",
+    "format":
+      "prettier --single-quote --trailing-comma all --write \"!(build)/**/*.js\""
+  },
+  "dependencies": {
+    "ansi-escapes": "^3.0.0",
+    "chalk": "2.3.1",
+    "lodash": "4.17.5",
+    "prompts":
+      "git://github.com/terkelg/prompts.git#792824f8e5bfe3d632da0e48be23ab718b8f6646"
+  },
+  "devDependencies": {
+    "babel-cli": "6.26.0",
+    "babel-eslint": "^8.2.2",
+    "babel-preset-env": "1.6.1",
+    "babel-preset-flow": "^6.23.0",
+    "eslint": "4.18.1",
+    "eslint-config-airbnb-base": "12.1.0",
+    "eslint-config-prettier": "2.9.0",
+    "eslint-plugin-flowtype": "^2.46.1",
+    "eslint-plugin-import": "2.9.0",
+    "eslint-plugin-jest": "21.12.2",
+    "eslint-plugin-prettier": "2.6.0",
+    "flow-bin": "^0.66.0",
+    "jest": "22.4.2",
+    "prettier": "1.11.1"
+  }
+}

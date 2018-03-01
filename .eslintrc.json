@@ -1,0 +1,24 @@
+{
+  "parser": "babel-eslint",
+  "extends": ["airbnb-base", "prettier"],
+  "plugins": ["flowtype", "prettier", "jest"],
+  "globals": {
+    "stream$Readable": true,
+    "tty$ReadStream": true
+  },
+  "rules": {
+    "strict": 0,
+    "no-underscore-dangle": 0,
+    "arrow-body-style": 0,
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "trailingComma": "all"
+      }
+    ]
+  },
+  "env": {
+    "jest/globals": true
+  }
+}
