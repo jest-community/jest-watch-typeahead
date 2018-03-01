@@ -4,7 +4,9 @@
   "plugins": ["flowtype", "prettier", "jest"],
   "globals": {
     "stream$Readable": true,
-    "tty$ReadStream": true
+    "tty$ReadStream": true,
+    "stream$Writable": true,
+    "tty$WriteStream": true
   },
   "rules": {
     "strict": 0,
