@@ -48,8 +48,8 @@ class TestPathPlugin {
   // eslint-disable-next-line class-methods-use-this
   getUsageInfo() {
     return {
-      key: 'X'.codePointAt(0),
-      prompt: 'SAME TYPEAHEAD AS BEFORE',
+      key: 'p'.codePointAt(0),
+      prompt: 'filter by a filename regex pattern',
     };
   }
 }
