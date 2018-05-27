@@ -41,7 +41,7 @@ Or in `jest.config.js`
 
 ```js
 module.exports = {
-  watchPlugins: 'jest-plugin-filename',
+  watchPlugins: ['jest-plugin-filename'],
 };
 ```
 
