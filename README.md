@@ -9,7 +9,7 @@
   <p>Filter your tests by filename</p>
 </div>
 
-![watch](https://user-images.githubusercontent.com/574806/40588578-7239bb04-6194-11e8-9484-a35a91271f83.gif)
+![watch](https://user-images.githubusercontent.com/574806/40588608-daf320f4-6194-11e8-99c4-dd1f63903208.gif)
 
 ## Usage
 
