@@ -1,6 +1,6 @@
 {
   "name": "jest-plugin-filename",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "main": "build/index.js",
   "author": "Rogelio Guzman <rogelioguzmanh@gmail.com>",
   "description": "Jest plugin for filtering by filename",
@@ -10,22 +10,22 @@
     "url": "https://github.com/rogeliog/jest-plugin-filename.git"
   },
   "homepage": "https://github.com/rogeliog/jest-plugin-filename",
-  "files": [
-    "build/"
-  ],
+  "files": ["build/"],
   "scripts": {
     "test": "jest",
     "lint": "eslint .",
     "watch": "babel src -w --ignore **/*.test.js,integration -d build",
     "build": "babel src --ignore **/*.test.js,integration -d build",
     "prepublish": "yarn build",
-    "format": "prettier --single-quote --trailing-comma all --write \"!(build)/**/*.js\""
+    "format":
+      "prettier --single-quote --trailing-comma all --write \"!(build)/**/*.js\""
   },
   "dependencies": {
     "ansi-escapes": "^3.0.0",
     "chalk": "^2.3.1",
     "lodash": "4.17.5",
-    "prompts": "git://github.com/terkelg/prompts.git#792824f8e5bfe3d632da0e48be23ab718b8f6646",
+    "prompts":
+      "git://github.com/terkelg/prompts.git#792824f8e5bfe3d632da0e48be23ab718b8f6646",
     "slash": "^1.0.0",
     "string-length": "^2.0.0",
     "strip-ansi": "^4.0.0"
