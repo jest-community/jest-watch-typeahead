@@ -5,24 +5,30 @@ const isWindows = process.platform === 'win32';
 export const CLEAR = isWindows ? '\x1Bc' : '\x1B[2J\x1B[3J\x1B[H';
 
 export const KEYS = {
-  A: '61',
-  ARROW_DOWN: '1b5b42',
-  ARROW_LEFT: '1b5b44',
-  ARROW_RIGHT: '1b5b43',
-  ARROW_UP: '1b5b41',
-  BACKSPACE: isWindows ? '08' : '7f',
-  C: '63',
-  CONTROL_C: '03',
-  CONTROL_D: '04',
-  ENTER: '0d',
-  ESCAPE: '1b',
-  O: '6f',
-  P: '70',
-  Q: '71',
-  QUESTION_MARK: '3f',
-  T: '74',
-  U: '75',
-  W: '77',
+  A: 'a',
+  ARROW_DOWN: '\u001b[B',
+  ARROW_LEFT: '\u001b[D',
+  ARROW_RIGHT: '\u001b[C',
+  ARROW_UP: '\u001b[A',
+  BACKSPACE: isWindows
+    ? Buffer.from('08', 'hex').toString()
+    : Buffer.from('7f', 'hex').toString(),
+  C: 'c',
+  CONTROL_C: '\u0003',
+  CONTROL_D: '\u0004',
+  ENTER: '\r',
+  ESCAPE: '\u001b',
+  F: 'f',
+  I: 'i',
+  O: 'o',
+  P: 'p',
+  Q: 'q',
+  QUESTION_MARK: '?',
+  R: 'r',
+  S: 's',
+  T: 't',
+  U: 'u',
+  W: 'w',
 };
 
 export const ICONS = {

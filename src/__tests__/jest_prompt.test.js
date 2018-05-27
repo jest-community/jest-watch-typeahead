@@ -53,8 +53,6 @@ let stdout;
 let searchSource;
 const nextTick = () => new Promise(res => process.nextTick(res));
 
-const toHex = char => Number(char.charCodeAt(0)).toString(16);
-
 beforeEach(() => {
   stdin = new MockStdin();
   stdout = { write: jest.fn() };
@@ -69,12 +67,9 @@ beforeEach(() => {
 });
 
 const type = async str => {
-  str
-    .split('')
-    .map(toHex)
-    .forEach(c => {
-      stdin.emit(c);
-    });
+  str.split('').forEach(c => {
+    stdin.emit(c);
+  });
 
   await nextTick();
 };

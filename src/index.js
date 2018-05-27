@@ -25,7 +25,7 @@ class TestPathPlugin {
   }
 
   apply(jestHooks: Object) {
-    jestHooks.fileChange(({ projects }) => {
+    jestHooks.onFileChange(({ projects }) => {
       this._projects = projects;
     });
   }
@@ -48,7 +48,7 @@ class TestPathPlugin {
   // eslint-disable-next-line class-methods-use-this
   getUsageInfo() {
     return {
-      key: 'p'.codePointAt(0),
+      key: 'p',
       prompt: 'filter by a filename regex pattern',
     };
   }
