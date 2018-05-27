@@ -45,8 +45,8 @@ module.exports = {
 };
 ```
 
-### Run Jest
+### Run Jest in watch mode
 
 ```bash
-yarn jest
+yarn jest --watch
 ```
