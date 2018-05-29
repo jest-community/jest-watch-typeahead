@@ -13,6 +13,11 @@ const relativePath = (config: ProjectConfig, testPath: string) => {
   return { basename, dirname };
 };
 
+const colorize = (str: string, start: number, end: number) =>
+  chalk.dim(str.slice(0, start)) +
+  chalk.reset(str.slice(start, end)) +
+  chalk.dim(str.slice(end));
+
 export const trimAndFormatPath = (
   pad: number,
   config: ProjectConfig,
@@ -64,11 +69,6 @@ export const highlight = (
   const trim = '...';
   const relativePathHead = './';
 
-  const colorize = (str: string, start: number, end: number) =>
-    chalk.dim(str.slice(0, start)) +
-    chalk.reset(str.slice(start, end)) +
-    chalk.dim(str.slice(end));
-
   let regexp;
 
   try {
@@ -102,4 +102,56 @@ export const highlight = (
   const start = match.index - offset;
   const end = start + match[0].length;
   return colorize(filePath, Math.max(start, 0), Math.max(end, trimLength));
+};
+
+const DOTS = '...';
+const ENTER = '⏎';
+
+export const formatTestNameByPattern = (
+  testName: string,
+  pattern: string,
+  width: number,
+) => {
+  const inlineTestName = testName.replace(/(\r\n|\n|\r)/gm, ENTER);
+
+  let regexp;
+
+  try {
+    regexp = new RegExp(pattern, 'i');
+  } catch (e) {
+    return chalk.dim(inlineTestName);
+  }
+
+  const match = inlineTestName.match(regexp);
+
+  if (!match) {
+    return chalk.dim(inlineTestName);
+  }
+
+  // $FlowFixMe
+  const startPatternIndex = Math.max(match.index, 0);
+  const endPatternIndex = startPatternIndex + match[0].length;
+
+  if (inlineTestName.length <= width) {
+    return colorize(inlineTestName, startPatternIndex, endPatternIndex);
+  }
+
+  const slicedTestName = inlineTestName.slice(0, width - DOTS.length);
+
+  if (startPatternIndex < slicedTestName.length) {
+    if (endPatternIndex > slicedTestName.length) {
+      return colorize(
+        slicedTestName + DOTS,
+        startPatternIndex,
+        slicedTestName.length + DOTS.length,
+      );
+    }
+    return colorize(
+      slicedTestName + DOTS,
+      Math.min(startPatternIndex, slicedTestName.length),
+      endPatternIndex,
+    );
+  }
+
+  return `${chalk.dim(slicedTestName)}${chalk.reset(DOTS)}`;
 };
