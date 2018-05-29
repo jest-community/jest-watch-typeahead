@@ -17,12 +17,12 @@ beforeEach(() => {
   jest.spyOn(utils, 'getTerminalWidth').mockImplementation(() => 80);
 });
 
-const TestPathPatternPrompt = require('../test_path_pattern_prompt').default;
+const FileNamePatternPrompt = require('../file_name_pattern_prompt').default;
 const Prompt = require('../shared/Prompt').default;
 
 const jestPrompt = ({ stdin, stdout, searchSources }) => {
   const prompt = new Prompt();
-  const p = new TestPathPatternPrompt(stdout, prompt);
+  const p = new FileNamePatternPrompt(stdout, prompt);
   p.updateSearchSources(searchSources);
 
   const onkeypress = key => {

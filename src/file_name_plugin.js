@@ -1,11 +1,11 @@
 // @flow
 
 import Prompt from './shared/Prompt';
-import TestPathPatternPrompt, {
+import FileNamePatternPrompt, {
   type SearchSources,
-} from './test_path_pattern_prompt';
+} from './file_name_pattern_prompt';
 
-class TestPathPlugin {
+class FileNamePlugin {
   _stdin: stream$Readable | tty$ReadStream;
   _stdout: stream$Writable | tty$WriteStream;
   _prompt: Prompt;
@@ -35,7 +35,7 @@ class TestPathPlugin {
   }
 
   run(globalConfig: Object, updateConfigAndRun: Function): Promise<void> {
-    const p = new TestPathPatternPrompt(this._stdout, this._prompt);
+    const p = new FileNamePatternPrompt(this._stdout, this._prompt);
     p.updateSearchSources(this._projects);
     return new Promise((res, rej) => {
       p.run(value => {
@@ -54,4 +54,4 @@ class TestPathPlugin {
   }
 }
 
-module.exports = TestPathPlugin;
+module.exports = FileNamePlugin;
