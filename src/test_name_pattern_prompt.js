@@ -16,7 +16,9 @@ import {
 import PatternPrompt from './shared/pattern_prompt';
 
 export type TestResult = {
-  title: string,
+  testResults: Array<{
+    title: string,
+  }>,
 };
 
 class TestNamePatternPrompt extends PatternPrompt {

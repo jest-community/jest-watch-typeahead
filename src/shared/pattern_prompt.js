@@ -44,6 +44,7 @@ export default class PatternPrompt {
     this._prompt.enter(this._onChange.bind(this), onSuccess, onCancel);
   }
 
+  // eslint-disable-next-line no-unused-vars
   _onChange(pattern: string, options: ScrollOptions) {
     this._pipe.write(ansiEscapes.eraseLine);
     this._pipe.write(ansiEscapes.cursorLeft);
