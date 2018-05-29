@@ -1,6 +1,6 @@
 {
   "name": "jest-watch-typeahead",
-  "version": "0.0.1",
+  "version": "0.1.0-0",
   "main": "build/index.js",
   "author": "Rogelio Guzman <rogelioguzmanh@gmail.com>",
   "description": "Jest plugin for filtering by filename or test name",
@@ -10,15 +10,16 @@
     "url": "https://github.com/jest-community/jest-watch-typeahead.git"
   },
   "homepage": "https://github.com/jest-community/jest-watch-typeahead",
-  "files": ["build/"],
+  "files": [
+    "build/"
+  ],
   "scripts": {
     "test": "jest",
     "lint": "eslint .",
     "watch": "babel src -w --ignore **/*.test.js,integration -d build",
     "build": "babel src --ignore **/*.test.js,integration -d build",
     "prepublish": "yarn build",
-    "format":
-      "prettier --single-quote --trailing-comma all --write \"!(build)/**/*.js\""
+    "format": "prettier --single-quote --trailing-comma all --write \"!(build)/**/*.js\""
   },
   "dependencies": {
     "ansi-escapes": "^3.0.0",
