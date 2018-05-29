@@ -22,7 +22,7 @@ export type SearchSources = Array<{|
   testPaths: Array<string>,
 |}>;
 
-export default class TestPathPatternPrompt extends PatternPrompt {
+export default class FileNamePatternPrompt extends PatternPrompt {
   _searchSources: SearchSources;
 
   constructor(pipe: stream$Writable | tty$WriteStream, prompt: Prompt) {
