@@ -7,9 +7,9 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/rogeliog/jest-plugin-filename.git"
+    "url": "https://github.com/jest-community/jest-watch-typeahead.git"
   },
-  "homepage": "https://github.com/rogeliog/jest-plugin-filename",
+  "homepage": "https://github.com/jest-community/jest-watch-typeahead",
   "files": [
     "build/"
   ],
