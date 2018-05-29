@@ -11,6 +11,12 @@ jest.mock('ansi-escapes', () => ({
   cursorTo: (x, y) => `[MOCK - cursorTo(${x}, ${y})]`,
 }));
 
+beforeEach(() => {
+  // eslint-disable-next-line global-require
+  const utils = require('../lib/utils');
+  jest.spyOn(utils, 'getTerminalWidth').mockImplementation(() => 80);
+});
+
 const TestPathPatternPrompt = require('../test_path_pattern_prompt').default;
 const Prompt = require('../shared/Prompt').default;
 

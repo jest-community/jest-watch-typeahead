@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/jest-community/jest-watch-typeahead.svg?branch=master)](https://travis-ci.org/jest-community/jest-watch-typeahead) [![npm version](https://badge.fury.io/js/jest-watch-typeahead.svg)](https://badge.fury.io/js/jest-runner-eslint)
+[![Build Status](https://travis-ci.org/jest-community/jest-watch-typeahead.svg?branch=master)](https://travis-ci.org/jest-community/jest-watch-typeahead) [![npm version](https://badge.fury.io/js/jest-watch-typeahead.svg)](https://badge.fury.io/js/jest-watch-typeahead)
 
 <div align="center">
   <!-- replace with accurate logo e.g from https://worldvectorlogo.com/ -->
@@ -6,10 +6,10 @@
     <img width="150" height="150" vspace="" hspace="25" src="https://cdn.worldvectorlogo.com/logos/jest.svg">
   </a>
   <h1>jest-watch-typeahead</h1>
-  <p>Filter your tests by filename</p>
+  <p>Filter your tests by file name or test name</p>
 </div>
 
-![watch](https://user-images.githubusercontent.com/574806/40588608-daf320f4-6194-11e8-99c4-dd1f63903208.gif)
+![watch](https://user-images.githubusercontent.com/574806/40672937-25dab91a-6325-11e8-965d-4e55ef23e135.gif)
 
 ## Usage
 
@@ -32,7 +32,10 @@ In your `package.json`
 ```json
 {
   "jest": {
-    "watchPlugins": ["jest-watch-typeahead"]
+    "watchPlugins": [
+      "jest-watch-typeahead/filename",
+      "jest-watch-typeahead/testname"
+    ]
   }
 }
 ```
@@ -41,7 +44,10 @@ Or in `jest.config.js`
 
 ```js
 module.exports = {
-  watchPlugins: ['jest-watch-typeahead'],
+  watchPlugins: [
+    'jest-watch-typeahead/filename',
+    'jest-watch-typeahead/testname',
+  ],
 };
 ```
 

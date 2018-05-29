@@ -3,6 +3,7 @@
 import chalk from 'chalk';
 import ansiEscapes from 'ansi-escapes';
 import Prompt from './Prompt';
+import { type ScrollOptions } from './scroll';
 
 const usage = (entity: string) =>
   // eslint-disable-nextline prefer-template
@@ -43,7 +44,8 @@ export default class PatternPrompt {
     this._prompt.enter(this._onChange.bind(this), onSuccess, onCancel);
   }
 
-  _onChange() {
+  // eslint-disable-next-line no-unused-vars
+  _onChange(pattern: string, options: ScrollOptions) {
     this._pipe.write(ansiEscapes.eraseLine);
     this._pipe.write(ansiEscapes.cursorLeft);
   }
