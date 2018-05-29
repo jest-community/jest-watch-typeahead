@@ -1,5 +1,5 @@
 {
-  "name": "jest-plugin-filename",
+  "name": "jest-watch-typeahead",
   "version": "0.0.1",
   "main": "build/index.js",
   "author": "Rogelio Guzman <rogelioguzmanh@gmail.com>",
