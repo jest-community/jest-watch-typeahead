@@ -11,7 +11,9 @@
   },
   "homepage": "https://github.com/jest-community/jest-watch-typeahead",
   "files": [
-    "build/"
+    "build/",
+    "testpath.js",
+    "testname.js"
   ],
   "scripts": {
     "test": "jest",
