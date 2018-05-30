@@ -24,9 +24,8 @@
     "format": "prettier --single-quote --trailing-comma all --write \"!(build)/**/*.js\""
   },
   "dependencies": {
-    "ansi-escapes": "^3.0.0",
     "chalk": "^2.3.1",
-    "lodash": "4.17.5",
+    "jest-watcher": "^23.1.0",
     "slash": "^1.0.0",
     "string-length": "^2.0.0",
     "strip-ansi": "^4.0.0"
