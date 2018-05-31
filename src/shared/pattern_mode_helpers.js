@@ -1,10 +1,8 @@
 // @flow
 
 import chalk from 'chalk';
-import ansiEscapes from 'ansi-escapes';
-import stringLength from 'string-length';
 import stripAnsi from 'strip-ansi';
-import Prompt from '../shared/Prompt';
+import { Prompt } from 'jest-watcher';
 
 const pluralize = (count: number, text: string) =>
   count === 1 ? text : `${text}s`;
@@ -21,30 +19,6 @@ export const printPatternMatches = (
     : `\n\n Pattern matches no ${pluralized}`;
 
   pipe.write(result + extraText);
-};
-
-export const printPatternCaret = (
-  pattern: string,
-  pipe: stream$Writable | tty$WriteStream,
-) => {
-  const inputText = `${chalk.dim(' pattern \u203A')} ${pattern}`;
-
-  pipe.write(ansiEscapes.eraseDown);
-  pipe.write(inputText);
-  pipe.write(ansiEscapes.cursorSavePosition);
-};
-
-export const printRestoredPatternCaret = (
-  pattern: string,
-  currentUsageRows: number,
-  pipe: stream$Writable | tty$WriteStream,
-) => {
-  const inputText = `${chalk.dim(' pattern \u203A')} ${pattern}`;
-
-  pipe.write(
-    ansiEscapes.cursorTo(stringLength(inputText), currentUsageRows - 1),
-  );
-  pipe.write(ansiEscapes.cursorRestorePosition);
 };
 
 export const printStartTyping = (
@@ -80,7 +54,7 @@ export const formatTypeaheadSelection = (
   prompt: Prompt,
 ) => {
   if (index === activeIndex) {
-    prompt.setTypheadheadSelection(stripAnsi(item));
+    prompt.setPromptSelection(stripAnsi(item));
     return chalk.black.bgYellow(stripAnsi(item));
   }
   return item;

@@ -1,19 +1,21 @@
 // @flow
 
 import chalk from 'chalk';
+import {
+  Prompt,
+  PatternPrompt,
+  printPatternCaret,
+  printRestoredPatternCaret,
+} from 'jest-watcher';
 import scroll, { type ScrollOptions } from './shared/scroll';
 import { formatTestNameByPattern, getTerminalWidth } from './lib/utils';
-import Prompt from './shared/Prompt';
 import {
   formatTypeaheadSelection,
   printMore,
-  printPatternCaret,
   printPatternMatches,
-  printRestoredPatternCaret,
   printStartTyping,
   printTypeaheadItem,
 } from './shared/pattern_mode_helpers';
-import PatternPrompt from './shared/pattern_prompt';
 
 export type TestResult = {
   testResults: Array<{
@@ -54,7 +56,7 @@ class TestNamePatternPrompt extends PatternPrompt {
       const width = getTerminalWidth();
       const { start, end, index } = scroll(total, options);
 
-      prompt.setTypeaheadLength(total);
+      prompt.setPromptLength(total);
 
       matchedTests
         .slice(start, end)

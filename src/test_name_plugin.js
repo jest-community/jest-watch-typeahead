@@ -1,6 +1,6 @@
 // @flow
 
-import Prompt from './shared/Prompt';
+import { Prompt } from 'jest-watcher';
 import TestNamePatternPrompt, {
   type TestResult,
 } from './test_name_pattern_prompt';

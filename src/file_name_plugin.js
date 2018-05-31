@@ -1,6 +1,6 @@
 // @flow
 
-import Prompt from './shared/Prompt';
+import { Prompt } from 'jest-watcher';
 import FileNamePatternPrompt, {
   type SearchSources,
 } from './file_name_pattern_prompt';

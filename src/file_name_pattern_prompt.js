@@ -2,19 +2,21 @@
 
 import chalk from 'chalk';
 import stringLength from 'string-length';
+import {
+  Prompt,
+  PatternPrompt,
+  printPatternCaret,
+  printRestoredPatternCaret,
+} from 'jest-watcher';
 import { highlight, getTerminalWidth, trimAndFormatPath } from './lib/utils';
-import Prompt from './shared/Prompt';
 import {
   formatTypeaheadSelection,
   printMore,
-  printPatternCaret,
   printPatternMatches,
-  printRestoredPatternCaret,
   printStartTyping,
   printTypeaheadItem,
 } from './shared/pattern_mode_helpers';
 import scroll, { type ScrollOptions } from './shared/scroll';
-import PatternPrompt from './shared/pattern_prompt';
 import type { ProjectConfig } from './types/Config';
 
 export type SearchSources = Array<{|
@@ -52,7 +54,7 @@ export default class FileNamePatternPrompt extends PatternPrompt {
       const width = getTerminalWidth();
       const { start, end, index } = scroll(total, options);
 
-      prompt.setTypeaheadLength(total);
+      prompt.setPromptLength(total);
 
       matchedTests
         .slice(start, end)
