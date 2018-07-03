@@ -17,7 +17,7 @@ jest.mock('ansi-escapes', () => ({
 }));
 
 const pluginTester = Plugin => {
-  const stdout = { write: jest.fn() };
+  const stdout = { columns: 80, write: jest.fn() };
   const jestHooks = new JestHook();
   const plugin = new Plugin({ stdout });
   plugin.apply(jestHooks.getSubscriber());

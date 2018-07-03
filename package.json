@@ -47,6 +47,9 @@
     "snapshotSerializers": [
       "<rootDir>/node_modules/pretty-format/build/plugins/convert_ansi"
     ],
-    "testPathIgnorePatterns": ["<rootDir>/src/__tests__/pluginTester.js"]
+    "testPathIgnorePatterns": [
+      "<rootDir>/build/.*",
+      "<rootDir>/src/__tests__/pluginTester.js"
+    ]
   }
 }
