@@ -31,7 +31,7 @@ exports[`can select a pattern that matches multiple tests 1`] = `
 [MOCK - cursorRestorePosition]
 `;
 
-exports[`can use arrows to select a specific file 1`] = `
+exports[`can use arrows to select a specific test 1`] = `
 
 
 

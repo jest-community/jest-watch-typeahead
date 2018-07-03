@@ -35,7 +35,7 @@ it('shows the correct message when there are no cached tests', async () => {
   await runPromise;
 });
 
-it('can use arrows to select a specific file', async () => {
+it('can use arrows to select a specific test', async () => {
   const {
     stdout,
     hookEmitter,
