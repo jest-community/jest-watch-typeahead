@@ -10,25 +10,21 @@
     "url": "https://github.com/jest-community/jest-watch-typeahead.git"
   },
   "homepage": "https://github.com/jest-community/jest-watch-typeahead",
-  "files": [
-    "build/",
-    "filename.js",
-    "testname.js"
-  ],
+  "files": ["build/", "filename.js", "testname.js"],
   "scripts": {
     "test": "jest",
     "lint": "eslint .",
     "watch": "babel src -w --ignore **/*.test.js,integration -d build",
     "build": "babel src --ignore **/*.test.js,integration -d build",
     "prepublish": "yarn build",
-    "format": "prettier --single-quote --trailing-comma all --write \"!(build)/**/*.js\""
+    "format":
+      "prettier --single-quote --trailing-comma all --write \"!(build)/**/*.js\""
   },
   "dependencies": {
-    "chalk": "^2.3.1",
+    "chalk": "^2.4.1",
     "jest-watcher": "^23.1.0",
     "slash": "^1.0.0",
-    "string-length": "^2.0.0",
-    "strip-ansi": "^4.0.0"
+    "string-length": "^2.0.0"
   },
   "devDependencies": {
     "babel-cli": "6.26.0",
@@ -43,7 +39,14 @@
     "eslint-plugin-jest": "21.12.2",
     "eslint-plugin-prettier": "2.6.0",
     "flow-bin": "^0.66.0",
-    "jest": "22.4.2",
-    "prettier": "1.11.1"
+    "jest": "23.2.0",
+    "prettier": "1.11.1",
+    "strip-ansi": "^4.0.0"
+  },
+  "jest": {
+    "snapshotSerializers": [
+      "<rootDir>/node_modules/pretty-format/build/plugins/convert_ansi"
+    ],
+    "testPathIgnorePatterns": ["<rootDir>/src/__tests__/pluginTester.js"]
   }
 }
