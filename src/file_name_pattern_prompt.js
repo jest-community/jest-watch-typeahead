@@ -51,7 +51,7 @@ export default class FileNamePatternPrompt extends PatternPrompt {
 
       const prefix = `  ${chalk.dim('\u203A')} `;
       const padding = stringLength(prefix) + 2;
-      const width = getTerminalWidth();
+      const width = getTerminalWidth(pipe);
       const { start, end, index } = scroll(total, options);
 
       prompt.setPromptLength(total);

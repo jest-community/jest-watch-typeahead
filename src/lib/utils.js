@@ -57,8 +57,10 @@ export const trimAndFormatPath = (
   );
 };
 
-// $FlowFixMe
-export const getTerminalWidth = (): number => process.stdout.columns;
+export const getTerminalWidth = (
+  pipe: stream$Writable | tty$WriteStream = process.stdout,
+  // $FlowFixMe
+): number => pipe.columns;
 
 export const highlight = (
   rawPath: string,

@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`can select a pattern that matches multiple tests 1`] = `
+
+
+
+ pattern › f
+[MOCK - cursorSavePosition]
+
+
+ Pattern matches 2 tests from cached test suites
+
+ › foo 1
+
+ › foo 2
+[MOCK - cursorTo(12, 5)]
+[MOCK - cursorRestorePosition]
+
+
+
+ pattern › fo
+[MOCK - cursorSavePosition]
+
+
+ Pattern matches 2 tests from cached test suites
+
+ › foo 1
+
+ › foo 2
+[MOCK - cursorTo(13, 5)]
+[MOCK - cursorRestorePosition]
+`;
+
+exports[`can use arrows to select a specific test 1`] = `
+
+
+
+ pattern › f
+[MOCK - cursorSavePosition]
+
+
+ Pattern matches 2 tests from cached test suites
+
+ › foo 1
+
+ › foo 2
+[MOCK - cursorTo(12, 5)]
+[MOCK - cursorRestorePosition]
+
+
+
+ pattern › f
+[MOCK - cursorSavePosition]
+
+
+ Pattern matches 2 tests from cached test suites
+
+ › foo 1
+
+ › foo 2
+[MOCK - cursorTo(12, 5)]
+[MOCK - cursorRestorePosition]
+
+
+
+ pattern › f
+[MOCK - cursorSavePosition]
+
+
+ Pattern matches 2 tests from cached test suites
+
+ › foo 1
+
+ › foo 2
+[MOCK - cursorTo(12, 5)]
+[MOCK - cursorRestorePosition]
+`;
+
+exports[`shows the correct initial state 1`] = `
+[MOCK - cursorHide]
+[MOCK - clearScreen]
+
+Pattern Mode Usage
+ › Press Esc to exit pattern mode.
+ › Press Enter to filter by a tests regex pattern.
+
+
+[MOCK - cursorShow]
+
+
+
+ pattern › 
+[MOCK - cursorSavePosition]
+
+
+ Start typing to filter by a test name regex pattern.
+[MOCK - cursorTo(11, 5)]
+[MOCK - cursorRestorePosition]
+`;
+
+exports[`shows the correct message when there are no cached tests 1`] = `
+[MOCK - cursorHide]
+[MOCK - clearScreen]
+
+Pattern Mode Usage
+ › Press Esc to exit pattern mode.
+ › Press Enter to filter by a tests regex pattern.
+
+
+[MOCK - cursorShow]
+
+
+
+ pattern › 
+[MOCK - cursorSavePosition]
+
+
+ Start typing to filter by a test name regex pattern.
+[MOCK - cursorTo(11, 5)]
+[MOCK - cursorRestorePosition]
+`;

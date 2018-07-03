@@ -53,7 +53,7 @@ class TestNamePatternPrompt extends PatternPrompt {
         ` from ${chalk.yellow('cached')} test suites`,
       );
 
-      const width = getTerminalWidth();
+      const width = getTerminalWidth(pipe);
       const { start, end, index } = scroll(total, options);
 
       prompt.setPromptLength(total);

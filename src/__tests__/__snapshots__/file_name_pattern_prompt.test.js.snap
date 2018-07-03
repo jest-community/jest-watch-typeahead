@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`can select a pattern that matches multiple files 1`] = `
+
+
+
+ pattern › f
+[MOCK - cursorSavePosition]
+
+
+ Pattern matches 3 files
+
+ › src/foo.js
+
+ › src/file-1.js
+
+ › src/file-2.js
+[MOCK - cursorTo(12, 5)]
+[MOCK - cursorRestorePosition]
+
+
+
+ pattern › fi
+[MOCK - cursorSavePosition]
+
+
+ Pattern matches 2 files
+
+ › src/file-1.js
+
+ › src/file-2.js
+[MOCK - cursorTo(13, 5)]
+[MOCK - cursorRestorePosition]
+`;
+
+exports[`can use arrows to select a specific file 1`] = `
+
+
+
+ pattern › f
+[MOCK - cursorSavePosition]
+
+
+ Pattern matches 3 files
+
+ › src/foo.js
+
+ › src/file-1.js
+
+ › src/file-2.js
+[MOCK - cursorTo(12, 5)]
+[MOCK - cursorRestorePosition]
+
+
+
+ pattern › fi
+[MOCK - cursorSavePosition]
+
+
+ Pattern matches 2 files
+
+ › src/file-1.js
+
+ › src/file-2.js
+[MOCK - cursorTo(13, 5)]
+[MOCK - cursorRestorePosition]
+
+
+
+ pattern › fi
+[MOCK - cursorSavePosition]
+
+
+ Pattern matches 2 files
+
+ › src/file-1.js
+
+ › src/file-2.js
+[MOCK - cursorTo(13, 5)]
+[MOCK - cursorRestorePosition]
+`;
+
+exports[`shows the correct initial state 1`] = `
+[MOCK - cursorHide]
+[MOCK - clearScreen]
+
+Pattern Mode Usage
+ › Press Esc to exit pattern mode.
+ › Press Enter to filter by a filenames regex pattern.
+
+
+[MOCK - cursorShow]
+
+
+
+ pattern › 
+[MOCK - cursorSavePosition]
+
+
+ Start typing to filter by a filename regex pattern.
+[MOCK - cursorTo(11, 5)]
+[MOCK - cursorRestorePosition]
+`;
