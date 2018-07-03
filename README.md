@@ -51,6 +51,22 @@ module.exports = {
 };
 ```
 
+### Configuring your key and prompt name
+
+```js
+module.exports = {
+  watchPlugins: [
+    [
+      'jest-watch-typeahead/filename',
+      {
+        key: 'k',
+        prompt: 'do something with my custom prompt',
+      },
+    ],
+  ],
+};
+```
+
 ### Run Jest in watch mode
 
 ```bash

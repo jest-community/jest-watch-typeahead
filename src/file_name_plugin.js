@@ -5,23 +5,32 @@ import FileNamePatternPrompt, {
   type SearchSources,
 } from './file_name_pattern_prompt';
 
+type PluginConfig = {
+  key?: string,
+  prompt?: string,
+};
+
 class FileNamePlugin {
   _stdin: stream$Readable | tty$ReadStream;
   _stdout: stream$Writable | tty$WriteStream;
   _prompt: Prompt;
   _projects: SearchSources;
+  _config: PluginConfig;
 
   constructor({
     stdin,
     stdout,
+    config,
   }: {
     stdin: stream$Readable | tty$ReadStream,
     stdout: stream$Writable | tty$WriteStream,
+    config: PluginConfig,
   }) {
     this._stdin = stdin;
     this._stdout = stdout;
     this._prompt = new Prompt();
     this._projects = [];
+    this._config = config;
   }
 
   apply(jestHooks: Object) {
@@ -48,8 +57,8 @@ class FileNamePlugin {
   // eslint-disable-next-line class-methods-use-this
   getUsageInfo() {
     return {
-      key: 'p',
-      prompt: 'filter by a filename regex pattern',
+      key: this._config.key || 'p',
+      prompt: this._config.prompt || 'filter by a filename regex pattern',
     };
   }
 }

@@ -79,3 +79,15 @@ it('can select a pattern that matches multiple files', async () => {
     testPathPattern: 'fi',
   });
 });
+
+it('can configure the key and prompt', async () => {
+  const { plugin } = pluginTester(FileNamePlugin, {
+    key: 'l',
+    prompt: 'have a custom prompt',
+  });
+
+  expect(plugin.getUsageInfo()).toEqual({
+    key: 'l',
+    prompt: 'have a custom prompt',
+  });
+});
