@@ -8,6 +8,7 @@
 
 
 ### Chore & Maintenance
+* Upgrade Prettier to 1.13.7 ([#17](https://github.com/jest-community/jest-watch-typeahead/pull/17))
 * New directory structure ([#14](https://github.com/jest-community/jest-watch-typeahead/pull/14))
 * Move ansi-escapes to dependencies _23f22d4_
 * Setup Travis and add tests ([#12](https://github.com/jest-community/jest-watch-typeahead/pull/12))
