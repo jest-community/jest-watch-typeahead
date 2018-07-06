@@ -83,17 +83,13 @@ class TestNamePatternPrompt extends PatternPrompt {
       return [];
     }
 
-    const matchedTests = [];
-
-    this._cachedTestResults.forEach(({ testResults }) =>
-      testResults.forEach(({ title }) => {
-        if (regex.test(title)) {
-          matchedTests.push(title);
-        }
-      }),
-    );
-
-    return matchedTests;
+    return this._cachedTestResults.reduce((matchedTests, { testResults }) => {
+      return matchedTests.concat(
+        testResults
+          .filter(({ title }) => regex.test(title))
+          .map(({ title }) => title),
+      );
+    }, []);
   }
 
   updateCachedTestResults(testResults: Array<TestResult> = []) {
