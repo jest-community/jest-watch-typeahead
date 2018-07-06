@@ -7,15 +7,15 @@ import {
   printPatternCaret,
   printRestoredPatternCaret,
 } from 'jest-watcher';
-import scroll, { type ScrollOptions } from './shared/scroll';
-import { formatTestNameByPattern, getTerminalWidth } from './lib/utils';
+import scroll, { type ScrollOptions } from '../lib/scroll';
+import { formatTestNameByPattern, getTerminalWidth } from '../lib/utils';
 import {
   formatTypeaheadSelection,
   printMore,
   printPatternMatches,
   printStartTyping,
   printTypeaheadItem,
-} from './shared/pattern_mode_helpers';
+} from '../lib/pattern_mode_helpers';
 
 export type TestResult = {
   testResults: Array<{
