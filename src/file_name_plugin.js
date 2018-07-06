@@ -15,12 +15,12 @@ class FileNamePlugin {
   _stdout: stream$Writable | tty$WriteStream;
   _prompt: Prompt;
   _projects: SearchSources;
-  _config: PluginConfig;
+  _usageInfo: { key: string, prompt: string };
 
   constructor({
     stdin,
     stdout,
-    config,
+    config = {},
   }: {
     stdin: stream$Readable | tty$ReadStream,
     stdout: stream$Writable | tty$WriteStream,
@@ -30,7 +30,10 @@ class FileNamePlugin {
     this._stdout = stdout;
     this._prompt = new Prompt();
     this._projects = [];
-    this._config = config;
+    this._usageInfo = {
+      key: config.key || 'p',
+      prompt: config.prompt || 'filter by a filename regex pattern',
+    };
   }
 
   apply(jestHooks: Object) {
@@ -54,12 +57,8 @@ class FileNamePlugin {
     });
   }
 
-  // eslint-disable-next-line class-methods-use-this
   getUsageInfo() {
-    return {
-      key: this._config.key || 'p',
-      prompt: this._config.prompt || 'filter by a filename regex pattern',
-    };
+    return this._usageInfo;
   }
 }
 

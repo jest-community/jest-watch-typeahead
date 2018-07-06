@@ -15,12 +15,12 @@ class TestNamePlugin {
   _stdout: stream$Writable | tty$WriteStream;
   _prompt: Prompt;
   _testResults: Array<TestResult>;
-  _config: PluginConfig;
+  _usageInfo: { key: string, prompt: string };
 
   constructor({
     stdin,
     stdout,
-    config,
+    config = {},
   }: {
     stdin: stream$Readable | tty$ReadStream,
     stdout: stream$Writable | tty$WriteStream,
@@ -30,7 +30,10 @@ class TestNamePlugin {
     this._stdout = stdout;
     this._prompt = new Prompt();
     this._testResults = [];
-    this._config = config;
+    this._usageInfo = {
+      key: config.key || 't',
+      prompt: config.prompt || 'filter by a test name regex pattern',
+    };
   }
 
   apply(jestHooks: Object) {
@@ -54,12 +57,8 @@ class TestNamePlugin {
     });
   }
 
-  // eslint-disable-next-line class-methods-use-this
   getUsageInfo() {
-    return {
-      key: this._config.key || 't',
-      prompt: this._config.prompt || 'filter by a test name regex pattern',
-    };
+    return this._usageInfo;
   }
 }
 
