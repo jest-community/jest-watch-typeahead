@@ -10,15 +10,18 @@
     "url": "https://github.com/jest-community/jest-watch-typeahead.git"
   },
   "homepage": "https://github.com/jest-community/jest-watch-typeahead",
-  "files": ["build/", "filename.js", "testname.js"],
+  "files": [
+    "build/",
+    "filename.js",
+    "testname.js"
+  ],
   "scripts": {
     "test": "jest",
     "lint": "eslint .",
     "watch": "babel src -w --ignore **/*.test.js,integration -d build",
     "build": "babel src --ignore **/*.test.js,integration -d build",
     "prepublish": "yarn build",
-    "format":
-      "prettier --single-quote --trailing-comma all --write \"!(build)/**/*.js\""
+    "format": "prettier --single-quote --trailing-comma all --write \"!(build)/**/*.js\""
   },
   "dependencies": {
     "chalk": "^2.4.1",
@@ -41,10 +44,13 @@
     "eslint-plugin-prettier": "2.6.0",
     "flow-bin": "^0.66.0",
     "jest": "23.2.0",
-    "prettier": "1.11.1"
+    "prettier": "1.13.7"
   },
   "jest": {
-    "watchPlugins": ["<rootDir>/filename", "<rootDir>/testname"],
+    "watchPlugins": [
+      "<rootDir>/filename",
+      "<rootDir>/testname"
+    ],
     "snapshotSerializers": [
       "<rootDir>/node_modules/pretty-format/build/plugins/convert_ansi"
     ],
