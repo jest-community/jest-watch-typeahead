@@ -1,6 +1,6 @@
 import { KEYS } from 'jest-watcher';
-import pluginTester from './pluginTester';
-import FileNamePlugin from '../file_name_plugin';
+import pluginTester from '../../test_utils/pluginTester';
+import FileNamePlugin from '../plugin';
 
 const projects = [
   {

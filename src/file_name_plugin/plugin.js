@@ -1,20 +1,18 @@
 // @flow
 
 import { Prompt } from 'jest-watcher';
-import TestNamePatternPrompt, {
-  type TestResult,
-} from './test_name_pattern_prompt';
+import FileNamePatternPrompt, { type SearchSources } from './prompt';
 
 type PluginConfig = {
   key?: string,
   prompt?: string,
 };
 
-class TestNamePlugin {
+class FileNamePlugin {
   _stdin: stream$Readable | tty$ReadStream;
   _stdout: stream$Writable | tty$WriteStream;
   _prompt: Prompt;
-  _testResults: Array<TestResult>;
+  _projects: SearchSources;
   _usageInfo: { key: string, prompt: string };
 
   constructor({
@@ -29,16 +27,16 @@ class TestNamePlugin {
     this._stdin = stdin;
     this._stdout = stdout;
     this._prompt = new Prompt();
-    this._testResults = [];
+    this._projects = [];
     this._usageInfo = {
-      key: config.key || 't',
-      prompt: config.prompt || 'filter by a test name regex pattern',
+      key: config.key || 'p',
+      prompt: config.prompt || 'filter by a filename regex pattern',
     };
   }
 
   apply(jestHooks: Object) {
-    jestHooks.onTestRunComplete(({ testResults }) => {
-      this._testResults = testResults;
+    jestHooks.onFileChange(({ projects }) => {
+      this._projects = projects;
     });
   }
 
@@ -47,11 +45,11 @@ class TestNamePlugin {
   }
 
   run(globalConfig: Object, updateConfigAndRun: Function): Promise<void> {
-    const p = new TestNamePatternPrompt(this._stdout, this._prompt);
-    p.updateCachedTestResults(this._testResults);
+    const p = new FileNamePatternPrompt(this._stdout, this._prompt);
+    p.updateSearchSources(this._projects);
     return new Promise((res, rej) => {
       p.run(value => {
-        updateConfigAndRun({ mode: 'watch', testNamePattern: value });
+        updateConfigAndRun({ mode: 'watch', testPathPattern: value });
         res();
       }, rej);
     });
@@ -62,4 +60,4 @@ class TestNamePlugin {
   }
 }
 
-module.exports = TestNamePlugin;
+module.exports = FileNamePlugin;

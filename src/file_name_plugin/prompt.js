@@ -8,16 +8,16 @@ import {
   printPatternCaret,
   printRestoredPatternCaret,
 } from 'jest-watcher';
-import { highlight, getTerminalWidth, trimAndFormatPath } from './lib/utils';
+import { highlight, getTerminalWidth, trimAndFormatPath } from '../lib/utils';
 import {
   formatTypeaheadSelection,
   printMore,
   printPatternMatches,
   printStartTyping,
   printTypeaheadItem,
-} from './shared/pattern_mode_helpers';
-import scroll, { type ScrollOptions } from './shared/scroll';
-import type { ProjectConfig } from './types/Config';
+} from '../lib/pattern_mode_helpers';
+import scroll, { type ScrollOptions } from '../lib/scroll';
+import type { ProjectConfig } from '../types/Config';
 
 export type SearchSources = Array<{|
   config: ProjectConfig,
