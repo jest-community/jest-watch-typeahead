@@ -80,3 +80,15 @@ it('can select a pattern that matches multiple tests', async () => {
     testNamePattern: 'fo',
   });
 });
+
+it('can configure the key and prompt', async () => {
+  const { plugin } = pluginTester(TestNamePlugin, {
+    key: 'l',
+    prompt: 'have a custom prompt',
+  });
+
+  expect(plugin.getUsageInfo()).toEqual({
+    key: 'l',
+    prompt: 'have a custom prompt',
+  });
+});
