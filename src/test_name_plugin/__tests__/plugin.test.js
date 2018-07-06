@@ -92,3 +92,22 @@ it('can configure the key and prompt', async () => {
     prompt: 'have a custom prompt',
   });
 });
+
+it('test matching is case insensitive', async () => {
+  const {
+    stdout,
+    hookEmitter,
+    updateConfigAndRun,
+    plugin,
+    type,
+  } = pluginTester(TestNamePlugin);
+
+  hookEmitter.onTestRunComplete({ testResults });
+  const runPromise = plugin.run({}, updateConfigAndRun);
+  type('f');
+  stdout.write.mockReset();
+  type('O');
+  expect(stdout.write.mock.calls.join('\n')).toMatchSnapshot();
+  type(KEYS.ENTER);
+  await runPromise;
+});

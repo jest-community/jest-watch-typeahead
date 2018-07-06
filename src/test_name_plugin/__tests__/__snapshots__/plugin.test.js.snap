@@ -119,3 +119,20 @@ Pattern Mode Usage
 [MOCK - cursorTo(11, 5)]
 [MOCK - cursorRestorePosition]
 `;
+
+exports[`test matching is case insensitive 1`] = `
+
+
+
+ pattern › fO
+[MOCK - cursorSavePosition]
+
+
+ Pattern matches 2 tests from cached test suites
+
+ › foo 1
+
+ › foo 2
+[MOCK - cursorTo(13, 5)]
+[MOCK - cursorRestorePosition]
+`;

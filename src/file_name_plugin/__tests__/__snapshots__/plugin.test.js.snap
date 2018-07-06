@@ -80,6 +80,23 @@ exports[`can use arrows to select a specific file 1`] = `
 [MOCK - cursorRestorePosition]
 `;
 
+exports[`file matching is case insensitive 1`] = `
+
+
+
+ pattern › fI
+[MOCK - cursorSavePosition]
+
+
+ Pattern matches 2 files
+
+ › src/file-1.js
+
+ › src/file-2.js
+[MOCK - cursorTo(13, 5)]
+[MOCK - cursorRestorePosition]
+`;
+
 exports[`shows the correct initial state 1`] = `
 [MOCK - cursorHide]
 [MOCK - clearScreen]

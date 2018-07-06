@@ -95,10 +95,12 @@ export default class FileNamePatternPrompt extends PatternPrompt {
     if (regex) {
       this._searchSources.forEach(({ testPaths, config }) => {
         tests = tests.concat(
-          testPaths.filter(testPath => testPath.match(pattern)).map(path => ({
-            path,
-            context: { config },
-          })),
+          testPaths
+            .filter(testPath => (regex ? testPath.match(regex) : false))
+            .map(path => ({
+              path,
+              context: { config },
+            })),
         );
       });
     }
