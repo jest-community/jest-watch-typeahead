@@ -88,22 +88,17 @@ export default class FileNamePatternPrompt extends PatternPrompt {
     try {
       regex = new RegExp(pattern, 'i');
     } catch (e) {
-      regex = null;
+      return [];
     }
 
-    let tests = [];
-    if (regex) {
-      this._searchSources.forEach(({ testPaths, config }) => {
-        tests = tests.concat(
-          testPaths.filter(testPath => testPath.match(pattern)).map(path => ({
-            path,
-            context: { config },
-          })),
-        );
-      });
-    }
-
-    return tests;
+    return this._searchSources.reduce((tests, { testPaths, config }) => {
+      return tests.concat(
+        testPaths.filter(testPath => regex.test(testPath)).map(path => ({
+          path,
+          context: { config },
+        })),
+      );
+    }, []);
   }
 
   updateSearchSources(searchSources: SearchSources) {

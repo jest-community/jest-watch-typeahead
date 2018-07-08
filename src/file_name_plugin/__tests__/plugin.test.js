@@ -91,3 +91,22 @@ it('can configure the key and prompt', async () => {
     prompt: 'have a custom prompt',
   });
 });
+
+it('file matching is case insensitive', async () => {
+  const {
+    stdout,
+    hookEmitter,
+    updateConfigAndRun,
+    plugin,
+    type,
+  } = pluginTester(FileNamePlugin);
+
+  hookEmitter.onFileChange({ projects });
+  const runPromise = plugin.run({}, updateConfigAndRun);
+  type('f');
+  stdout.write.mockReset();
+  type('I');
+  expect(stdout.write.mock.calls.join('\n')).toMatchSnapshot();
+  type(KEYS.ENTER);
+  await runPromise;
+});

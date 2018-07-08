@@ -4,6 +4,7 @@
 * Add support for plugin config ([#13](https://github.com/jest-community/jest-watch-typeahead/pull/13))
 
 ### Fixes
+* Make matching case insensitive  ([#18](https://github.com/jest-community/jest-watch-typeahead/pull/18))
 * fix: migrate to use jest-watcher ([#6](https://github.com/jest-community/jest-watch-typeahead/pull/6))
 
 
