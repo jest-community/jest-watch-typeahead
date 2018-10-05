@@ -1,6 +1,7 @@
 // @flow
 
 import chalk from 'chalk';
+import ansiEscapes from 'ansi-escapes';
 import stringLength from 'string-length';
 import {
   Prompt,
@@ -45,6 +46,8 @@ export default class FileNamePatternPrompt extends PatternPrompt {
     const prompt = this._prompt;
 
     printPatternCaret(pattern, pipe);
+
+    pipe.write(ansiEscapes.cursorLeft);
 
     if (pattern) {
       printPatternMatches(total, 'file', pipe);

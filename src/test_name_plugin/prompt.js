@@ -1,6 +1,7 @@
 // @flow
 
 import chalk from 'chalk';
+import ansiEscapes from 'ansi-escapes';
 import {
   Prompt,
   PatternPrompt,
@@ -44,6 +45,8 @@ class TestNamePatternPrompt extends PatternPrompt {
     const prompt = this._prompt;
 
     printPatternCaret(pattern, pipe);
+
+    pipe.write(ansiEscapes.cursorLeft);
 
     if (pattern) {
       printPatternMatches(
