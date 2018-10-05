@@ -2,10 +2,11 @@
 
 exports[`can select a pattern that matches multiple files 1`] = `
 
-
+[MOCK - cursorLeft]
 
  pattern › f
 [MOCK - cursorSavePosition]
+[MOCK - cursorLeft]
 
 
  Pattern matches 3 files
@@ -18,10 +19,11 @@ exports[`can select a pattern that matches multiple files 1`] = `
 [MOCK - cursorTo(12, 5)]
 [MOCK - cursorRestorePosition]
 
-
+[MOCK - cursorLeft]
 
  pattern › fi
 [MOCK - cursorSavePosition]
+[MOCK - cursorLeft]
 
 
  Pattern matches 2 files
@@ -35,10 +37,11 @@ exports[`can select a pattern that matches multiple files 1`] = `
 
 exports[`can use arrows to select a specific file 1`] = `
 
-
+[MOCK - cursorLeft]
 
  pattern › f
 [MOCK - cursorSavePosition]
+[MOCK - cursorLeft]
 
 
  Pattern matches 3 files
@@ -51,10 +54,11 @@ exports[`can use arrows to select a specific file 1`] = `
 [MOCK - cursorTo(12, 5)]
 [MOCK - cursorRestorePosition]
 
-
+[MOCK - cursorLeft]
 
  pattern › fi
 [MOCK - cursorSavePosition]
+[MOCK - cursorLeft]
 
 
  Pattern matches 2 files
@@ -65,10 +69,11 @@ exports[`can use arrows to select a specific file 1`] = `
 [MOCK - cursorTo(13, 5)]
 [MOCK - cursorRestorePosition]
 
-
+[MOCK - cursorLeft]
 
  pattern › fi
 [MOCK - cursorSavePosition]
+[MOCK - cursorLeft]
 
 
  Pattern matches 2 files
@@ -82,10 +87,11 @@ exports[`can use arrows to select a specific file 1`] = `
 
 exports[`file matching is case insensitive 1`] = `
 
-
+[MOCK - cursorLeft]
 
  pattern › fI
 [MOCK - cursorSavePosition]
+[MOCK - cursorLeft]
 
 
  Pattern matches 2 files
@@ -108,10 +114,11 @@ Pattern Mode Usage
 
 [MOCK - cursorShow]
 
-
+[MOCK - cursorLeft]
 
  pattern › 
 [MOCK - cursorSavePosition]
+[MOCK - cursorLeft]
 
 
  Start typing to filter by a filename regex pattern.

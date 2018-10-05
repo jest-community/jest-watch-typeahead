@@ -2,10 +2,11 @@
 
 exports[`can select a pattern that matches multiple tests 1`] = `
 
-
+[MOCK - cursorLeft]
 
  pattern › f
 [MOCK - cursorSavePosition]
+[MOCK - cursorLeft]
 
 
  Pattern matches 2 tests from cached test suites
@@ -16,10 +17,11 @@ exports[`can select a pattern that matches multiple tests 1`] = `
 [MOCK - cursorTo(12, 5)]
 [MOCK - cursorRestorePosition]
 
-
+[MOCK - cursorLeft]
 
  pattern › fo
 [MOCK - cursorSavePosition]
+[MOCK - cursorLeft]
 
 
  Pattern matches 2 tests from cached test suites
@@ -33,10 +35,11 @@ exports[`can select a pattern that matches multiple tests 1`] = `
 
 exports[`can use arrows to select a specific test 1`] = `
 
-
+[MOCK - cursorLeft]
 
  pattern › f
 [MOCK - cursorSavePosition]
+[MOCK - cursorLeft]
 
 
  Pattern matches 2 tests from cached test suites
@@ -47,10 +50,11 @@ exports[`can use arrows to select a specific test 1`] = `
 [MOCK - cursorTo(12, 5)]
 [MOCK - cursorRestorePosition]
 
-
+[MOCK - cursorLeft]
 
  pattern › f
 [MOCK - cursorSavePosition]
+[MOCK - cursorLeft]
 
 
  Pattern matches 2 tests from cached test suites
@@ -61,10 +65,11 @@ exports[`can use arrows to select a specific test 1`] = `
 [MOCK - cursorTo(12, 5)]
 [MOCK - cursorRestorePosition]
 
-
+[MOCK - cursorLeft]
 
  pattern › f
 [MOCK - cursorSavePosition]
+[MOCK - cursorLeft]
 
 
  Pattern matches 2 tests from cached test suites
@@ -87,10 +92,11 @@ Pattern Mode Usage
 
 [MOCK - cursorShow]
 
-
+[MOCK - cursorLeft]
 
  pattern › 
 [MOCK - cursorSavePosition]
+[MOCK - cursorLeft]
 
 
  Start typing to filter by a test name regex pattern.
@@ -109,10 +115,11 @@ Pattern Mode Usage
 
 [MOCK - cursorShow]
 
-
+[MOCK - cursorLeft]
 
  pattern › 
 [MOCK - cursorSavePosition]
+[MOCK - cursorLeft]
 
 
  Start typing to filter by a test name regex pattern.
@@ -122,10 +129,11 @@ Pattern Mode Usage
 
 exports[`test matching is case insensitive 1`] = `
 
-
+[MOCK - cursorLeft]
 
  pattern › fO
 [MOCK - cursorSavePosition]
+[MOCK - cursorLeft]
 
 
  Pattern matches 2 tests from cached test suites
