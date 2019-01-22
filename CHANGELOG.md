@@ -1,5 +1,13 @@
 ## master
 
+## 0.2.1
+
+- Fix cursor in terminal app ([#21](https://github.com/jest-community/jest-watch-typeahead/pull/21))
+
+### Chore & Maintenance
+
+- Bump dated dependencies ([#23](https://github.com/jest-community/jest-watch-typeahead/pull/23))
+
 ## 0.2.0
 
 ### Features
