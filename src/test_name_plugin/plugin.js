@@ -10,9 +10,13 @@ type PluginConfig = {
 
 class TestNamePlugin {
   _stdin: stream$Readable | tty$ReadStream;
+
   _stdout: stream$Writable | tty$WriteStream;
+
   _prompt: Prompt;
+
   _testResults: Array<TestResult>;
+
   _usageInfo: { key: string, prompt: string };
 
   constructor({

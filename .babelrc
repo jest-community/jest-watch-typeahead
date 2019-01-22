@@ -1,14 +1,13 @@
 {
   "presets": [
     [
-      "env",
+      "@babel/preset-env",
       {
-        "useBuiltIns": true,
         "targets": {
           "node": "6"
         }
       }
     ],
-    "flow"
+    "@babel/preset-flow"
   ]
 }
