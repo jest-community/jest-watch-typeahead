@@ -10,9 +10,13 @@ type PluginConfig = {
 
 class FileNamePlugin {
   _stdin: stream$Readable | tty$ReadStream;
+
   _stdout: stream$Writable | tty$WriteStream;
+
   _prompt: Prompt;
+
   _projects: SearchSources;
+
   _usageInfo: { key: string, prompt: string };
 
   constructor({

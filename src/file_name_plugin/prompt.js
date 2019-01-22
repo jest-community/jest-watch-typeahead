@@ -96,10 +96,12 @@ export default class FileNamePatternPrompt extends PatternPrompt {
 
     return this._searchSources.reduce((tests, { testPaths, config }) => {
       return tests.concat(
-        testPaths.filter(testPath => regex.test(testPath)).map(path => ({
-          path,
-          context: { config },
-        })),
+        testPaths
+          .filter(testPath => regex.test(testPath))
+          .map(path => ({
+            path,
+            context: { config },
+          })),
       );
     }, []);
   }
