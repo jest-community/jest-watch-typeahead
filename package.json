@@ -56,7 +56,7 @@
       "<rootDir>/testname"
     ],
     "snapshotSerializers": [
-      "<rootDir>/node_modules/pretty-format/build/plugins/convertAnsi"
+      "<rootDir>/node_modules/pretty-format/build/plugins/ConvertAnsi"
     ],
     "testPathIgnorePatterns": [
       "<rootDir>/build/.*",
