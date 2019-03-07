@@ -1,13 +1,7 @@
 {
   "presets": [
-    [
-      "@babel/preset-env",
-      {
-        "targets": {
-          "node": "6"
-        }
-      }
-    ],
-    "@babel/preset-flow"
+    ["@babel/preset-env", { "targets": { "node": "6" } }],
+    "@babel/preset-flow",
+    "@babel/preset-react"
   ]
 }

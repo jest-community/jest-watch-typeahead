@@ -1,5 +1,9 @@
 // @flow
 
+import * as React from 'react';
+import { render, Box, Text } from 'ink';
+import TextInput from 'ink-text-input';
+import SelectInput from 'ink-select-input';
 import chalk from 'chalk';
 import ansiEscapes from 'ansi-escapes';
 import {
@@ -23,6 +27,49 @@ export type TestResult = {
     title: string,
   }>,
 };
+
+function PromptThing() {
+  const [value, setValue] = React.useState('');
+
+  const valueAsRegexp = new RegExp(value);
+  const items = [
+    { label: 'hah', value: 'thing number 1' },
+    { label: 'hah2', value: 'thing number 2' },
+  ].filter(item => valueAsRegexp.test(item.value));
+
+  return (
+    <Box flexDirection="column">
+      <Text bold>Pattern Mode Usage</Text>
+      <Box marginLeft={1} flexDirection="column">
+        <Box>
+          <Text>› Press Esc to exit pattern mode.</Text>
+        </Box>
+        <Box>
+          <Text>› Press Enter to filter by a filenames regex pattern.</Text>
+        </Box>
+
+        <Box marginY={1}>
+          <Box marginRight={1}>
+            <Text>pattern ›</Text>
+          </Box>
+          <TextInput value={value} onChange={setValue} />
+        </Box>
+        <Box>
+          {value.length > 0 ? (
+            <Box flexDirection="column">
+              <Text>Pattern matches {items.length} files</Text>
+              <SelectInput items={items} limit={10} />
+            </Box>
+          ) : (
+            <Text>Start typing to filter by a filename regex pattern.</Text>
+          )}
+        </Box>
+      </Box>
+    </Box>
+  );
+}
+
+render(<PromptThing />);
 
 class TestNamePatternPrompt extends PatternPrompt {
   _cachedTestResults: Array<TestResult>;

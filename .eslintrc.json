@@ -1,6 +1,6 @@
 {
   "parser": "babel-eslint",
-  "extends": ["airbnb-base", "prettier"],
+  "extends": ["airbnb", "prettier", "prettier/react"],
   "plugins": ["flowtype", "prettier", "jest"],
   "globals": {
     "stream$Readable": true,
@@ -18,7 +18,8 @@
         "singleQuote": true,
         "trailingComma": "all"
       }
-    ]
+    ],
+    "react/jsx-filename-extension": "off"
   },
   "env": {
     "jest/globals": true
