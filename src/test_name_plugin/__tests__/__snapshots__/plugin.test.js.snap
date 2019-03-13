@@ -83,7 +83,7 @@ exports[`can use arrows to select a specific test 1`] = `
 
 exports[`shows the correct initial state 1`] = `
 [MOCK - cursorHide]
-
+[MOCK - clearScreen]
 
 Pattern Mode Usage
  › Press Esc to exit pattern mode.
@@ -106,7 +106,7 @@ Pattern Mode Usage
 
 exports[`shows the correct message when there are no cached tests 1`] = `
 [MOCK - cursorHide]
-
+[MOCK - clearScreen]
 
 Pattern Mode Usage
  › Press Esc to exit pattern mode.
