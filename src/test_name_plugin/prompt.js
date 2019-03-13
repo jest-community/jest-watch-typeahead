@@ -89,8 +89,8 @@ class TestNamePatternPrompt extends PatternPrompt {
     return this._cachedTestResults.reduce((matchedTests, { testResults }) => {
       return matchedTests.concat(
         testResults
-          .filter(({ title }) => regex.test(title))
-          .map(({ title }) => title),
+          .filter(({ fullName }) => regex.test(fullName))
+          .map(({ fullName }) => fullName),
       );
     }, []);
   }
