@@ -1,5 +1,42 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`can select a pattern that matches a describe block 1`] = `
+
+[MOCK - cursorLeft]
+
+ pattern › s
+[MOCK - cursorSavePosition]
+[MOCK - cursorLeft]
+
+
+ Pattern matches 4 tests from cached test suites
+
+ › some description foo 1
+
+ › some description bar 1
+
+ › other description foo 2
+
+ › other description bar 2
+[MOCK - cursorTo(12, 5)]
+[MOCK - cursorRestorePosition]
+
+[MOCK - cursorLeft]
+
+ pattern › so
+[MOCK - cursorSavePosition]
+[MOCK - cursorLeft]
+
+
+ Pattern matches 2 tests from cached test suites
+
+ › some description foo 1
+
+ › some description bar 1
+[MOCK - cursorTo(13, 5)]
+[MOCK - cursorRestorePosition]
+`;
+
 exports[`can select a pattern that matches multiple tests 1`] = `
 
 [MOCK - cursorLeft]
@@ -11,9 +48,9 @@ exports[`can select a pattern that matches multiple tests 1`] = `
 
  Pattern matches 2 tests from cached test suites
 
- › foo 1
+ › some description foo 1
 
- › foo 2
+ › other description foo 2
 [MOCK - cursorTo(12, 5)]
 [MOCK - cursorRestorePosition]
 
@@ -26,9 +63,9 @@ exports[`can select a pattern that matches multiple tests 1`] = `
 
  Pattern matches 2 tests from cached test suites
 
- › foo 1
+ › some description foo 1
 
- › foo 2
+ › other description foo 2
 [MOCK - cursorTo(13, 5)]
 [MOCK - cursorRestorePosition]
 `;
@@ -44,9 +81,9 @@ exports[`can use arrows to select a specific test 1`] = `
 
  Pattern matches 2 tests from cached test suites
 
- › foo 1
+ › some description foo 1
 
- › foo 2
+ › other description foo 2
 [MOCK - cursorTo(12, 5)]
 [MOCK - cursorRestorePosition]
 
@@ -59,9 +96,9 @@ exports[`can use arrows to select a specific test 1`] = `
 
  Pattern matches 2 tests from cached test suites
 
- › foo 1
+ › some description foo 1
 
- › foo 2
+ › other description foo 2
 [MOCK - cursorTo(12, 5)]
 [MOCK - cursorRestorePosition]
 
@@ -74,9 +111,9 @@ exports[`can use arrows to select a specific test 1`] = `
 
  Pattern matches 2 tests from cached test suites
 
- › foo 1
+ › some description foo 1
 
- › foo 2
+ › other description foo 2
 [MOCK - cursorTo(12, 5)]
 [MOCK - cursorRestorePosition]
 `;
@@ -138,9 +175,9 @@ exports[`test matching is case insensitive 1`] = `
 
  Pattern matches 2 tests from cached test suites
 
- › foo 1
+ › some description foo 1
 
- › foo 2
+ › other description foo 2
 [MOCK - cursorTo(13, 5)]
 [MOCK - cursorRestorePosition]
 `;

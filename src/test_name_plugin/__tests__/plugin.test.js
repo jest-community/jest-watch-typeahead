@@ -4,10 +4,16 @@ import TestNamePlugin from '../plugin';
 
 const testResults = [
   {
-    testResults: [{ title: 'foo 1' }, { title: 'bar 1' }],
+    testResults: [
+      { title: 'foo 1', fullName: 'some description foo 1' },
+      { title: 'bar 1', fullName: 'some description bar 1' },
+    ],
   },
   {
-    testResults: [{ title: 'foo 2' }, { title: 'bar 2' }],
+    testResults: [
+      { title: 'foo 2', fullName: 'other description foo 2' },
+      { title: 'bar 2', fullName: 'other description bar 2' },
+    ],
   },
 ];
 
@@ -54,7 +60,7 @@ it('can use arrows to select a specific test', async () => {
 
   expect(updateConfigAndRun).toHaveBeenCalledWith({
     mode: 'watch',
-    testNamePattern: 'foo 2',
+    testNamePattern: 'other description foo 2',
   });
 });
 
@@ -78,6 +84,29 @@ it('can select a pattern that matches multiple tests', async () => {
   expect(updateConfigAndRun).toHaveBeenCalledWith({
     mode: 'watch',
     testNamePattern: 'fo',
+  });
+});
+
+it('can select a pattern that matches a describe block', async () => {
+  const {
+    stdout,
+    hookEmitter,
+    updateConfigAndRun,
+    plugin,
+    type,
+  } = pluginTester(TestNamePlugin);
+
+  hookEmitter.onTestRunComplete({ testResults });
+  const runPromise = plugin.run({}, updateConfigAndRun);
+  stdout.write.mockReset();
+  type('s', 'o', KEYS.ENTER);
+  expect(stdout.write.mock.calls.join('\n')).toMatchSnapshot();
+
+  await runPromise;
+
+  expect(updateConfigAndRun).toHaveBeenCalledWith({
+    mode: 'watch',
+    testNamePattern: 'so',
   });
 });
 
