@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import { render, Box, Text } from 'ink';
+import { render, Box, Text, Color, StdinContext } from 'ink';
 import TextInput from 'ink-text-input';
 import SelectInput from 'ink-select-input';
 import chalk from 'chalk';
@@ -23,47 +23,123 @@ import {
 } from '../lib/pattern_mode_helpers';
 
 export type TestResult = {
-  testResults: Array<{
-    title: string,
-  }>,
+  testResults: Array<{ title: string }>,
+};
+
+function useKeyHandler(keyHandler) {
+  const { stdin, setRawMode } = React.useContext(StdinContext);
+
+  React.useEffect(() => {
+    setRawMode(true);
+    stdin.on('keypress', keyHandler);
+    return () => {
+      stdin.off('keypress', keyHandler);
+      setRawMode(false);
+    };
+  }, [keyHandler, stdin, setRawMode]);
+}
+
+function useIsScrolling() {
+  const [isScrolling, setIsScrolling] = React.useState(false);
+  useKeyHandler((str, key) => {
+    setIsScrolling(key.name === 'up' || key.name === 'down');
+  });
+
+  return isScrolling;
+}
+
+const ArrowThing = () => (
+  <Box marginRight={1}>
+    <Text dim>{'\u203A'}</Text>
+  </Box>
+);
+
+const PressKeyTo = ({
+  keyboardKey,
+  action,
+}: {
+  keyboardKey: string,
+  action: string,
+}) => (
+  <Box>
+    <ArrowThing />
+    <Text dim>Press</Text>
+    <Box marginX={1}>
+      <Text>{keyboardKey}</Text>
+    </Box>
+    <Text dim>to {action}.</Text>
+  </Box>
+);
+
+const filterItems = (
+  pattern: string,
+  items: Array<{ label: string, value: string }>,
+) => {
+  let regex;
+
+  try {
+    regex = new RegExp(pattern, 'i');
+  } catch (e) {
+    return [];
+  }
+
+  return items.filter(item => regex.test(item.value));
 };
 
 function PromptThing() {
   const [value, setValue] = React.useState('');
+  const isScrolling = useIsScrolling();
 
-  const valueAsRegexp = new RegExp(value);
-  const items = [
+  const items = filterItems(value, [
     { label: 'hah', value: 'thing number 1' },
     { label: 'hah2', value: 'thing number 2' },
-  ].filter(item => valueAsRegexp.test(item.value));
+  ]);
+  const limit = 10;
+
+  const unrenderedItems = items.length - limit;
 
   return (
     <Box flexDirection="column">
       <Text bold>Pattern Mode Usage</Text>
       <Box marginLeft={1} flexDirection="column">
-        <Box>
-          <Text>› Press Esc to exit pattern mode.</Text>
-        </Box>
-        <Box>
-          <Text>› Press Enter to filter by a filenames regex pattern.</Text>
-        </Box>
+        <PressKeyTo keyboardKey="Esc" action="exit pattern mode" />
+        <PressKeyTo
+          keyboardKey="Enter"
+          action="filter by a filenames regex pattern"
+        />
 
         <Box marginY={1}>
           <Box marginRight={1}>
-            <Text>pattern ›</Text>
+            <Text>pattern</Text>
           </Box>
+          <ArrowThing />
           <TextInput value={value} onChange={setValue} />
         </Box>
-        <Box>
-          {value.length > 0 ? (
-            <Box flexDirection="column">
-              <Text>Pattern matches {items.length} files</Text>
-              <SelectInput items={items} limit={10} />
-            </Box>
-          ) : (
-            <Text>Start typing to filter by a filename regex pattern.</Text>
-          )}
-        </Box>
+        {value.length === 0 ? (
+          <Color yellow inverse>
+            Start typing to filter by a filename regex pattern.
+          </Color>
+        ) : (
+          <Box flexDirection="column">
+            <Text>Pattern matches {items.length} files.</Text>
+            {isScrolling ? (
+              <SelectInput items={items} limit={limit} />
+            ) : (
+              <Box marginLeft={2} flexDirection="column">
+                {items.slice(0, limit).map(i => (
+                  <Box key={i.value}>
+                    <Text>{i.label}</Text>
+                  </Box>
+                ))}
+              </Box>
+            )}
+            {unrenderedItems > 0 && (
+              <Box marginLeft={4}>
+                <Color dim>…and {unrenderedItems} more files</Color>
+              </Box>
+            )}
+          </Box>
+        )}
       </Box>
     </Box>
   );

@@ -26,14 +26,14 @@
   "dependencies": {
     "ansi-escapes": "^3.0.0",
     "chalk": "^2.4.1",
-    "ink": "^2.0.3",
-    "ink-select-input": "^3.0.1",
+    "ink": "^2.0.5",
+    "ink-select-input": "^3.0.2",
     "ink-text-input": "^3.0.0",
     "jest-watcher": "^24.3.0",
     "react": "^16.8.4",
     "slash": "^2.0.0",
     "string-length": "^2.0.0",
-    "strip-ansi": "^5.0.0"
+    "strip-ansi": "^5.1.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0",
@@ -43,7 +43,7 @@
     "@babel/preset-react": "^7.0.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
-    "babel-jest": "^24.3.0",
+    "babel-jest": "^24.3.1",
     "eslint": "^5.12.1",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^4.1.0",
@@ -54,7 +54,7 @@
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.4",
     "flow-bin": "^0.94.0",
-    "jest": "^24.3.0",
+    "jest": "^24.3.1",
     "prettier": "^1.13.7"
   },
   "jest": {
