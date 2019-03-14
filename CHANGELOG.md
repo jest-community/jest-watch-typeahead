@@ -1,5 +1,13 @@
 ## master
 
+### Chore & Maintenance
+
+- Bump dated dependencies ([#25](https://github.com/jest-community/jest-watch-typeahead/pull/25))
+
+### Fixes
+
+- Use fullName(to show ancestor titles) for test name pattern plugin ([#26](https://github.com/jest-community/jest-watch-typeahead/pull/26))
+
 ## 0.2.1
 
 - Fix cursor in terminal app ([#21](https://github.com/jest-community/jest-watch-typeahead/pull/21))
