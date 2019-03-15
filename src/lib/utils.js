@@ -140,47 +140,13 @@ export const formatTestNameByPattern = (
 
   const slicedTestName = inlineTestName.slice(-width + DOTS.length);
   const numberOfTruncatedChars = inlineTestName.length - slicedTestName.length;
+  const shouldHighlightDots = startPatternIndex <= numberOfTruncatedChars;
 
-  if (pattern === 'test' && width === 10) {
-    console.log({
-      inlineTestName,
-      pattern,
-      width,
-      slicedTestName,
-      startPatternIndex,
-      endPatternIndex,
-      slicedTestNameLength: slicedTestName.length,
-      numberOfTruncatedChars,
-      finalString: DOTS + slicedTestName,
-      finalStringLength: (DOTS + slicedTestName).length,
-      start: startPatternIndex - numberOfTruncatedChars + DOTS.length,
-      end: endPatternIndex - numberOfTruncatedChars + DOTS.length,
-    });
-  }
+  const start = shouldHighlightDots
+    ? 0
+    : startPatternIndex - numberOfTruncatedChars + DOTS.length;
+  const end =
+    Math.max(endPatternIndex - numberOfTruncatedChars, 0) + DOTS.length;
 
-  // The pattern maches in both the visible and truncated sections
-  if (
-    startPatternIndex <= numberOfTruncatedChars &&
-    endPatternIndex >= numberOfTruncatedChars
-  ) {
-    return colorize(
-      DOTS + slicedTestName,
-      0,
-      endPatternIndex - numberOfTruncatedChars + DOTS.length,
-    );
-  }
-
-  // The pattern maches in the truncated section only
-  if (startPatternIndex <= numberOfTruncatedChars) {
-    return `${chalk.reset(DOTS)}${chalk.dim(slicedTestName)}`;
-  }
-
-  // The pattern maches in the visible section only
-  if (startPatternIndex > numberOfTruncatedChars) {
-    return colorize(
-      DOTS + slicedTestName,
-      startPatternIndex - numberOfTruncatedChars + DOTS.length,
-      endPatternIndex - numberOfTruncatedChars + DOTS.length,
-    );
-  }
+  return colorize(DOTS + slicedTestName, start, end);
 };
