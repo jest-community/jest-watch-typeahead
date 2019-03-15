@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`formatTestNameByPattern formats when testname="the test name", pattern="name", and width="5" 1`] = `"<dim>th</></>...</>"`;
+exports[`formatTestNameByPattern formats when testname="the test name", pattern="name", and width="5" 1`] = `"</>...me</>"`;
 
-exports[`formatTestNameByPattern formats when testname="the test name", pattern="name", and width="10" 1`] = `"<dim>the tes</></>...</>"`;
+exports[`formatTestNameByPattern formats when testname="the test name", pattern="name", and width="10" 1`] = `"<dim>...st </></>name</>"`;
 
 exports[`formatTestNameByPattern formats when testname="the test name", pattern="name", and width="15" 1`] = `"<dim>the test </></>name</>"`;
 
@@ -12,9 +12,9 @@ exports[`formatTestNameByPattern formats when testname="the test name", pattern=
 
 exports[`formatTestNameByPattern formats when testname="the test name", pattern="name", and width="30" 1`] = `"<dim>the test </></>name</>"`;
 
-exports[`formatTestNameByPattern formats when testname="the test name", pattern="test", and width="5" 1`] = `"<dim>th</></>...</>"`;
+exports[`formatTestNameByPattern formats when testname="the test name", pattern="test", and width="5" 1`] = `"</>...</><dim>me</>"`;
 
-exports[`formatTestNameByPattern formats when testname="the test name", pattern="test", and width="10" 1`] = `"<dim>the </></>tes...</>"`;
+exports[`formatTestNameByPattern formats when testname="the test name", pattern="test", and width="10" 1`] = `"</>...st</><dim> name</>"`;
 
 exports[`formatTestNameByPattern formats when testname="the test name", pattern="test", and width="15" 1`] = `"<dim>the </></>test</><dim> name</>"`;
 
@@ -24,9 +24,9 @@ exports[`formatTestNameByPattern formats when testname="the test name", pattern=
 
 exports[`formatTestNameByPattern formats when testname="the test name", pattern="test", and width="30" 1`] = `"<dim>the </></>test</><dim> name</>"`;
 
-exports[`formatTestNameByPattern formats when testname="the test name", pattern="the", and width="5" 1`] = `"</>th...</>"`;
+exports[`formatTestNameByPattern formats when testname="the test name", pattern="the", and width="5" 1`] = `"</>...</><dim>me</>"`;
 
-exports[`formatTestNameByPattern formats when testname="the test name", pattern="the", and width="10" 1`] = `"</>the</><dim> tes...</>"`;
+exports[`formatTestNameByPattern formats when testname="the test name", pattern="the", and width="10" 1`] = `"</>...</><dim>st name</>"`;
 
 exports[`formatTestNameByPattern formats when testname="the test name", pattern="the", and width="15" 1`] = `"</>the</><dim> test name</>"`;
 

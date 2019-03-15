@@ -138,22 +138,49 @@ export const formatTestNameByPattern = (
     return colorize(inlineTestName, startPatternIndex, endPatternIndex);
   }
 
-  const slicedTestName = inlineTestName.slice(0, width - DOTS.length);
+  const slicedTestName = inlineTestName.slice(-width + DOTS.length);
+  const numberOfTruncatedChars = inlineTestName.length - slicedTestName.length;
 
-  if (startPatternIndex < slicedTestName.length) {
-    if (endPatternIndex > slicedTestName.length) {
-      return colorize(
-        slicedTestName + DOTS,
-        startPatternIndex,
-        slicedTestName.length + DOTS.length,
-      );
-    }
-    return colorize(
-      slicedTestName + DOTS,
-      Math.min(startPatternIndex, slicedTestName.length),
+  if (pattern === 'test' && width === 10) {
+    console.log({
+      inlineTestName,
+      pattern,
+      width,
+      slicedTestName,
+      startPatternIndex,
       endPatternIndex,
+      slicedTestNameLength: slicedTestName.length,
+      numberOfTruncatedChars,
+      finalString: DOTS + slicedTestName,
+      finalStringLength: (DOTS + slicedTestName).length,
+      start: startPatternIndex - numberOfTruncatedChars + DOTS.length,
+      end: endPatternIndex - numberOfTruncatedChars + DOTS.length,
+    });
+  }
+
+  // The pattern maches in both the visible and truncated sections
+  if (
+    startPatternIndex <= numberOfTruncatedChars &&
+    endPatternIndex >= numberOfTruncatedChars
+  ) {
+    return colorize(
+      DOTS + slicedTestName,
+      0,
+      endPatternIndex - numberOfTruncatedChars + DOTS.length,
     );
   }
 
-  return `${chalk.dim(slicedTestName)}${chalk.reset(DOTS)}`;
+  // The pattern maches in the truncated section only
+  if (startPatternIndex <= numberOfTruncatedChars) {
+    return `${chalk.reset(DOTS)}${chalk.dim(slicedTestName)}`;
+  }
+
+  // The pattern maches in the visible section only
+  if (startPatternIndex > numberOfTruncatedChars) {
+    return colorize(
+      DOTS + slicedTestName,
+      startPatternIndex - numberOfTruncatedChars + DOTS.length,
+      endPatternIndex - numberOfTruncatedChars + DOTS.length,
+    );
+  }
 };
