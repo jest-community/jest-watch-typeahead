@@ -134,19 +134,24 @@ export const formatTestNameByPattern = (
   const startPatternIndex = Math.max(match.index, 0);
   const endPatternIndex = startPatternIndex + match[0].length;
 
-  if (inlineTestName.length <= width) {
+  const testNameFitsInTerminal = inlineTestName.length <= width;
+  if (testNameFitsInTerminal) {
     return colorize(inlineTestName, startPatternIndex, endPatternIndex);
   }
 
-  const slicedTestName = inlineTestName.slice(-width + DOTS.length);
-  const numberOfTruncatedChars = inlineTestName.length - slicedTestName.length;
+  const numberOfTruncatedChars = DOTS.length + inlineTestName.length - width;
+  const end = Math.max(endPatternIndex - numberOfTruncatedChars, 0);
+  const truncatedTestName = inlineTestName.slice(numberOfTruncatedChars);
+
   const shouldHighlightDots = startPatternIndex <= numberOfTruncatedChars;
+  if (shouldHighlightDots) {
+    return colorize(DOTS + truncatedTestName, 0, end + DOTS.length);
+  }
 
-  const start = shouldHighlightDots
-    ? 0
-    : startPatternIndex - numberOfTruncatedChars + DOTS.length;
-  const end =
-    Math.max(endPatternIndex - numberOfTruncatedChars, 0) + DOTS.length;
-
-  return colorize(DOTS + slicedTestName, start, end);
+  const start = startPatternIndex - numberOfTruncatedChars;
+  return colorize(
+    DOTS + truncatedTestName,
+    start + DOTS.length,
+    end + DOTS.length,
+  );
 };
