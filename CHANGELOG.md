@@ -3,6 +3,7 @@
 ### Chore & Maintenance
 
 - Bump dated dependencies ([#25](https://github.com/jest-community/jest-watch-typeahead/pull/25))
+- Get better truncation for testname typeahead by truncating the start and not the end ([#28](https://github.com/jest-community/jest-watch-typeahead/pull/28))
 
 ### Fixes
 
