@@ -1,6 +1,11 @@
 import stripAnsi from 'strip-ansi';
 import { trimAndFormatPath, formatTestNameByPattern } from '../utils';
 
+jest.mock('chalk', () => {
+  const chalk = jest.requireActual('chalk');
+  return new chalk.constructor({ enabled: true, level: 1 });
+});
+
 test('trimAndFormatPath', () => {
   expect(
     stripAnsi(
