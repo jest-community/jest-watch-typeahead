@@ -1,6 +1,6 @@
 {
   "name": "jest-watch-typeahead",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "main": "build/index.js",
   "author": "Rogelio Guzman <rogelioguzmanh@gmail.com>",
   "description": "Jest plugin for filtering by filename or test name",

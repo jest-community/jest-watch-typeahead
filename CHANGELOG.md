@@ -1,4 +1,10 @@
-## master
+## 0.3.1
+
+### Fixes
+
+- Helpful error message when attempting to use the package main file ([#29](https://github.com/jest-community/jest-watch-typeahead/pull/29))
+
+## 0.3.0
 
 ### Chore & Maintenance
 
@@ -8,7 +14,6 @@
 ### Fixes
 
 - Use fullName(to show ancestor titles) for test name pattern plugin ([#26](https://github.com/jest-community/jest-watch-typeahead/pull/26))
-- Helpful error message when attempting to use the package main file ([#29](https://github.com/jest-community/jest-watch-typeahead/pull/29))
 
 ## 0.2.1
 
