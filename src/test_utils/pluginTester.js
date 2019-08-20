@@ -24,17 +24,6 @@ expect.addSnapshotSerializer({
   print: val => stripAnsi(val.replace(WINDOWS_CLEAR, '[MOCK - clear]')),
 });
 
-jest.mock('ansi-escapes', () => ({
-  clearScreen: '[MOCK - clearScreen]',
-  cursorDown: (count = 1) => `[MOCK - cursorDown(${count})]`,
-  cursorLeft: '[MOCK - cursorLeft]',
-  cursorHide: '[MOCK - cursorHide]',
-  cursorRestorePosition: '[MOCK - cursorRestorePosition]',
-  cursorSavePosition: '[MOCK - cursorSavePosition]',
-  cursorShow: '[MOCK - cursorShow]',
-  cursorTo: (x, y) => `[MOCK - cursorTo(${x}, ${y})]`,
-}));
-
 const pluginTester = (Plugin, config = {}) => {
   const stdout = { columns: 80, write: jest.fn() };
   const jestHooks = new JestHook();
