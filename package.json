@@ -61,6 +61,10 @@
     "testPathIgnorePatterns": [
       "<rootDir>/build/.*",
       "<rootDir>/src/__tests__/pluginTester.js"
+    ],
+    "transformIgnorePatterns": [
+      "/node_modules/",
+      "/__mocks__/"
     ]
   }
 }

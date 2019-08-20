@@ -1,4 +1,5 @@
 {
+  "ignore": ["**/__mocks__/**"],
   "presets": [
     [
       "@babel/preset-env",
