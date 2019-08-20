@@ -1,3 +1,9 @@
+## 0.4.0
+
+### Chore & Maintenance
+
+- Update dependencies and drop Node 6 ([#30](https://github.com/jest-community/jest-watch-typeahead/pull/30))
+
 ## 0.3.1
 
 ### Fixes
