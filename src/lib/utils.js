@@ -6,6 +6,9 @@ import slash from 'slash';
 import stripAnsi from 'strip-ansi';
 import type { ProjectConfig } from '../types/Config';
 
+const TRIMMING_DOTS = '...';
+const ENTER = '⏎';
+
 const relativePath = (config: ProjectConfig, testPath: string) => {
   testPath = path.relative(config.cwd || config.rootDir, testPath);
   const dirname = path.dirname(testPath);
@@ -38,7 +41,7 @@ export const trimAndFormatPath = (
   const basenameLength = basename.length;
   if (basenameLength + 4 < maxLength) {
     const dirnameLength = maxLength - 4 - basenameLength;
-    dirname = `...${dirname.slice(
+    dirname = `${TRIMMING_DOTS}${dirname.slice(
       dirname.length - dirnameLength,
       dirname.length,
     )}`;
@@ -46,13 +49,18 @@ export const trimAndFormatPath = (
   }
 
   if (basenameLength + 4 === maxLength) {
-    return slash(chalk.dim(`...${path.sep}`) + chalk.bold(basename));
+    return slash(
+      chalk.dim(`${TRIMMING_DOTS}${path.sep}`) + chalk.bold(basename),
+    );
   }
 
   // can't fit dirname, but can fit trimmed basename
   return slash(
     chalk.bold(
-      `...${basename.slice(basename.length - maxLength - 4, basename.length)}`,
+      `${TRIMMING_DOTS}${basename.slice(
+        basename.length - maxLength - 4,
+        basename.length,
+      )}`,
     ),
   );
 };
@@ -68,7 +76,6 @@ export const highlight = (
   pattern: string,
   rootDir: string,
 ) => {
-  const trim = '...';
   const relativePathHead = './';
 
   let regexp;
@@ -90,9 +97,9 @@ export const highlight = (
   let offset;
   let trimLength;
 
-  if (filePath.startsWith(trim)) {
+  if (filePath.startsWith(TRIMMING_DOTS)) {
     offset = rawPath.length - filePath.length;
-    trimLength = trim.length;
+    trimLength = TRIMMING_DOTS.length;
   } else if (filePath.startsWith(relativePathHead)) {
     offset = rawPath.length - filePath.length;
     trimLength = relativePathHead.length;
@@ -105,9 +112,6 @@ export const highlight = (
   const end = start + match[0].length;
   return colorize(filePath, Math.max(start, 0), Math.max(end, trimLength));
 };
-
-const DOTS = '...';
-const ENTER = '⏎';
 
 export const formatTestNameByPattern = (
   testName: string,
@@ -139,19 +143,31 @@ export const formatTestNameByPattern = (
     return colorize(inlineTestName, startPatternIndex, endPatternIndex);
   }
 
-  const numberOfTruncatedChars = DOTS.length + inlineTestName.length - width;
+  const numberOfTruncatedChars =
+    TRIMMING_DOTS.length + inlineTestName.length - width;
   const end = Math.max(endPatternIndex - numberOfTruncatedChars, 0);
   const truncatedTestName = inlineTestName.slice(numberOfTruncatedChars);
 
   const shouldHighlightDots = startPatternIndex <= numberOfTruncatedChars;
   if (shouldHighlightDots) {
-    return colorize(DOTS + truncatedTestName, 0, end + DOTS.length);
+    return colorize(
+      TRIMMING_DOTS + truncatedTestName,
+      0,
+      end + TRIMMING_DOTS.length,
+    );
   }
 
   const start = startPatternIndex - numberOfTruncatedChars;
   return colorize(
-    DOTS + truncatedTestName,
-    start + DOTS.length,
-    end + DOTS.length,
+    TRIMMING_DOTS + truncatedTestName,
+    start + TRIMMING_DOTS.length,
+    end + TRIMMING_DOTS.length,
   );
+};
+
+export const removeTrimmingDots = (value: string): string => {
+  if (value.startsWith(TRIMMING_DOTS)) {
+    return value.slice(0, TRIMMING_DOTS.length);
+  }
+  return value;
 };

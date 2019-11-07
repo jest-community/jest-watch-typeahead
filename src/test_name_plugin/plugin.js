@@ -1,8 +1,9 @@
 // @flow
 
 import { Prompt } from 'jest-watcher';
-import escapeStringRegexp from 'escape-string-regexp';
+import { escapeStrForRegex } from 'jest-regex-util';
 import TestNamePatternPrompt, { type TestResult } from './prompt';
+import { removeTrimmingDots } from '../lib/utils';
 
 type PluginConfig = {
   key?: string,
@@ -56,7 +57,7 @@ class TestNamePlugin {
       p.run(value => {
         updateConfigAndRun({
           mode: 'watch',
-          testNamePattern: escapeStringRegexp(value),
+          testNamePattern: escapeStrForRegex(removeTrimmingDots(value)),
         });
         res();
       }, rej);

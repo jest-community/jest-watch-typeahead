@@ -53,7 +53,7 @@ it('can use arrows to select a specific file', async () => {
 
   expect(updateConfigAndRun).toHaveBeenCalledWith({
     mode: 'watch',
-    testPathPattern: 'src/file-1.js',
+    testPathPattern: 'src/file-1\\.js',
   });
 });
 

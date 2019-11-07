@@ -1,7 +1,9 @@
 // @flow
 
 import { Prompt } from 'jest-watcher';
+import { escapeStrForRegex } from 'jest-regex-util';
 import FileNamePatternPrompt, { type SearchSources } from './prompt';
+import { removeTrimmingDots } from '../lib/utils';
 
 type PluginConfig = {
   key?: string,
@@ -53,7 +55,13 @@ class FileNamePlugin {
     p.updateSearchSources(this._projects);
     return new Promise((res, rej) => {
       p.run(value => {
-        updateConfigAndRun({ mode: 'watch', testPathPattern: value });
+        updateConfigAndRun({
+          mode: 'watch',
+          testPathPattern: removeTrimmingDots(value)
+            .split('/')
+            .map(escapeStrForRegex)
+            .join('/'),
+        });
         res();
       }, rej);
     });
