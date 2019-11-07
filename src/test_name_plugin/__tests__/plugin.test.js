@@ -15,6 +15,9 @@ const testResults = [
       { title: 'bar 2', fullName: 'other description bar 2' },
     ],
   },
+  {
+    testResults: [{ title: 'bracket', fullName: 'bracket description (foo)' }],
+  },
 ];
 
 it('shows the correct initial state', async () => {
@@ -107,6 +110,33 @@ it('can select a pattern that matches a describe block', async () => {
   expect(updateConfigAndRun).toHaveBeenCalledWith({
     mode: 'watch',
     testNamePattern: 'so',
+  });
+});
+
+it('can select a pattern that includes a regexp special character', async () => {
+  const {
+    stdout,
+    hookEmitter,
+    updateConfigAndRun,
+    plugin,
+    type,
+  } = pluginTester(TestNamePlugin);
+
+  hookEmitter.onTestRunComplete({ testResults });
+  const runPromise = plugin.run({}, updateConfigAndRun);
+  stdout.write.mockReset();
+
+  type('b', 'r');
+
+  expect(stdout.write.mock.calls.join('\n')).toMatchSnapshot();
+
+  type(KEYS.ARROW_DOWN, KEYS.ENTER);
+
+  await runPromise;
+
+  expect(updateConfigAndRun).toHaveBeenCalledWith({
+    mode: 'watch',
+    testNamePattern: 'bracket description \\(foo\\)',
   });
 });
 

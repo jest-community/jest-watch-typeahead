@@ -1,6 +1,7 @@
 // @flow
 
 import { Prompt } from 'jest-watcher';
+import escapeStringRegexp from 'escape-string-regexp';
 import TestNamePatternPrompt, { type TestResult } from './prompt';
 
 type PluginConfig = {
@@ -53,7 +54,10 @@ class TestNamePlugin {
     p.updateCachedTestResults(this._testResults);
     return new Promise((res, rej) => {
       p.run(value => {
-        updateConfigAndRun({ mode: 'watch', testNamePattern: value });
+        updateConfigAndRun({
+          mode: 'watch',
+          testNamePattern: escapeStringRegexp(value),
+        });
         res();
       }, rej);
     });
