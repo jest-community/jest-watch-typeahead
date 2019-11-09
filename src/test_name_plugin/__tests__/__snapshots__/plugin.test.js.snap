@@ -1,38 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`can select a pattern that includes a regexp special character 1`] = `
-
-[MOCK - cursorLeft]
-
- pattern › b
-[MOCK - cursorSavePosition]
-[MOCK - cursorLeft]
-
-
- Pattern matches 3 tests from cached test suites
-
- › some description bar 1
-
- › other description bar 2
-
- › bracket description (foo)
-[MOCK - cursorTo(12, 5)]
-[MOCK - cursorRestorePosition]
-
-[MOCK - cursorLeft]
-
- pattern › br
-[MOCK - cursorSavePosition]
-[MOCK - cursorLeft]
-
-
- Pattern matches 1 test from cached test suites
-
- › bracket description (foo)
-[MOCK - cursorTo(13, 5)]
-[MOCK - cursorRestorePosition]
-`;
-
 exports[`can select a pattern that matches a describe block 1`] = `
 
 [MOCK - cursorLeft]
@@ -42,7 +9,7 @@ exports[`can select a pattern that matches a describe block 1`] = `
 [MOCK - cursorLeft]
 
 
- Pattern matches 5 tests from cached test suites
+ Pattern matches 4 tests from cached test suites
 
  › some description foo 1
 
@@ -51,8 +18,6 @@ exports[`can select a pattern that matches a describe block 1`] = `
  › other description foo 2
 
  › other description bar 2
-
- › bracket description (foo)
 [MOCK - cursorTo(12, 5)]
 [MOCK - cursorRestorePosition]
 
@@ -81,13 +46,11 @@ exports[`can select a pattern that matches multiple tests 1`] = `
 [MOCK - cursorLeft]
 
 
- Pattern matches 3 tests from cached test suites
+ Pattern matches 2 tests from cached test suites
 
  › some description foo 1
 
  › other description foo 2
-
- › bracket description (foo)
 [MOCK - cursorTo(12, 5)]
 [MOCK - cursorRestorePosition]
 
@@ -98,13 +61,11 @@ exports[`can select a pattern that matches multiple tests 1`] = `
 [MOCK - cursorLeft]
 
 
- Pattern matches 3 tests from cached test suites
+ Pattern matches 2 tests from cached test suites
 
  › some description foo 1
 
  › other description foo 2
-
- › bracket description (foo)
 [MOCK - cursorTo(13, 5)]
 [MOCK - cursorRestorePosition]
 `;
@@ -118,13 +79,11 @@ exports[`can use arrows to select a specific test 1`] = `
 [MOCK - cursorLeft]
 
 
- Pattern matches 3 tests from cached test suites
+ Pattern matches 2 tests from cached test suites
 
  › some description foo 1
 
  › other description foo 2
-
- › bracket description (foo)
 [MOCK - cursorTo(12, 5)]
 [MOCK - cursorRestorePosition]
 
@@ -135,13 +94,11 @@ exports[`can use arrows to select a specific test 1`] = `
 [MOCK - cursorLeft]
 
 
- Pattern matches 3 tests from cached test suites
+ Pattern matches 2 tests from cached test suites
 
  › some description foo 1
 
  › other description foo 2
-
- › bracket description (foo)
 [MOCK - cursorTo(12, 5)]
 [MOCK - cursorRestorePosition]
 
@@ -152,13 +109,11 @@ exports[`can use arrows to select a specific test 1`] = `
 [MOCK - cursorLeft]
 
 
- Pattern matches 3 tests from cached test suites
+ Pattern matches 2 tests from cached test suites
 
  › some description foo 1
 
  › other description foo 2
-
- › bracket description (foo)
 [MOCK - cursorTo(12, 5)]
 [MOCK - cursorRestorePosition]
 `;
@@ -218,13 +173,11 @@ exports[`test matching is case insensitive 1`] = `
 [MOCK - cursorLeft]
 
 
- Pattern matches 3 tests from cached test suites
+ Pattern matches 2 tests from cached test suites
 
  › some description foo 1
 
  › other description foo 2
-
- › bracket description (foo)
 [MOCK - cursorTo(13, 5)]
 [MOCK - cursorRestorePosition]
 `;

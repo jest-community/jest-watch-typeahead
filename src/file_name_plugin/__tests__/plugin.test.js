@@ -15,12 +15,6 @@ const projects = [
     },
     testPaths: ['/project/src/bar.js', '/project/src/file-2.js'],
   },
-  {
-    config: {
-      rootDir: '/project',
-    },
-    testPaths: ['/project/src/file_(xyz).js'],
-  },
 ];
 
 it('shows the correct initial state', async () => {
@@ -64,23 +58,23 @@ it('can use arrows to select a specific file', async () => {
 });
 
 it('can select a specific file that includes a regexp special character', async () => {
-  const {
-    stdout,
-    hookEmitter,
-    updateConfigAndRun,
-    plugin,
-    type,
-  } = pluginTester(FileNamePlugin);
+  const { hookEmitter, updateConfigAndRun, plugin, type } = pluginTester(
+    FileNamePlugin,
+  );
 
-  hookEmitter.onFileChange({ projects });
+  hookEmitter.onFileChange({
+    projects: [
+      {
+        config: {
+          rootDir: '/project',
+        },
+        testPaths: ['/project/src/file_(xyz).js'],
+      },
+    ],
+  });
   const runPromise = plugin.run({}, updateConfigAndRun);
-  stdout.write.mockReset();
 
-  type('x', 'y', 'z');
-
-  expect(stdout.write.mock.calls.join('\n')).toMatchSnapshot();
-
-  type(KEYS.ARROW_DOWN, KEYS.ENTER);
+  type('x', 'y', 'z', KEYS.ARROW_DOWN, KEYS.ENTER);
 
   await runPromise;
 
