@@ -30,7 +30,7 @@ const pluginTester = (Plugin, options = {}) => {
     write: jest.fn(),
   };
   const jestHooks = new JestHook();
-  const plugin = new Plugin({ stdout, config: options.config || {} });
+  const plugin = new Plugin({ stdout, config: options.config });
   plugin.apply(jestHooks.getSubscriber());
 
   const type = (...keys) => keys.forEach(key => plugin.onKey(key));
