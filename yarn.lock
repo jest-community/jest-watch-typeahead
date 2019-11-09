@@ -2876,7 +2876,7 @@ jest-pnp-resolver@^1.2.1:
 
 jest-regex-util@^24.3.0, jest-regex-util@^24.9.0:
   version "24.9.0"
-  resolved "https://registry.npmjs.org/jest-regex-util/-/jest-regex-util-24.9.0.tgz#c13fb3380bde22bf6575432c493ea8fe37965636"
+  resolved "https://registry.yarnpkg.com/jest-regex-util/-/jest-regex-util-24.9.0.tgz#c13fb3380bde22bf6575432c493ea8fe37965636"
   integrity sha512-05Cmb6CuxaA+Ys6fjr3PhvV3bGQmO+2p2La4hFbU+W5uOc479f7FdLXUWXw4pYMAhhSZIuKHwSXSu6CsSBAXQA==
 
 jest-resolve-dependencies@^24.9.0:
@@ -4204,7 +4204,7 @@ rimraf@^2.5.4, rimraf@^2.6.1, rimraf@^2.6.3:
 
 rimraf@^3.0.0:
   version "3.0.0"
-  resolved "https://registry.npmjs.org/rimraf/-/rimraf-3.0.0.tgz#614176d4b3010b75e5c390eb0ee96f6dc0cebb9b"
+  resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-3.0.0.tgz#614176d4b3010b75e5c390eb0ee96f6dc0cebb9b"
   integrity sha512-NDGVxTsjqfunkds7CqsOiEnxln4Bo7Nddl3XhS4pXg5OzwkLqJ971ZVAAnB+DDLnF76N+VnDEiBHaVV8I06SUg==
   dependencies:
     glob "^7.1.3"
