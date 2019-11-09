@@ -9,13 +9,15 @@ exports[`can select a pattern that matches multiple files 1`] = `
 [MOCK - cursorLeft]
 
 
- Pattern matches 3 files
+ Pattern matches 4 files
 
  › src/foo.js
 
  › src/file-1.js
 
  › src/file-2.js
+
+ › src/file_(xyz).js
 [MOCK - cursorTo(12, 5)]
 [MOCK - cursorRestorePosition]
 
@@ -26,12 +28,56 @@ exports[`can select a pattern that matches multiple files 1`] = `
 [MOCK - cursorLeft]
 
 
- Pattern matches 2 files
+ Pattern matches 3 files
 
  › src/file-1.js
 
  › src/file-2.js
+
+ › src/file_(xyz).js
 [MOCK - cursorTo(13, 5)]
+[MOCK - cursorRestorePosition]
+`;
+
+exports[`can select a specific file that includes a regexp special character 1`] = `
+
+[MOCK - cursorLeft]
+
+ pattern › x
+[MOCK - cursorSavePosition]
+[MOCK - cursorLeft]
+
+
+ Pattern matches 1 file
+
+ › src/file_(xyz).js
+[MOCK - cursorTo(12, 5)]
+[MOCK - cursorRestorePosition]
+
+[MOCK - cursorLeft]
+
+ pattern › xy
+[MOCK - cursorSavePosition]
+[MOCK - cursorLeft]
+
+
+ Pattern matches 1 file
+
+ › src/file_(xyz).js
+[MOCK - cursorTo(13, 5)]
+[MOCK - cursorRestorePosition]
+
+[MOCK - cursorLeft]
+
+ pattern › xyz
+[MOCK - cursorSavePosition]
+[MOCK - cursorLeft]
+
+
+ Pattern matches 1 file
+
+ › src/file_(xyz).js
+[MOCK - cursorTo(14, 5)]
 [MOCK - cursorRestorePosition]
 `;
 
@@ -44,13 +90,15 @@ exports[`can use arrows to select a specific file 1`] = `
 [MOCK - cursorLeft]
 
 
- Pattern matches 3 files
+ Pattern matches 4 files
 
  › src/foo.js
 
  › src/file-1.js
 
  › src/file-2.js
+
+ › src/file_(xyz).js
 [MOCK - cursorTo(12, 5)]
 [MOCK - cursorRestorePosition]
 
@@ -61,11 +109,13 @@ exports[`can use arrows to select a specific file 1`] = `
 [MOCK - cursorLeft]
 
 
- Pattern matches 2 files
+ Pattern matches 3 files
 
  › src/file-1.js
 
  › src/file-2.js
+
+ › src/file_(xyz).js
 [MOCK - cursorTo(13, 5)]
 [MOCK - cursorRestorePosition]
 
@@ -76,11 +126,13 @@ exports[`can use arrows to select a specific file 1`] = `
 [MOCK - cursorLeft]
 
 
- Pattern matches 2 files
+ Pattern matches 3 files
 
  › src/file-1.js
 
  › src/file-2.js
+
+ › src/file_(xyz).js
 [MOCK - cursorTo(13, 5)]
 [MOCK - cursorRestorePosition]
 `;
@@ -94,11 +146,13 @@ exports[`file matching is case insensitive 1`] = `
 [MOCK - cursorLeft]
 
 
- Pattern matches 2 files
+ Pattern matches 3 files
 
  › src/file-1.js
 
  › src/file-2.js
+
+ › src/file_(xyz).js
 [MOCK - cursorTo(13, 5)]
 [MOCK - cursorRestorePosition]
 `;
