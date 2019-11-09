@@ -110,10 +110,38 @@ it('can select a pattern that matches a describe block', async () => {
   });
 });
 
+it('can select a pattern that includes a regexp special character', async () => {
+  const { hookEmitter, updateConfigAndRun, plugin, type } = pluginTester(
+    TestNamePlugin,
+  );
+
+  hookEmitter.onTestRunComplete({
+    testResults: [
+      {
+        testResults: [
+          { title: 'bracket', fullName: 'bracket description (foo)' },
+        ],
+      },
+    ],
+  });
+  const runPromise = plugin.run({}, updateConfigAndRun);
+
+  type('b', 'r', KEYS.ARROW_DOWN, KEYS.ENTER);
+
+  await runPromise;
+
+  expect(updateConfigAndRun).toHaveBeenCalledWith({
+    mode: 'watch',
+    testNamePattern: 'bracket description \\(foo\\)',
+  });
+});
+
 it('can configure the key and prompt', async () => {
   const { plugin } = pluginTester(TestNamePlugin, {
-    key: 'l',
-    prompt: 'have a custom prompt',
+    config: {
+      key: 'l',
+      prompt: 'have a custom prompt',
+    },
   });
 
   expect(plugin.getUsageInfo()).toEqual({
@@ -139,4 +167,35 @@ it('test matching is case insensitive', async () => {
   expect(stdout.write.mock.calls.join('\n')).toMatchSnapshot();
   type(KEYS.ENTER);
   await runPromise;
+});
+
+it("selected pattern doesn't include trimming dots", async () => {
+  const { hookEmitter, updateConfigAndRun, plugin, type } = pluginTester(
+    TestNamePlugin,
+    {
+      stdout: { columns: 30 },
+    },
+  );
+
+  hookEmitter.onTestRunComplete({
+    testResults: [
+      {
+        testResults: [
+          {
+            title: 'trimmed long',
+            fullName: 'long test name, gonna need trimming',
+          },
+        ],
+      },
+    ],
+  });
+  const runPromise = plugin.run({}, updateConfigAndRun);
+
+  type('t', 'r', 'i', 'm', 'm', KEYS.ARROW_DOWN, KEYS.ENTER);
+  await runPromise;
+
+  expect(updateConfigAndRun).toHaveBeenCalledWith({
+    mode: 'watch',
+    testNamePattern: 'me, gonna need trimming',
+  });
 });
