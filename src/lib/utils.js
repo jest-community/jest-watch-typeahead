@@ -53,7 +53,6 @@ export const trimAndFormatPath = (
       chalk.dim(`${TRIMMING_DOTS}${path.sep}`) + chalk.bold(basename),
     );
   }
-
   // can't fit dirname, but can fit trimmed basename
   return slash(
     chalk.bold(
@@ -167,7 +166,7 @@ export const formatTestNameByPattern = (
 
 export const removeTrimmingDots = (value: string): string => {
   if (value.startsWith(TRIMMING_DOTS)) {
-    return value.slice(0, TRIMMING_DOTS.length);
+    return value.slice(TRIMMING_DOTS.length);
   }
   return value;
 };

@@ -24,10 +24,13 @@ expect.addSnapshotSerializer({
   print: val => stripAnsi(val.replace(WINDOWS_CLEAR, '[MOCK - clear]')),
 });
 
-const pluginTester = (Plugin, config = {}) => {
-  const stdout = { columns: 80, write: jest.fn() };
+const pluginTester = (Plugin, options = {}) => {
+  const stdout = {
+    columns: (options.stdout || {}).columns || 80,
+    write: jest.fn(),
+  };
   const jestHooks = new JestHook();
-  const plugin = new Plugin({ stdout, config });
+  const plugin = new Plugin({ stdout, config: options.config || {} });
   plugin.apply(jestHooks.getSubscriber());
 
   const type = (...keys) => keys.forEach(key => plugin.onKey(key));
