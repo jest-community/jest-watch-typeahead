@@ -54,14 +54,7 @@ export const trimAndFormatPath = (
     );
   }
   // can't fit dirname, but can fit trimmed basename
-  return slash(
-    chalk.bold(
-      `${TRIMMING_DOTS}${basename.slice(
-        basename.length - maxLength - 4,
-        basename.length,
-      )}`,
-    ),
-  );
+  return slash(chalk.bold(`${TRIMMING_DOTS}${basename.slice(-maxLength + 3)}`));
 };
 
 export const getTerminalWidth = (

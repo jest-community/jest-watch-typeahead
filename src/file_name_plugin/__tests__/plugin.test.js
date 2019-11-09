@@ -165,6 +165,6 @@ it("selected file doesn't include trimming dots", async () => {
 
   expect(updateConfigAndRun).toHaveBeenCalledWith({
     mode: 'watch',
-    testPathPattern: 'ing\\.js',
+    testPathPattern: 'ong_name_gonna_need_trimming\\.js',
   });
 });

@@ -1,4 +1,3 @@
-import stripAnsi from 'strip-ansi';
 import { trimAndFormatPath, formatTestNameByPattern } from '../utils';
 
 jest.mock('chalk', () => {
@@ -6,12 +5,21 @@ jest.mock('chalk', () => {
   return new chalk.constructor({ enabled: true, level: 1 });
 });
 
-test('trimAndFormatPath', () => {
-  expect(
-    stripAnsi(
-      trimAndFormatPath(2, { cwd: '/hello/there' }, '/hello/there/to/you', 80),
-    ),
-  ).toEqual('to/you');
+describe('trimAndFormatPath', () => {
+  test.each`
+    testPath                                           | pad  | columns
+    ${'/project/src/gonna/fit/all.js'}                 | ${6} | ${80}
+    ${'/project/src/trimmed_dir/foo.js'}               | ${6} | ${20}
+    ${'/project/src/exactly/sep_and_basename.js'}      | ${6} | ${29}
+    ${'/project/src/long_name_gonna_need_trimming.js'} | ${6} | ${40}
+  `(
+    'formats when testpath="$testPath", pad="$pad", and columns="$columns"',
+    ({ testPath, pad, columns }) => {
+      expect(
+        trimAndFormatPath(pad, { rootDir: '/project' }, testPath, columns),
+      ).toMatchSnapshot();
+    },
+  );
 });
 
 describe('formatTestNameByPattern', () => {
