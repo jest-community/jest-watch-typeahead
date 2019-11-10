@@ -35,3 +35,11 @@ exports[`formatTestNameByPattern formats when testname="the test name", pattern=
 exports[`formatTestNameByPattern formats when testname="the test name", pattern="the", and width="25" 1`] = `"</>the</><dim> test name</>"`;
 
 exports[`formatTestNameByPattern formats when testname="the test name", pattern="the", and width="30" 1`] = `"</>the</><dim> test name</>"`;
+
+exports[`trimAndFormatPath formats when testpath="/project/src/exactly/sep_and_basename.js", pad="6", and columns="29" 1`] = `"<dim>.../</><bold>sep_and_basename.js</>"`;
+
+exports[`trimAndFormatPath formats when testpath="/project/src/gonna/fit/all.js", pad="6", and columns="80" 1`] = `"<dim>src/gonna/fit/</><bold>all.js</>"`;
+
+exports[`trimAndFormatPath formats when testpath="/project/src/long_name_gonna_need_trimming.js", pad="6", and columns="40" 1`] = `"<bold>...ong_name_gonna_need_trimming.js</>"`;
+
+exports[`trimAndFormatPath formats when testpath="/project/src/trimmed_dir/foo.js", pad="6", and columns="20" 1`] = `"<dim>..._dir/</><bold>foo.js</>"`;
