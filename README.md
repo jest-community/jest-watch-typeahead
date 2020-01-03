@@ -1,9 +1,8 @@
 [![Build Status](https://travis-ci.org/jest-community/jest-watch-typeahead.svg?branch=master)](https://travis-ci.org/jest-community/jest-watch-typeahead) [![npm version](https://badge.fury.io/js/jest-watch-typeahead.svg)](https://badge.fury.io/js/jest-watch-typeahead)
 
 <div align="center">
-  <!-- replace with accurate logo e.g from https://worldvectorlogo.com/ -->
-  <a href="https://facebook.github.io/jest/">
-    <img width="150" height="150" vspace="" hspace="25" src="https://cdn.worldvectorlogo.com/logos/jest.svg">
+  <a href="https://jestjs.io/">
+    <img width="150" height="150" vspace="" hspace="25" src="https://jestjs.io/img/jest.png">
   </a>
   <h1>jest-watch-typeahead</h1>
   <p>Filter your tests by file name or test name</p>
