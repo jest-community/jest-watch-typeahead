@@ -63,15 +63,10 @@ describe('highlight', () => {
   const pattern = 'hello';
 
   test.each`
-    filePath                                     | rootDir
-    ${'libs/utils/src/__tests__/hello-world.js'} | ${'/Users/janedoe/monorepo'}
-    ${'...s/utils/src/__tests__/hello-world.js'} | ${'/Users/janedoe/monorepo'}
-    ${'...s/utils/src/__tests__/hello-world.js'} | ${'/Users/janedoe/monorepo/libs/utils'}
-    ${'libs/utils/src/__tests__/hello-world.js'} | ${'/Users/janedoe/monorepo/libs/utils'}
-  `(
-    `highlights match correctly when filePath="$filePath" and rootDir="$rootDir"`,
-    ({ filePath, rootDir }) => {
-      expect(highlight(rawPath, filePath, pattern, rootDir)).toMatchSnapshot();
-    },
-  );
+    filePath
+    ${'libs/utils/src/__tests__/hello-world.js'}
+    ${'...s/utils/src/__tests__/hello-world.js'}
+  `(`highlights match correctly when filePath="$filePath"`, ({ filePath }) => {
+    expect(highlight(rawPath, filePath, pattern)).toMatchSnapshot();
+  });
 });
