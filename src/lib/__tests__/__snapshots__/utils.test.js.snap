@@ -36,6 +36,14 @@ exports[`formatTestNameByPattern formats when testname="the test name", pattern=
 
 exports[`formatTestNameByPattern formats when testname="the test name", pattern="the", and width="30" 1`] = `"</>the</><dim> test name</>"`;
 
+exports[`highlight highlights match correctly when filePath="...s/utils/src/__tests__/hello-world.js" and rootDir="/Users/janedoe/monorepo" 1`] = `"<dim>...s/utils/src/__tests__/</></>hello</><dim>-world.js</>"`;
+
+exports[`highlight highlights match correctly when filePath="...s/utils/src/__tests__/hello-world.js" and rootDir="/Users/janedoe/monorepo/libs/utils" 1`] = `"<dim>...s/utils/src/__tests__/</></>hello</><dim>-world.js</>"`;
+
+exports[`highlight highlights match correctly when filePath="libs/utils/src/__tests__/hello-world.js" and rootDir="/Users/janedoe/monorepo" 1`] = `"<dim>libs/utils/src/__tests__/</></>hello</><dim>-world.js</>"`;
+
+exports[`highlight highlights match correctly when filePath="libs/utils/src/__tests__/hello-world.js" and rootDir="/Users/janedoe/monorepo/libs/utils" 1`] = `"<dim>libs/utils/src/__tests__/</></>hello</><dim>-world.js</>"`;
+
 exports[`trimAndFormatPath formats when testpath="/project/src/exactly/sep_and_basename.js", pad="6", and columns="29" 1`] = `"<dim>.../</><bold>sep_and_basename.js</>"`;
 
 exports[`trimAndFormatPath formats when testpath="/project/src/gonna/fit/all.js", pad="6", and columns="80" 1`] = `"<dim>src/gonna/fit/</><bold>all.js</>"`;

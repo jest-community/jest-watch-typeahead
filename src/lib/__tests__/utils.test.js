@@ -1,4 +1,8 @@
-import { trimAndFormatPath, formatTestNameByPattern } from '../utils';
+import {
+  trimAndFormatPath,
+  formatTestNameByPattern,
+  highlight,
+} from '../utils';
 
 jest.mock('chalk', () => {
   const chalk = jest.requireActual('chalk');
@@ -49,6 +53,25 @@ describe('formatTestNameByPattern', () => {
       expect(
         formatTestNameByPattern(testName, pattern, width),
       ).toMatchSnapshot();
+    },
+  );
+});
+
+describe('highlight', () => {
+  const rawPath =
+    '/Users/janedoe/monorepo/libs/utils/src/__tests__/hello-world.js';
+  const pattern = 'hello';
+
+  test.each`
+    filePath                                     | rootDir
+    ${'libs/utils/src/__tests__/hello-world.js'} | ${'/Users/janedoe/monorepo'}
+    ${'...s/utils/src/__tests__/hello-world.js'} | ${'/Users/janedoe/monorepo'}
+    ${'...s/utils/src/__tests__/hello-world.js'} | ${'/Users/janedoe/monorepo/libs/utils'}
+    ${'libs/utils/src/__tests__/hello-world.js'} | ${'/Users/janedoe/monorepo/libs/utils'}
+  `(
+    `highlights match correctly when filePath="$filePath" and rootDir="$rootDir"`,
+    ({ filePath, rootDir }) => {
+      expect(highlight(rawPath, filePath, pattern, rootDir)).toMatchSnapshot();
     },
   );
 });
