@@ -22,7 +22,7 @@
     "prebuild": "rimraf build",
     "build": "babel src --ignore **/*.test.js,integration -d build",
     "prepublish": "yarn build",
-    "format": "prettier --single-quote --trailing-comma all --write \"!(build)/**/*.js\""
+    "format": "prettier --write \"**/*.js\""
   },
   "dependencies": {
     "ansi-escapes": "^4.3.1",
