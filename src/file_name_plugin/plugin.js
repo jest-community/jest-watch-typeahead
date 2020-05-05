@@ -54,7 +54,7 @@ class FileNamePlugin {
     const p = new FileNamePatternPrompt(this._stdout, this._prompt);
     p.updateSearchSources(this._projects);
     return new Promise((res, rej) => {
-      p.run(value => {
+      p.run((value) => {
         updateConfigAndRun({
           mode: 'watch',
           testPathPattern: removeTrimmingDots(value)

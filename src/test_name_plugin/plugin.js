@@ -54,7 +54,7 @@ class TestNamePlugin {
     const p = new TestNamePatternPrompt(this._stdout, this._prompt);
     p.updateCachedTestResults(this._testResults);
     return new Promise((res, rej) => {
-      p.run(value => {
+      p.run((value) => {
         updateConfigAndRun({
           mode: 'watch',
           testNamePattern: escapeStrForRegex(removeTrimmingDots(value)),

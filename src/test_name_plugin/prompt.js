@@ -63,9 +63,9 @@ class TestNamePatternPrompt extends PatternPrompt {
 
       matchedTests
         .slice(start, end)
-        .map(name => formatTestNameByPattern(name, pattern, width - 4))
+        .map((name) => formatTestNameByPattern(name, pattern, width - 4))
         .map((item, i) => formatTypeaheadSelection(item, i, index, prompt))
-        .forEach(item => printTypeaheadItem(item, pipe));
+        .forEach((item) => printTypeaheadItem(item, pipe));
 
       if (total > end) {
         printMore('test', pipe, total - end);

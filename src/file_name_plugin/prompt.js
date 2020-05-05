@@ -71,7 +71,7 @@ export default class FileNamePatternPrompt extends PatternPrompt {
           return highlight(path, filePath, pattern, context.config.rootDir);
         })
         .map((item, i) => formatTypeaheadSelection(item, i, index, prompt))
-        .forEach(item => printTypeaheadItem(item, pipe));
+        .forEach((item) => printTypeaheadItem(item, pipe));
 
       if (total > end) {
         printMore('file', pipe, total - end);
@@ -97,8 +97,8 @@ export default class FileNamePatternPrompt extends PatternPrompt {
     return this._searchSources.reduce((tests, { testPaths, config }) => {
       return tests.concat(
         testPaths
-          .filter(testPath => regex.test(testPath))
-          .map(path => ({
+          .filter((testPath) => regex.test(testPath))
+          .map((path) => ({
             path,
             context: { config },
           })),
