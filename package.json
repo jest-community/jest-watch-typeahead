@@ -26,11 +26,11 @@
   },
   "dependencies": {
     "ansi-escapes": "^4.2.1",
-    "chalk": "^3.0.0",
-    "jest-regex-util": "^25.2.1",
-    "jest-watcher": "^25.2.4",
+    "chalk": "^4.0.0",
+    "jest-regex-util": "^26.0.0",
+    "jest-watcher": "^26.0.0",
     "slash": "^3.0.0",
-    "string-length": "^3.1.0",
+    "string-length": "^4.0.1",
     "strip-ansi": "^6.0.0"
   },
   "devDependencies": {
@@ -39,7 +39,7 @@
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-flow": "^7.0.0",
     "babel-eslint": "^10.0.1",
-    "babel-jest": "^25.2.4",
+    "babel-jest": "^26.0.0",
     "eslint": "^6.2.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-config-prettier": "^6.1.0",
@@ -48,7 +48,7 @@
     "eslint-plugin-jest": "^23.8.2",
     "eslint-plugin-prettier": "^3.0.1",
     "flow-bin": "^0.121.0",
-    "jest": "^25.2.4",
+    "jest": "^26.0.0",
     "prettier": "^1.13.7",
     "rimraf": "^3.0.0"
   },
