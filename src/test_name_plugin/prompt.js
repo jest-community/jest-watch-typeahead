@@ -27,14 +27,18 @@ export type TestResult = {
 class TestNamePatternPrompt extends PatternPrompt {
   _cachedTestResults: Array<TestResult>;
 
+  _offset: number;
+
   constructor(pipe: stream$Writable | tty$WriteStream, prompt: Prompt) {
     super(pipe, prompt);
     this._entityName = 'tests';
     this._cachedTestResults = [];
+    this._offset = -1;
   }
 
   _onChange(pattern: string, options: ScrollOptions) {
     super._onChange(pattern, options);
+    this._offset = options.offset;
     this._printTypeahead(pattern, options);
   }
 
@@ -97,6 +101,16 @@ class TestNamePatternPrompt extends PatternPrompt {
 
   updateCachedTestResults(testResults: Array<TestResult> = []) {
     this._cachedTestResults = testResults;
+  }
+
+  run(onSuccess: Function, onCancel: Function, options: Object) {
+    super.run(
+      (value) => {
+        onSuccess(value, { useExactMatch: this._offset !== -1 });
+      },
+      onCancel,
+      options,
+    );
   }
 }
 

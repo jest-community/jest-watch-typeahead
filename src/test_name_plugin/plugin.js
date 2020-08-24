@@ -54,10 +54,13 @@ class TestNamePlugin {
     const p = new TestNamePatternPrompt(this._stdout, this._prompt);
     p.updateCachedTestResults(this._testResults);
     return new Promise((res, rej) => {
-      p.run((value) => {
+      p.run((value, { useExactMatch }) => {
+        const preparedPattern = escapeStrForRegex(removeTrimmingDots(value));
         updateConfigAndRun({
           mode: 'watch',
-          testNamePattern: escapeStrForRegex(removeTrimmingDots(value)),
+          testNamePattern: useExactMatch
+            ? `^${preparedPattern}$`
+            : preparedPattern,
         });
         res();
       }, rej);
