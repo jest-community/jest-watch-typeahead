@@ -8,8 +8,13 @@ import {
   printPatternCaret,
   printRestoredPatternCaret,
 } from 'jest-watcher';
+import { escapeStrForRegex } from 'jest-regex-util';
 import scroll, { type ScrollOptions } from '../lib/scroll';
-import { formatTestNameByPattern, getTerminalWidth } from '../lib/utils';
+import {
+  formatTestNameByPattern,
+  getTerminalWidth,
+  removeTrimmingDots,
+} from '../lib/utils';
 import {
   formatTypeaheadSelection,
   printMore,
@@ -106,7 +111,9 @@ class TestNamePatternPrompt extends PatternPrompt {
   run(onSuccess: Function, onCancel: Function, options: Object) {
     super.run(
       (value) => {
-        onSuccess(value, { useExactMatch: this._offset !== -1 });
+        const preparedPattern = escapeStrForRegex(removeTrimmingDots(value));
+        const useExactMatch = this._offset !== -1;
+        onSuccess(useExactMatch ? `^${preparedPattern}$` : preparedPattern);
       },
       onCancel,
       options,

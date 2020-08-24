@@ -1,9 +1,7 @@
 // @flow
 
 import { Prompt } from 'jest-watcher';
-import { escapeStrForRegex } from 'jest-regex-util';
 import TestNamePatternPrompt, { type TestResult } from './prompt';
-import { removeTrimmingDots } from '../lib/utils';
 
 type PluginConfig = {
   key?: string,
@@ -54,13 +52,10 @@ class TestNamePlugin {
     const p = new TestNamePatternPrompt(this._stdout, this._prompt);
     p.updateCachedTestResults(this._testResults);
     return new Promise((res, rej) => {
-      p.run((value, { useExactMatch }) => {
-        const preparedPattern = escapeStrForRegex(removeTrimmingDots(value));
+      p.run((testNamePattern) => {
         updateConfigAndRun({
           mode: 'watch',
-          testNamePattern: useExactMatch
-            ? `^${preparedPattern}$`
-            : preparedPattern,
+          testNamePattern,
         });
         res();
       }, rej);

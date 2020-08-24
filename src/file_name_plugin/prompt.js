@@ -9,7 +9,13 @@ import {
   printPatternCaret,
   printRestoredPatternCaret,
 } from 'jest-watcher';
-import { highlight, getTerminalWidth, trimAndFormatPath } from '../lib/utils';
+import { escapeStrForRegex } from 'jest-regex-util';
+import {
+  highlight,
+  getTerminalWidth,
+  trimAndFormatPath,
+  removeTrimmingDots,
+} from '../lib/utils';
 import {
   formatTypeaheadSelection,
   printMore,
@@ -85,7 +91,10 @@ export default class FileNamePatternPrompt extends PatternPrompt {
 
   _getMatchedTests(
     pattern: string,
-  ): Array<{ path: string, context: { config: ProjectConfig } }> {
+  ): Array<{
+    path: string,
+    context: { config: ProjectConfig },
+  }> {
     let regex;
 
     try {
@@ -108,5 +117,17 @@ export default class FileNamePatternPrompt extends PatternPrompt {
 
   updateSearchSources(searchSources: SearchSources) {
     this._searchSources = searchSources;
+  }
+
+  run(onSuccess: Function, onCancel: Function, options: Object) {
+    super.run(
+      (value) => {
+        onSuccess(
+          removeTrimmingDots(value).split('/').map(escapeStrForRegex).join('/'),
+        );
+      },
+      onCancel,
+      options,
+    );
   }
 }
