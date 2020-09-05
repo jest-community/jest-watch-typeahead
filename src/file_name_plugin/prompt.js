@@ -34,7 +34,7 @@ export type SearchSources = Array<{|
 export default class FileNamePatternPrompt extends PatternPrompt {
   _searchSources: SearchSources;
 
-  constructor(pipe: stream$Writable | tty$WriteStream, prompt: Prompt) {
+  constructor(pipe: stream$Writable | tty$WriteStream, prompt: typeof Prompt) {
     super(pipe, prompt);
     this._entityName = 'filenames';
     this._searchSources = [];

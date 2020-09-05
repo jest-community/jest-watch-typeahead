@@ -51,7 +51,7 @@ export const formatTypeaheadSelection = (
   item: string,
   index: number,
   activeIndex: number,
-  prompt: Prompt,
+  prompt: typeof Prompt,
 ) => {
   if (index === activeIndex) {
     prompt.setPromptSelection(stripAnsi(item));

@@ -13,7 +13,7 @@ class TestNamePlugin {
 
   _stdout: stream$Writable | tty$WriteStream;
 
-  _prompt: Prompt;
+  _prompt: typeof Prompt;
 
   _testResults: Array<TestResult>;
 

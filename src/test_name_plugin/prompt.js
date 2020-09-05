@@ -26,6 +26,7 @@ import {
 export type TestResult = {
   testResults: Array<{
     title: string,
+    fullName: string,
   }>,
 };
 
@@ -34,7 +35,7 @@ class TestNamePatternPrompt extends PatternPrompt {
 
   _offset: number;
 
-  constructor(pipe: stream$Writable | tty$WriteStream, prompt: Prompt) {
+  constructor(pipe: stream$Writable | tty$WriteStream, prompt: typeof Prompt) {
     super(pipe, prompt);
     this._entityName = 'tests';
     this._cachedTestResults = [];
@@ -86,7 +87,7 @@ class TestNamePatternPrompt extends PatternPrompt {
     printRestoredPatternCaret(pattern, this._currentUsageRows, pipe);
   }
 
-  _getMatchedTests(pattern: string) {
+  _getMatchedTests(pattern: string): string[] {
     let regex;
 
     try {
