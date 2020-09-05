@@ -1,3 +1,9 @@
+## 0.6.1
+
+### Fixes
+
+- Provide exact pattern for selected test names
+
 ## 0.6.0
 
 ### Chore & Maintenance
