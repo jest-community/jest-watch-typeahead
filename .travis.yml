@@ -5,4 +5,4 @@ node_js:
   - 14
   - node
 cache: yarn
-script: yarn test && yarn flow
+script: yarn test && yarn typecheck

@@ -1,5 +1,3 @@
-// @flow
-
 import chalk from 'chalk';
 import ansiEscapes from 'ansi-escapes';
 import stringLength from 'string-length';
@@ -10,6 +8,7 @@ import {
   printRestoredPatternCaret,
 } from 'jest-watcher';
 import { escapeStrForRegex } from 'jest-regex-util';
+import type { Config } from '@jest/types';
 import {
   highlight,
   getTerminalWidth,
@@ -23,29 +22,28 @@ import {
   printStartTyping,
   printTypeaheadItem,
 } from '../lib/pattern_mode_helpers';
-import scroll, { type ScrollOptions } from '../lib/scroll';
-import type { ProjectConfig } from '../types/Config';
+import scroll, { ScrollOptions } from '../lib/scroll';
 
-export type SearchSources = Array<{|
-  config: ProjectConfig,
-  testPaths: Array<string>,
-|}>;
+export type SearchSources = Array<{
+  config: Config.ProjectConfig;
+  testPaths: Array<string>;
+}>;
 
 export default class FileNamePatternPrompt extends PatternPrompt {
   _searchSources: SearchSources;
 
-  constructor(pipe: stream$Writable | tty$WriteStream, prompt: typeof Prompt) {
+  constructor(pipe: NodeJS.WriteStream, prompt: Prompt) {
     super(pipe, prompt);
     this._entityName = 'filenames';
     this._searchSources = [];
   }
 
-  _onChange(pattern: string, options: ScrollOptions) {
+  _onChange(pattern: string, options: ScrollOptions): void {
     super._onChange(pattern, options);
     this._printTypeahead(pattern, options);
   }
 
-  _printTypeahead(pattern: string, options: ScrollOptions) {
+  _printTypeahead(pattern: string, options: ScrollOptions): void {
     const matchedTests = this._getMatchedTests(pattern);
     const total = matchedTests.length;
     const pipe = this._pipe;
@@ -60,7 +58,7 @@ export default class FileNamePatternPrompt extends PatternPrompt {
 
       const prefix = `  ${chalk.dim('\u203A')} `;
       const padding = stringLength(prefix) + 2;
-      const width = getTerminalWidth(pipe);
+      const width = getTerminalWidth(pipe as NodeJS.WriteStream);
       const { start, end, index } = scroll(total, options);
 
       prompt.setPromptLength(total);
@@ -92,10 +90,10 @@ export default class FileNamePatternPrompt extends PatternPrompt {
   _getMatchedTests(
     pattern: string,
   ): Array<{
-    path: string,
-    context: { config: ProjectConfig },
+    path: string;
+    context: { config: Config.ProjectConfig };
   }> {
-    let regex;
+    let regex: RegExp;
 
     try {
       regex = new RegExp(pattern, 'i');
@@ -103,7 +101,12 @@ export default class FileNamePatternPrompt extends PatternPrompt {
       return [];
     }
 
-    return this._searchSources.reduce((tests, { testPaths, config }) => {
+    return this._searchSources.reduce<
+      Array<{
+        path: string;
+        context: { config: Config.ProjectConfig };
+      }>
+    >((tests, { testPaths, config }) => {
       return tests.concat(
         testPaths
           .filter((testPath) => regex.test(testPath))
@@ -115,11 +118,17 @@ export default class FileNamePatternPrompt extends PatternPrompt {
     }, []);
   }
 
-  updateSearchSources(searchSources: SearchSources) {
+  updateSearchSources(searchSources: SearchSources): void {
     this._searchSources = searchSources;
   }
 
-  run(onSuccess: Function, onCancel: Function, options: Object) {
+  run(
+    onSuccess: (value: string) => void,
+    onCancel: () => void,
+    options?: {
+      header: string;
+    },
+  ): void {
     super.run(
       (value) => {
         onSuccess(
