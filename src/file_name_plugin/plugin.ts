@@ -1,32 +1,33 @@
-// @flow
+import {
+  WatchPlugin,
+  Prompt,
+  JestHookSubscriber,
+  UpdateConfigCallback,
+  UsageData,
+} from 'jest-watcher';
+import type { Config } from '@jest/types';
+import FileNamePatternPrompt, { SearchSources } from './prompt';
+import type { PluginConfig } from '../types/Config';
 
-import { Prompt } from 'jest-watcher';
-import FileNamePatternPrompt, { type SearchSources } from './prompt';
+export default class FileNamePlugin implements WatchPlugin {
+  _stdin: NodeJS.ReadStream;
 
-type PluginConfig = {
-  key?: string,
-  prompt?: string,
-};
+  _stdout: NodeJS.WriteStream;
 
-class FileNamePlugin {
-  _stdin: stream$Readable | tty$ReadStream;
-
-  _stdout: stream$Writable | tty$WriteStream;
-
-  _prompt: typeof Prompt;
+  _prompt: Prompt;
 
   _projects: SearchSources;
 
-  _usageInfo: { key: string, prompt: string };
+  _usageInfo: UsageData;
 
   constructor({
     stdin,
     stdout,
     config = {},
   }: {
-    stdin: stream$Readable | tty$ReadStream,
-    stdout: stream$Writable | tty$WriteStream,
-    config: PluginConfig,
+    stdin: NodeJS.ReadStream;
+    stdout: NodeJS.WriteStream;
+    config?: PluginConfig;
   }) {
     this._stdin = stdin;
     this._stdout = stdout;
@@ -38,17 +39,20 @@ class FileNamePlugin {
     };
   }
 
-  apply(jestHooks: Object) {
+  apply(jestHooks: JestHookSubscriber): void {
     jestHooks.onFileChange(({ projects }) => {
       this._projects = projects;
     });
   }
 
-  onKey(key: string) {
+  onKey(key: string): void {
     this._prompt.put(key);
   }
 
-  run(globalConfig: Object, updateConfigAndRun: Function): Promise<void> {
+  run(
+    globalConfig: Config.GlobalConfig,
+    updateConfigAndRun: UpdateConfigCallback,
+  ): Promise<void> {
     const p = new FileNamePatternPrompt(this._stdout, this._prompt);
     p.updateSearchSources(this._projects);
     return new Promise((res, rej) => {
@@ -62,9 +66,7 @@ class FileNamePlugin {
     });
   }
 
-  getUsageInfo() {
+  getUsageInfo(): UsageData {
     return this._usageInfo;
   }
 }
-
-module.exports = FileNamePlugin;

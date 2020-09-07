@@ -1,32 +1,34 @@
-// @flow
+import {
+  Prompt,
+  WatchPlugin,
+  JestHookSubscriber,
+  UpdateConfigCallback,
+  UsageData,
+} from 'jest-watcher';
+import type { Config } from '@jest/types';
+import type { TestResult } from '@jest/test-result';
+import TestNamePatternPrompt from './prompt';
+import type { PluginConfig } from '../types/Config';
 
-import { Prompt } from 'jest-watcher';
-import TestNamePatternPrompt, { type TestResult } from './prompt';
+export default class TestNamePlugin implements WatchPlugin {
+  _stdin: NodeJS.ReadStream;
 
-type PluginConfig = {
-  key?: string,
-  prompt?: string,
-};
+  _stdout: NodeJS.WriteStream;
 
-class TestNamePlugin {
-  _stdin: stream$Readable | tty$ReadStream;
-
-  _stdout: stream$Writable | tty$WriteStream;
-
-  _prompt: typeof Prompt;
+  _prompt: Prompt;
 
   _testResults: Array<TestResult>;
 
-  _usageInfo: { key: string, prompt: string };
+  _usageInfo: UsageData;
 
   constructor({
     stdin,
     stdout,
     config = {},
   }: {
-    stdin: stream$Readable | tty$ReadStream,
-    stdout: stream$Writable | tty$WriteStream,
-    config: PluginConfig,
+    stdin: NodeJS.ReadStream;
+    stdout: NodeJS.WriteStream;
+    config?: PluginConfig;
   }) {
     this._stdin = stdin;
     this._stdout = stdout;
@@ -38,17 +40,20 @@ class TestNamePlugin {
     };
   }
 
-  apply(jestHooks: Object) {
+  apply(jestHooks: JestHookSubscriber): void {
     jestHooks.onTestRunComplete(({ testResults }) => {
       this._testResults = testResults;
     });
   }
 
-  onKey(key: string) {
+  onKey(key: string): void {
     this._prompt.put(key);
   }
 
-  run(globalConfig: Object, updateConfigAndRun: Function): Promise<void> {
+  run(
+    globalConfig: Config.GlobalConfig,
+    updateConfigAndRun: UpdateConfigCallback,
+  ): Promise<void> {
     const p = new TestNamePatternPrompt(this._stdout, this._prompt);
     p.updateCachedTestResults(this._testResults);
     return new Promise((res, rej) => {
@@ -62,9 +67,7 @@ class TestNamePlugin {
     });
   }
 
-  getUsageInfo() {
+  getUsageInfo(): UsageData {
     return this._usageInfo;
   }
 }
-
-module.exports = TestNamePlugin;

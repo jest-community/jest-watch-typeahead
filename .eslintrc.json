@@ -1,20 +1,22 @@
 {
-  "parser": "babel-eslint",
-  "extends": ["airbnb-base", "prettier"],
-  "plugins": ["flowtype", "prettier", "jest"],
-  "globals": {
-    "stream$Readable": true,
-    "tty$ReadStream": true,
-    "stream$Writable": true,
-    "tty$WriteStream": true
-  },
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "airbnb-base",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "plugin:import/typescript"
+  ],
+  "plugins": ["@typescript-eslint", "prettier", "jest", "import"],
   "rules": {
     "strict": 0,
     "no-underscore-dangle": 0,
     "arrow-body-style": 0,
+    "import/extensions": 0,
     "prettier/prettier": 2
   },
   "env": {
+    "node": true,
     "jest/globals": true
   }
 }

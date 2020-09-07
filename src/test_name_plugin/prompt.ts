@@ -1,5 +1,3 @@
-// @flow
-
 import chalk from 'chalk';
 import ansiEscapes from 'ansi-escapes';
 import {
@@ -8,8 +6,9 @@ import {
   printPatternCaret,
   printRestoredPatternCaret,
 } from 'jest-watcher';
+import type { TestResult } from '@jest/test-result';
 import { escapeStrForRegex } from 'jest-regex-util';
-import scroll, { type ScrollOptions } from '../lib/scroll';
+import scroll, { ScrollOptions } from '../lib/scroll';
 import {
   formatTestNameByPattern,
   getTerminalWidth,
@@ -23,32 +22,25 @@ import {
   printTypeaheadItem,
 } from '../lib/pattern_mode_helpers';
 
-export type TestResult = {
-  testResults: Array<{
-    title: string,
-    fullName: string,
-  }>,
-};
-
-class TestNamePatternPrompt extends PatternPrompt {
+export default class TestNamePatternPrompt extends PatternPrompt {
   _cachedTestResults: Array<TestResult>;
 
   _offset: number;
 
-  constructor(pipe: stream$Writable | tty$WriteStream, prompt: typeof Prompt) {
+  constructor(pipe: NodeJS.WritableStream, prompt: Prompt) {
     super(pipe, prompt);
     this._entityName = 'tests';
     this._cachedTestResults = [];
     this._offset = -1;
   }
 
-  _onChange(pattern: string, options: ScrollOptions) {
+  _onChange(pattern: string, options: ScrollOptions): void {
     super._onChange(pattern, options);
     this._offset = options.offset;
     this._printTypeahead(pattern, options);
   }
 
-  _printTypeahead(pattern: string, options: ScrollOptions) {
+  _printTypeahead(pattern: string, options: ScrollOptions): void {
     const matchedTests = this._getMatchedTests(pattern);
     const total = matchedTests.length;
     const pipe = this._pipe;
@@ -66,7 +58,7 @@ class TestNamePatternPrompt extends PatternPrompt {
         ` from ${chalk.yellow('cached')} test suites`,
       );
 
-      const width = getTerminalWidth(pipe);
+      const width = getTerminalWidth(pipe as NodeJS.WriteStream);
       const { start, end, index } = scroll(total, options);
 
       prompt.setPromptLength(total);
@@ -88,7 +80,7 @@ class TestNamePatternPrompt extends PatternPrompt {
   }
 
   _getMatchedTests(pattern: string): string[] {
-    let regex;
+    let regex: RegExp;
 
     try {
       regex = new RegExp(pattern, 'i');
@@ -96,20 +88,29 @@ class TestNamePatternPrompt extends PatternPrompt {
       return [];
     }
 
-    return this._cachedTestResults.reduce((matchedTests, { testResults }) => {
-      return matchedTests.concat(
-        testResults
-          .filter(({ fullName }) => regex.test(fullName))
-          .map(({ fullName }) => fullName),
-      );
-    }, []);
+    return this._cachedTestResults.reduce<string[]>(
+      (matchedTests, { testResults }) => {
+        return matchedTests.concat(
+          testResults
+            .filter(({ fullName }) => regex.test(fullName))
+            .map(({ fullName }) => fullName),
+        );
+      },
+      [],
+    );
   }
 
-  updateCachedTestResults(testResults: Array<TestResult> = []) {
+  updateCachedTestResults(testResults: Array<TestResult> = []): void {
     this._cachedTestResults = testResults;
   }
 
-  run(onSuccess: Function, onCancel: Function, options: Object) {
+  run(
+    onSuccess: (value: string) => void,
+    onCancel: () => void,
+    options?: {
+      header: string;
+    },
+  ): void {
     super.run(
       (value) => {
         const preparedPattern = escapeStrForRegex(removeTrimmingDots(value));
@@ -121,5 +122,3 @@ class TestNamePatternPrompt extends PatternPrompt {
     );
   }
 }
-
-module.exports = TestNamePatternPrompt;

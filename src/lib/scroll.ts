@@ -1,11 +1,12 @@
-// @flow
-
 export type ScrollOptions = {
-  offset: number,
-  max: number,
+  offset: number;
+  max: number;
 };
 
-const scroll = (size: number, { offset, max }: ScrollOptions) => {
+const scroll = (
+  size: number,
+  { offset, max }: ScrollOptions,
+): { index: number; end: number; start: number } => {
   let start = 0;
   let index = Math.min(offset, size);
 
