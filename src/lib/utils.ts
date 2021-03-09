@@ -66,7 +66,6 @@ export const highlight = (
   rawPath: string,
   filePath: string,
   pattern: string,
-  rootDir: string,
 ): string => {
   const relativePathHead = './';
 
