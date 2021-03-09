@@ -1,3 +1,37 @@
+## 0.6.1
+
+### Fixes
+
+- Provide exact pattern for selected test names
+
+## 0.6.0
+
+### Chore & Maintenance
+
+- Update dependencies and drop Node 8 ([#35](https://github.com/jest-community/jest-watch-typeahead/pull/35))
+
+## 0.5.0
+
+### Chore & Maintenance
+
+- Update dependencies
+
+## 0.4.2
+
+### Fixes
+
+- Fix issue with overly trimmed basenames when formatting test paths ([#33](https://github.com/jest-community/jest-watch-typeahead/pull/33))
+
+## 0.4.1
+
+### Fixes
+
+- Allow selecting tests and files containing regexp special characters ([#32](https://github.com/jest-community/jest-watch-typeahead/pull/32))
+
+### Chore & Maintenance
+
+- Remove build directory before building ([#31](https://github.com/jest-community/jest-watch-typeahead/pull/31))
+
 ## 0.4.0
 
 ### Chore & Maintenance

@@ -1,18 +1,19 @@
-// @flow
-/* eslint-disable no-param-reassign */
 import path from 'path';
 import chalk from 'chalk';
 import slash from 'slash';
 import stripAnsi from 'strip-ansi';
-import type { ProjectConfig } from '../types/Config';
+import type { Config } from '@jest/types';
 
 const TRIMMING_DOTS = '...';
 const ENTER = '⏎';
 
-const relativePath = (config: ProjectConfig, testPath: string) => {
-  testPath = path.relative(config.cwd || config.rootDir, testPath);
-  const dirname = path.dirname(testPath);
-  const basename = path.basename(testPath);
+const relativePath = (config: Config.ProjectConfig, testPath: string) => {
+  const relativeTestPath = path.relative(
+    config.cwd || config.rootDir,
+    testPath,
+  );
+  const dirname = path.dirname(relativeTestPath);
+  const basename = path.basename(relativeTestPath);
   return { basename, dirname };
 };
 
@@ -23,7 +24,7 @@ const colorize = (str: string, start: number, end: number) =>
 
 export const trimAndFormatPath = (
   pad: number,
-  config: ProjectConfig,
+  config: Config.ProjectConfig,
   testPath: string,
   columns: number,
 ): string => {
@@ -58,15 +59,15 @@ export const trimAndFormatPath = (
 };
 
 export const getTerminalWidth = (
-  pipe: stream$Writable | tty$WriteStream = process.stdout,
-  // $FlowFixMe
+  pipe: NodeJS.WriteStream = process.stdout,
 ): number => pipe.columns;
 
 export const highlight = (
   rawPath: string,
   filePath: string,
   pattern: string,
-) => {
+  rootDir: string,
+): string => {
   const relativePathHead = './';
 
   let regexp;
@@ -77,20 +78,20 @@ export const highlight = (
     return chalk.dim(filePath);
   }
 
-  rawPath = stripAnsi(rawPath);
-  filePath = stripAnsi(filePath);
-  const match = rawPath.match(regexp);
+  const strippedRawPath = stripAnsi(rawPath);
+  const strippedFilePath = stripAnsi(filePath);
+  const match = strippedRawPath.match(regexp);
 
-  if (!match) {
-    return chalk.dim(filePath);
+  if (!match || match.index == null) {
+    return chalk.dim(strippedFilePath);
   }
 
   const offset = rawPath.length - filePath.length;
 
-  let trimLength;
-  if (filePath.startsWith(TRIMMING_DOTS)) {
+  let trimLength: number;
+  if (strippedFilePath.startsWith(TRIMMING_DOTS)) {
     trimLength = TRIMMING_DOTS.length;
-  } else if (filePath.startsWith(relativePathHead)) {
+  } else if (strippedFilePath.startsWith(relativePathHead)) {
     trimLength = relativePathHead.length;
   } else {
     trimLength = 0;
@@ -98,14 +99,18 @@ export const highlight = (
 
   const start = match.index - offset;
   const end = start + match[0].length;
-  return colorize(filePath, Math.max(start, 0), Math.max(end, trimLength));
+  return colorize(
+    strippedFilePath,
+    Math.max(start, 0),
+    Math.max(end, trimLength),
+  );
 };
 
 export const formatTestNameByPattern = (
   testName: string,
   pattern: string,
   width: number,
-) => {
+): string => {
   const inlineTestName = testName.replace(/(\r\n|\n|\r)/gm, ENTER);
 
   let regexp;
@@ -118,11 +123,10 @@ export const formatTestNameByPattern = (
 
   const match = inlineTestName.match(regexp);
 
-  if (!match) {
+  if (!match || match.index == null) {
     return chalk.dim(inlineTestName);
   }
 
-  // $FlowFixMe
   const startPatternIndex = Math.max(match.index, 0);
   const endPatternIndex = startPatternIndex + match[0].length;
 

@@ -60,7 +60,7 @@ it('can use arrows to select a specific test', async () => {
 
   expect(updateConfigAndRun).toHaveBeenCalledWith({
     mode: 'watch',
-    testNamePattern: 'other description foo 2',
+    testNamePattern: '^other description foo 2$',
   });
 });
 
@@ -132,7 +132,7 @@ it('can select a pattern that includes a regexp special character', async () => 
 
   expect(updateConfigAndRun).toHaveBeenCalledWith({
     mode: 'watch',
-    testNamePattern: 'bracket description \\(foo\\)',
+    testNamePattern: '^bracket description \\(foo\\)$',
   });
 });
 
@@ -196,6 +196,6 @@ it("selected pattern doesn't include trimming dots", async () => {
 
   expect(updateConfigAndRun).toHaveBeenCalledWith({
     mode: 'watch',
-    testNamePattern: 'me, gonna need trimming',
+    testNamePattern: '^me, gonna need trimming$',
   });
 });

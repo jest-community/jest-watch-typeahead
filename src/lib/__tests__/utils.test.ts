@@ -6,7 +6,7 @@ import {
 
 jest.mock('chalk', () => {
   const chalk = jest.requireActual('chalk');
-  return new chalk.constructor({ enabled: true, level: 1 });
+  return new chalk.Instance({ enabled: true, level: 1 });
 });
 
 describe('trimAndFormatPath', () => {

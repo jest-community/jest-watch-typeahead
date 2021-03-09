@@ -1,8 +1,9 @@
 import { KEYS } from 'jest-watcher';
+import type { Config } from '@jest/types';
 import pluginTester from '../../test_utils/pluginTester';
 import FileNamePlugin from '../plugin';
 
-const projects = [
+const projects: Config.ProjectConfig[] = [
   {
     config: {
       rootDir: '/project',
