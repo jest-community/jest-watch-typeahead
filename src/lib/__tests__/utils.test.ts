@@ -1,4 +1,8 @@
-import { trimAndFormatPath, formatTestNameByPattern } from '../utils';
+import {
+  trimAndFormatPath,
+  formatTestNameByPattern,
+  highlight,
+} from '../utils';
 
 jest.mock('chalk', () => {
   const chalk = jest.requireActual('chalk');
@@ -51,4 +55,18 @@ describe('formatTestNameByPattern', () => {
       ).toMatchSnapshot();
     },
   );
+});
+
+describe('highlight', () => {
+  const rawPath =
+    '/Users/janedoe/monorepo/libs/utils/src/__tests__/hello-world.js';
+  const pattern = 'hello';
+
+  test.each`
+    filePath
+    ${'libs/utils/src/__tests__/hello-world.js'}
+    ${'...s/utils/src/__tests__/hello-world.js'}
+  `(`highlights match correctly when filePath="$filePath"`, ({ filePath }) => {
+    expect(highlight(rawPath, filePath, pattern)).toMatchSnapshot();
+  });
 });

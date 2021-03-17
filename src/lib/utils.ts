@@ -66,7 +66,6 @@ export const highlight = (
   rawPath: string,
   filePath: string,
   pattern: string,
-  rootDir: string,
 ): string => {
   const relativePathHead = './';
 
@@ -86,17 +85,14 @@ export const highlight = (
     return chalk.dim(strippedFilePath);
   }
 
-  let offset;
-  let trimLength;
+  const offset = rawPath.length - filePath.length;
 
+  let trimLength: number;
   if (strippedFilePath.startsWith(TRIMMING_DOTS)) {
-    offset = strippedRawPath.length - strippedFilePath.length;
     trimLength = TRIMMING_DOTS.length;
   } else if (strippedFilePath.startsWith(relativePathHead)) {
-    offset = strippedRawPath.length - strippedFilePath.length;
     trimLength = relativePathHead.length;
   } else {
-    offset = rootDir.length + path.sep.length;
     trimLength = 0;
   }
 

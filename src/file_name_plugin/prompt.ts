@@ -72,7 +72,7 @@ export default class FileNamePatternPrompt extends PatternPrompt {
             path,
             width,
           );
-          return highlight(path, filePath, pattern, context.config.rootDir);
+          return highlight(path, filePath, pattern);
         })
         .map((item, i) => formatTypeaheadSelection(item, i, index, prompt))
         .forEach((item) => printTypeaheadItem(item, pipe));
