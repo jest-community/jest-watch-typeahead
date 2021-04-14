@@ -1,3 +1,9 @@
+## 0.6.2
+
+### Fixes
+
+- Use correct highlight offset even when rootDir is not root package directory ([#34](https://github.com/jest-community/jest-watch-typeahead/pull/34))
+
 ## 0.6.1
 
 ### Fixes
