@@ -59,14 +59,33 @@ describe('formatTestNameByPattern', () => {
 
 describe('highlight', () => {
   const rawPath =
-    '/Users/janedoe/monorepo/libs/utils/src/__tests__/hello-world.js';
-  const pattern = 'hello';
+    '/Users/janedoe/my-project/src/__tests__/utils/experimentation/entry-point/parseEntryPoint.test.js';
+  const pattern = 'parse';
+  let filePath: string;
 
-  test.each`
-    filePath
-    ${'libs/utils/src/__tests__/hello-world.js'}
-    ${'...s/utils/src/__tests__/hello-world.js'}
-  `(`highlights match correctly when filePath="$filePath"`, ({ filePath }) => {
-    expect(highlight(rawPath, filePath, pattern)).toMatchSnapshot();
+  it('places highlight correctly when file path is not truncated', () => {
+    filePath =
+      '__tests__/utils/experimentation/entry-point/parseEntryPoint.test.js';
+
+    expect(highlight(rawPath, filePath, pattern)).toMatchInlineSnapshot(
+      `"<dim>__tests__/utils/experimentation/entry-point/</></>parse</><dim>EntryPoint.test.js</>"`,
+    );
+  });
+
+  it('places highlight correctly when file path is truncated', () => {
+    filePath = '...tils/experimentation/entry-point/parseEntryPoint.test.js';
+
+    expect(highlight(rawPath, filePath, pattern)).toMatchInlineSnapshot(
+      `"<dim>...tils/experimentation/entry-point/</></>parse</><dim>EntryPoint.test.js</>"`,
+    );
+  });
+
+  it('places highlight correctly when file path has relative head', () => {
+    filePath =
+      './src/__tests__/utils/experimentation/entry-point/parseEntryPoint.test.js';
+
+    expect(highlight(rawPath, filePath, pattern)).toMatchInlineSnapshot(
+      `"<dim>./src/__tests__/utils/experimentation/entry-point/</></>parse</><dim>EntryPoint.test.js</>"`,
+    );
   });
 });
