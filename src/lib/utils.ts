@@ -85,7 +85,7 @@ export const highlight = (
     return chalk.dim(strippedFilePath);
   }
 
-  const offset = rawPath.length - filePath.length;
+  const offset = strippedRawPath.length - strippedFilePath.length;
 
   let trimLength: number;
   if (strippedFilePath.startsWith(TRIMMING_DOTS)) {

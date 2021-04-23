@@ -1,13 +1,9 @@
+import chalk from 'chalk';
 import {
   trimAndFormatPath,
   formatTestNameByPattern,
   highlight,
 } from '../utils';
-
-jest.mock('chalk', () => {
-  const chalk = jest.requireActual('chalk');
-  return new chalk.Instance({ enabled: true, level: 1 });
-});
 
 describe('trimAndFormatPath', () => {
   test.each`
@@ -59,14 +55,44 @@ describe('formatTestNameByPattern', () => {
 
 describe('highlight', () => {
   const rawPath =
-    '/Users/janedoe/monorepo/libs/utils/src/__tests__/hello-world.js';
-  const pattern = 'hello';
+    '/Users/janedoe/my-project/src/__tests__/utils/experimentation/entry-point/parseEntryPoint.test.js';
+  const pattern = 'parse';
+  let filePath: string;
 
-  test.each`
-    filePath
-    ${'libs/utils/src/__tests__/hello-world.js'}
-    ${'...s/utils/src/__tests__/hello-world.js'}
-  `(`highlights match correctly when filePath="$filePath"`, ({ filePath }) => {
-    expect(highlight(rawPath, filePath, pattern)).toMatchSnapshot();
+  /**
+   * Helps us test that the highlight is placed correctly when `filePath`
+   * contains ANSI characters from being formatted by chalk.
+   * Passing a plain string for `filePath` results in false negatives.
+   */
+  const formatWithAnsi = (text: string) => chalk.dim(text);
+
+  it('places highlight correctly when file path is not truncated', () => {
+    filePath = formatWithAnsi(
+      '__tests__/utils/experimentation/entry-point/parseEntryPoint.test.js',
+    );
+
+    expect(highlight(rawPath, filePath, pattern)).toMatchInlineSnapshot(
+      `"<dim>__tests__/utils/experimentation/entry-point/</></>parse</><dim>EntryPoint.test.js</>"`,
+    );
+  });
+
+  it('places highlight correctly when file path is truncated', () => {
+    filePath = formatWithAnsi(
+      '...tils/experimentation/entry-point/parseEntryPoint.test.js',
+    );
+
+    expect(highlight(rawPath, filePath, pattern)).toMatchInlineSnapshot(
+      `"<dim>...tils/experimentation/entry-point/</></>parse</><dim>EntryPoint.test.js</>"`,
+    );
+  });
+
+  it('places highlight correctly when file path has relative head', () => {
+    filePath = formatWithAnsi(
+      './src/__tests__/utils/experimentation/entry-point/parseEntryPoint.test.js',
+    );
+
+    expect(highlight(rawPath, filePath, pattern)).toMatchInlineSnapshot(
+      `"<dim>./src/__tests__/utils/experimentation/entry-point/</></>parse</><dim>EntryPoint.test.js</>"`,
+    );
   });
 });
