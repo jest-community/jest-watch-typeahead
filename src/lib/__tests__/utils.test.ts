@@ -1,13 +1,9 @@
+import chalk from 'chalk';
 import {
   trimAndFormatPath,
   formatTestNameByPattern,
   highlight,
 } from '../utils';
-
-jest.mock('chalk', () => {
-  const chalk = jest.requireActual('chalk');
-  return new chalk.Instance({ enabled: true, level: 1 });
-});
 
 describe('trimAndFormatPath', () => {
   test.each`
@@ -63,9 +59,17 @@ describe('highlight', () => {
   const pattern = 'parse';
   let filePath: string;
 
+  /**
+   * Helps us test that the highlight is placed correctly when `filePath`
+   * contains ANSI characters from being formatted by chalk.
+   * Passing a plain string for `filePath` results in false negatives.
+   */
+  const formatWithAnsi = (text: string) => chalk.dim(text);
+
   it('places highlight correctly when file path is not truncated', () => {
-    filePath =
-      '__tests__/utils/experimentation/entry-point/parseEntryPoint.test.js';
+    filePath = formatWithAnsi(
+      '__tests__/utils/experimentation/entry-point/parseEntryPoint.test.js',
+    );
 
     expect(highlight(rawPath, filePath, pattern)).toMatchInlineSnapshot(
       `"<dim>__tests__/utils/experimentation/entry-point/</></>parse</><dim>EntryPoint.test.js</>"`,
@@ -73,7 +77,9 @@ describe('highlight', () => {
   });
 
   it('places highlight correctly when file path is truncated', () => {
-    filePath = '...tils/experimentation/entry-point/parseEntryPoint.test.js';
+    filePath = formatWithAnsi(
+      '...tils/experimentation/entry-point/parseEntryPoint.test.js',
+    );
 
     expect(highlight(rawPath, filePath, pattern)).toMatchInlineSnapshot(
       `"<dim>...tils/experimentation/entry-point/</></>parse</><dim>EntryPoint.test.js</>"`,
@@ -81,8 +87,9 @@ describe('highlight', () => {
   });
 
   it('places highlight correctly when file path has relative head', () => {
-    filePath =
-      './src/__tests__/utils/experimentation/entry-point/parseEntryPoint.test.js';
+    filePath = formatWithAnsi(
+      './src/__tests__/utils/experimentation/entry-point/parseEntryPoint.test.js',
+    );
 
     expect(highlight(rawPath, filePath, pattern)).toMatchInlineSnapshot(
       `"<dim>./src/__tests__/utils/experimentation/entry-point/</></>parse</><dim>EntryPoint.test.js</>"`,
