@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/jest-community/jest-watch-typeahead.svg?branch=master)](https://travis-ci.org/jest-community/jest-watch-typeahead) [![npm version](https://badge.fury.io/js/jest-watch-typeahead.svg)](https://badge.fury.io/js/jest-watch-typeahead)
+[![Build Status](https://github.com/SimenB/add-asset-html-webpack-plugin/actions/workflows/nodejs.yml/badge.svg?branch=main)](https://github.com/SimenB/add-asset-html-webpack-plugin/actions/workflows/nodejs.yml) [![npm version](https://badge.fury.io/js/jest-watch-typeahead.svg)](https://badge.fury.io/js/jest-watch-typeahead)
 
 <div align="center">
   <a href="https://jestjs.io/">
