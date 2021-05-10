@@ -19,13 +19,8 @@ const projects: Config.ProjectConfig[] = [
 ];
 
 it('shows the correct initial state', async () => {
-  const {
-    stdout,
-    hookEmitter,
-    updateConfigAndRun,
-    plugin,
-    type,
-  } = pluginTester(FileNamePlugin);
+  const { stdout, hookEmitter, updateConfigAndRun, plugin, type } =
+    pluginTester(FileNamePlugin);
 
   hookEmitter.onFileChange({ projects });
   const runPromise = plugin.run({}, updateConfigAndRun);
@@ -36,13 +31,8 @@ it('shows the correct initial state', async () => {
 });
 
 it('can use arrows to select a specific file', async () => {
-  const {
-    stdout,
-    hookEmitter,
-    updateConfigAndRun,
-    plugin,
-    type,
-  } = pluginTester(FileNamePlugin);
+  const { stdout, hookEmitter, updateConfigAndRun, plugin, type } =
+    pluginTester(FileNamePlugin);
 
   hookEmitter.onFileChange({ projects });
   const runPromise = plugin.run({}, updateConfigAndRun);
@@ -59,9 +49,8 @@ it('can use arrows to select a specific file', async () => {
 });
 
 it('can select a specific file that includes a regexp special character', async () => {
-  const { hookEmitter, updateConfigAndRun, plugin, type } = pluginTester(
-    FileNamePlugin,
-  );
+  const { hookEmitter, updateConfigAndRun, plugin, type } =
+    pluginTester(FileNamePlugin);
 
   hookEmitter.onFileChange({
     projects: [
@@ -86,13 +75,8 @@ it('can select a specific file that includes a regexp special character', async 
 });
 
 it('can select a pattern that matches multiple files', async () => {
-  const {
-    stdout,
-    hookEmitter,
-    updateConfigAndRun,
-    plugin,
-    type,
-  } = pluginTester(FileNamePlugin);
+  const { stdout, hookEmitter, updateConfigAndRun, plugin, type } =
+    pluginTester(FileNamePlugin);
 
   hookEmitter.onFileChange({ projects });
   const runPromise = plugin.run({}, updateConfigAndRun);
@@ -123,13 +107,8 @@ it('can configure the key and prompt', async () => {
 });
 
 it('file matching is case insensitive', async () => {
-  const {
-    stdout,
-    hookEmitter,
-    updateConfigAndRun,
-    plugin,
-    type,
-  } = pluginTester(FileNamePlugin);
+  const { stdout, hookEmitter, updateConfigAndRun, plugin, type } =
+    pluginTester(FileNamePlugin);
 
   hookEmitter.onFileChange({ projects });
   const runPromise = plugin.run({}, updateConfigAndRun);

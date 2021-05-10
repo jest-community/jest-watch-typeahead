@@ -18,9 +18,8 @@ const testResults = [
 ];
 
 it('shows the correct initial state', async () => {
-  const { stdout, updateConfigAndRun, plugin, type } = pluginTester(
-    TestNamePlugin,
-  );
+  const { stdout, updateConfigAndRun, plugin, type } =
+    pluginTester(TestNamePlugin);
 
   const runPromise = plugin.run({}, updateConfigAndRun);
   expect(stdout.write.mock.calls.join('\n')).toMatchSnapshot();
@@ -30,9 +29,8 @@ it('shows the correct initial state', async () => {
 });
 
 it('shows the correct message when there are no cached tests', async () => {
-  const { stdout, updateConfigAndRun, plugin, type } = pluginTester(
-    TestNamePlugin,
-  );
+  const { stdout, updateConfigAndRun, plugin, type } =
+    pluginTester(TestNamePlugin);
 
   const runPromise = plugin.run({}, updateConfigAndRun);
   expect(stdout.write.mock.calls.join('\n')).toMatchSnapshot();
@@ -42,13 +40,8 @@ it('shows the correct message when there are no cached tests', async () => {
 });
 
 it('can use arrows to select a specific test', async () => {
-  const {
-    stdout,
-    hookEmitter,
-    updateConfigAndRun,
-    plugin,
-    type,
-  } = pluginTester(TestNamePlugin);
+  const { stdout, hookEmitter, updateConfigAndRun, plugin, type } =
+    pluginTester(TestNamePlugin);
 
   hookEmitter.onTestRunComplete({ testResults });
   const runPromise = plugin.run({}, updateConfigAndRun);
@@ -65,13 +58,8 @@ it('can use arrows to select a specific test', async () => {
 });
 
 it('can select a pattern that matches multiple tests', async () => {
-  const {
-    stdout,
-    hookEmitter,
-    updateConfigAndRun,
-    plugin,
-    type,
-  } = pluginTester(TestNamePlugin);
+  const { stdout, hookEmitter, updateConfigAndRun, plugin, type } =
+    pluginTester(TestNamePlugin);
 
   hookEmitter.onTestRunComplete({ testResults });
   const runPromise = plugin.run({}, updateConfigAndRun);
@@ -88,13 +76,8 @@ it('can select a pattern that matches multiple tests', async () => {
 });
 
 it('can select a pattern that matches a describe block', async () => {
-  const {
-    stdout,
-    hookEmitter,
-    updateConfigAndRun,
-    plugin,
-    type,
-  } = pluginTester(TestNamePlugin);
+  const { stdout, hookEmitter, updateConfigAndRun, plugin, type } =
+    pluginTester(TestNamePlugin);
 
   hookEmitter.onTestRunComplete({ testResults });
   const runPromise = plugin.run({}, updateConfigAndRun);
@@ -111,9 +94,8 @@ it('can select a pattern that matches a describe block', async () => {
 });
 
 it('can select a pattern that includes a regexp special character', async () => {
-  const { hookEmitter, updateConfigAndRun, plugin, type } = pluginTester(
-    TestNamePlugin,
-  );
+  const { hookEmitter, updateConfigAndRun, plugin, type } =
+    pluginTester(TestNamePlugin);
 
   hookEmitter.onTestRunComplete({
     testResults: [
@@ -151,13 +133,8 @@ it('can configure the key and prompt', async () => {
 });
 
 it('test matching is case insensitive', async () => {
-  const {
-    stdout,
-    hookEmitter,
-    updateConfigAndRun,
-    plugin,
-    type,
-  } = pluginTester(TestNamePlugin);
+  const { stdout, hookEmitter, updateConfigAndRun, plugin, type } =
+    pluginTester(TestNamePlugin);
 
   hookEmitter.onTestRunComplete({ testResults });
   const runPromise = plugin.run({}, updateConfigAndRun);

@@ -51,10 +51,10 @@ export default function pluginTester(
   plugin: WatchPlugin;
   type: (...keys: string[]) => void;
 } {
-  const stdout = ({
+  const stdout = {
     columns: (options.stdout || {}).columns || 80,
     write: jest.fn(),
-  } as unknown) as NodeJS.WriteStream;
+  } as unknown as NodeJS.WriteStream;
   const jestHooks = new JestHook();
   const plugin = new Plugin({
     stdout,

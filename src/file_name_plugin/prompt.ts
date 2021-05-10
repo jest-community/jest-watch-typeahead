@@ -87,9 +87,7 @@ export default class FileNamePatternPrompt extends PatternPrompt {
     printRestoredPatternCaret(pattern, this._currentUsageRows, pipe);
   }
 
-  _getMatchedTests(
-    pattern: string,
-  ): Array<{
+  _getMatchedTests(pattern: string): Array<{
     path: string;
     context: { config: Config.ProjectConfig };
   }> {
