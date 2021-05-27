@@ -1,4 +1,4 @@
-name: Unit tests
+name: Unit tests & Release
 
 on:
   push:
@@ -68,3 +68,31 @@ jobs:
         run: yarn typecheck
       - name: run tests
         run: yarn test --colors
+
+  release:
+    if:
+      # prettier-ignore
+      ${{ github.event_name == 'push' && github.event.ref == 'refs/heads/main' }}
+    name: Release new version
+    needs: [test-node, test-os]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Get yarn cache
+        id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - uses: actions/cache@v2
+        with:
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: yarn-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            yarn-
+      - uses: actions/setup-node@v2.1.5
+        with:
+          node-version: 14.x
+      - name: install
+        run: yarn
+      - run: yarn semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
