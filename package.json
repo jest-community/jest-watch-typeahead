@@ -82,6 +82,10 @@
   "engines": {
     "node": ">=10"
   },
+  "resolutions": {
+    "semantic-release/@semantic-release/github/fs-extra": "^9.0.0",
+    "semantic-release/@semantic-release/npm/fs-extra": "^9.0.0"
+  },
   "release": {
     "branches": [
       "main"
