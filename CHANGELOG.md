@@ -1,3 +1,10 @@
+## [0.6.4](https://github.com/jest-community/jest-watch-typeahead/compare/v0.6.3...v0.6.4) (2021-05-27)
+
+
+### Bug Fixes
+
+* **deps:** update jest peer dependency to accept v27 ([#59](https://github.com/jest-community/jest-watch-typeahead/issues/59)) ([6552ead](https://github.com/jest-community/jest-watch-typeahead/commit/6552ead2dafb0258d11783f3c9e3e12877b15226))
+
 ## 0.6.2
 
 ### Fixes
