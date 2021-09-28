@@ -14,7 +14,7 @@
 
 ### Install
 
-Install `jest`_(it needs Jest 26+)_ and `jest-watch-typeahead`
+Install `jest`_(it needs Jest 27+)_ and `jest-watch-typeahead`
 
 ```bash
 yarn add --dev jest jest-watch-typeahead
