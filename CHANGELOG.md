@@ -1,3 +1,10 @@
+## [0.6.5](https://github.com/jest-community/jest-watch-typeahead/compare/v0.6.4...v0.6.5) (2021-09-28)
+
+
+### Bug Fixes
+
+* remove test files from published module ([db522ac](https://github.com/jest-community/jest-watch-typeahead/commit/db522ac9d1623952bbd3b8b992d583d0cb3cf1e8))
+
 ## [0.6.4](https://github.com/jest-community/jest-watch-typeahead/compare/v0.6.3...v0.6.4) (2021-05-27)
 
 
