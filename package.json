@@ -19,7 +19,7 @@
     "test": "jest",
     "lint": "eslint .",
     "prebuild": "rimraf build",
-    "build": "babel --extensions .js,.ts src -d build && rimraf **/*.test.{js,ts},integration",
+    "build": "babel --extensions .js,.ts src -d build && rimraf **/*.test.{js,ts},integration build/**/__tests__ build/test_utils",
     "prepublish": "yarn build",
     "format": "prettier --write \"**/*.js\" \"**/*.md\" \"**/*.ts\"",
     "typecheck": "yarn tsc -p ."
