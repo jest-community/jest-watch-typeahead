@@ -1,3 +1,24 @@
+# [1.0.0](https://github.com/jest-community/jest-watch-typeahead/compare/v0.6.5...v1.0.0) (2021-09-29)
+
+
+### Bug Fixes
+
+* add `exports` field to package.json ([#86](https://github.com/jest-community/jest-watch-typeahead/issues/86)) ([1bcd08f](https://github.com/jest-community/jest-watch-typeahead/commit/1bcd08fdc316fdb63b2665aac2b100222fcf2132))
+* drop support for EOL versions of node ([#85](https://github.com/jest-community/jest-watch-typeahead/issues/85)) ([7351933](https://github.com/jest-community/jest-watch-typeahead/commit/73519337607032704ed67b3cf006d236256d1844))
+
+
+### Features
+
+* migrate to native ESM ([#84](https://github.com/jest-community/jest-watch-typeahead/issues/84)) ([a8e6940](https://github.com/jest-community/jest-watch-typeahead/commit/a8e6940851e7eefe16b69113fb29c6bd36916bb8))
+
+
+### BREAKING CHANGES
+
+* Drop support for Jest v26
+* Module is now written in native ESM
+* Disallow importing internal files
+* Supported version range of node is now ^12.22.0 || ^14.17.0 || >=16.0.0
+
 ## [0.6.5](https://github.com/jest-community/jest-watch-typeahead/compare/v0.6.4...v0.6.5) (2021-09-28)
 
 
