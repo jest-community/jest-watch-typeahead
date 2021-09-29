@@ -1,19 +1,27 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires,import/no-extraneous-dependencies
-const semver = require('semver');
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const pkg = require('./package.json');
+// eslint-disable-next-line import/no-extraneous-dependencies
+import semver from 'semver';
+import { readFileSync } from 'fs';
+
+let pkg = readFileSync('./package.json', 'utf8');
+
+pkg = JSON.parse(pkg);
 
 const supportedNodeVersion = semver.minVersion(pkg.engines.node).version;
 
-module.exports = {
+export default {
   ignore: ['**/__mocks__/**'],
   presets: [
     [
       '@babel/preset-env',
       {
+        modules: false,
         targets: { node: supportedNodeVersion },
       },
     ],
     '@babel/preset-typescript',
   ],
+  plugins:
+    process.env.NODE_ENV === 'test'
+      ? []
+      : ['babel-plugin-add-import-extension'],
 };

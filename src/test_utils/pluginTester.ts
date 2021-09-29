@@ -5,6 +5,7 @@ import {
   UpdateConfigCallback,
 } from 'jest-watcher';
 import stripAnsi from 'strip-ansi';
+import { jest } from '@jest/globals';
 import type FileNamePlugin from '../file_name_plugin/plugin';
 import type TestNamePlugin from '../test_name_plugin/plugin';
 import type { PluginConfig } from '../types/Config';

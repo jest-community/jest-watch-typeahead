@@ -1,6 +1,32 @@
-import { KEYS } from 'jest-watcher';
-import pluginTester from '../../test_utils/pluginTester';
-import TestNamePlugin from '../plugin';
+import { jest } from '@jest/globals';
+
+let pluginTester: typeof import('../../test_utils/pluginTester').default = null;
+let TestNamePlugin: typeof import('../plugin').default = null;
+let KEYS: typeof import('jest-watcher').KEYS = null;
+
+jest.unstable_mockModule('ansi-escapes', () => ({
+  default: {
+    clearScreen: '[MOCK - clearScreen]',
+    cursorDown: (count = 1) => `[MOCK - cursorDown(${count})]`,
+    cursorLeft: '[MOCK - cursorLeft]',
+    cursorHide: '[MOCK - cursorHide]',
+    cursorRestorePosition: '[MOCK - cursorRestorePosition]',
+    cursorSavePosition: '[MOCK - cursorSavePosition]',
+    cursorShow: '[MOCK - cursorShow]',
+    cursorTo: (x, y) => `[MOCK - cursorTo(${x}, ${y})]`,
+  },
+}));
+
+jest.doMock('ansi-escapes', () => ({
+  clearScreen: '[MOCK - clearScreen]',
+  cursorDown: (count = 1) => `[MOCK - cursorDown(${count})]`,
+  cursorLeft: '[MOCK - cursorLeft]',
+  cursorHide: '[MOCK - cursorHide]',
+  cursorRestorePosition: '[MOCK - cursorRestorePosition]',
+  cursorSavePosition: '[MOCK - cursorSavePosition]',
+  cursorShow: '[MOCK - cursorShow]',
+  cursorTo: (x, y) => `[MOCK - cursorTo(${x}, ${y})]`,
+}));
 
 const testResults = [
   {
@@ -16,6 +42,12 @@ const testResults = [
     ],
   },
 ];
+
+beforeAll(async () => {
+  TestNamePlugin = (await import('../plugin')).default;
+  pluginTester = (await import('../../test_utils/pluginTester')).default;
+  KEYS = (await import('jest-watcher')).KEYS;
+});
 
 it('shows the correct initial state', async () => {
   const { stdout, updateConfigAndRun, plugin, type } =
