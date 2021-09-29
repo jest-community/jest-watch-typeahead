@@ -2,6 +2,12 @@
   "name": "jest-watch-typeahead",
   "version": "0.6.5",
   "main": "build/index.js",
+  "exports": {
+    ".": "./build/index.js",
+    "./filename": "./build/file_name_plugin/plugin.js",
+    "./testname": "./build/test_name_plugin/plugin.js",
+    "./package.json": "./package.json"
+  },
   "author": "Rogelio Guzman <rogelioguzmanh@gmail.com>",
   "description": "Jest plugin for filtering by filename or test name",
   "license": "MIT",
