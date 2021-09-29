@@ -4,16 +4,15 @@
     "airbnb-base",
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
-    "prettier",
-    "plugin:import/typescript"
+    "plugin:import/typescript",
+    "plugin:prettier/recommended"
   ],
-  "plugins": ["@typescript-eslint", "prettier", "jest", "import"],
+  "plugins": ["@typescript-eslint", "jest", "import"],
   "rules": {
     "strict": 0,
     "no-underscore-dangle": 0,
     "arrow-body-style": 0,
-    "import/extensions": 0,
-    "prettier/prettier": 2
+    "import/extensions": 0
   },
   "env": {
     "node": true,
