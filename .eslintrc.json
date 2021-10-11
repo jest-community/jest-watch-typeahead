@@ -12,7 +12,11 @@
     "strict": 0,
     "no-underscore-dangle": 0,
     "arrow-body-style": 0,
-    "import/extensions": 0
+    "import/extensions": 0,
+    "import/no-extraneous-dependencies": [
+      2,
+      { "devDependencies": ["**/__tests__/**/*", "src/test_utils/pluginTester.ts"] }
+    ]
   },
   "env": {
     "node": true,
