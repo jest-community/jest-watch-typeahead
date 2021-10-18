@@ -4058,9 +4058,9 @@ issue-parser@^6.0.0:
     lodash.uniqby "^4.7.0"
 
 istanbul-lib-coverage@^3.0.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/istanbul-lib-coverage/-/istanbul-lib-coverage-3.1.0.tgz#554d3f8adb1101c6aff427d287ed077642a5dcb2"
-  integrity sha512-OFSPP1Csv3GxruycNA1iRJPnc5pon+N4Q89EUz8KYOFbdsqCoHRh0J8jwRdna5thveVcMTdgY27kUl/lZuAWdw==
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/istanbul-lib-coverage/-/istanbul-lib-coverage-3.2.0.tgz#189e7909d0a39fa5a3dfad5b03f71947770191d3"
+  integrity sha512-eOeJ5BHCmHYvQK7xt9GkdHuzuCGS1Y6g9Gvnx3Ym33fz/HpLRYxiS0wHNr+m/MBC8B647Xt608vCDEvhl9c6Mw==
 
 istanbul-lib-instrument@^4.0.3:
   version "4.0.3"
