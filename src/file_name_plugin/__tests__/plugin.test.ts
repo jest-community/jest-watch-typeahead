@@ -119,7 +119,7 @@ it('can select a pattern that matches multiple files', async () => {
 
   expect(updateConfigAndRun).toHaveBeenCalledWith({
     mode: 'watch',
-    testPathPattern: 'fi',
+    testPathPattern: 'f.*i',
   });
 });
 
@@ -177,5 +177,23 @@ it("selected file doesn't include trimming dots", async () => {
   expect(updateConfigAndRun).toHaveBeenCalledWith({
     mode: 'watch',
     testPathPattern: 'ong_name_gonna_need_trimming\\.js',
+  });
+});
+
+it('can fuzzy search', async () => {
+  const { stdout, hookEmitter, updateConfigAndRun, plugin, type } =
+    pluginTester(FileNamePlugin);
+
+  hookEmitter.onFileChange({ projects });
+  const runPromise = plugin.run({}, updateConfigAndRun);
+  stdout.write.mockReset();
+  type('f', '1', KEYS.ARROW_DOWN, KEYS.ENTER);
+  expect(stdout.write.mock.calls.join('\n')).toMatchSnapshot();
+
+  await runPromise;
+
+  expect(updateConfigAndRun).toHaveBeenCalledWith({
+    mode: 'watch',
+    testPathPattern: 'src/file-1\\.js',
   });
 });

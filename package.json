@@ -34,6 +34,7 @@
   "dependencies": {
     "ansi-escapes": "^4.3.1",
     "chalk": "^4.0.0",
+    "fuzzysearch": "^1.0.3",
     "jest-regex-util": "^27.0.0",
     "jest-watcher": "^27.0.0",
     "slash": "^4.0.0",
