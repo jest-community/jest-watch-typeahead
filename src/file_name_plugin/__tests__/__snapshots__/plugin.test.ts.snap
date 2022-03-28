@@ -1,5 +1,51 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`can fuzzy search 1`] = `
+
+[MOCK - cursorLeft]
+
+ pattern › f
+[MOCK - cursorSavePosition]
+[MOCK - cursorLeft]
+
+
+ Pattern matches 3 files
+
+ › src/foo.js
+
+ › src/file-1.js
+
+ › src/file-2.js
+[MOCK - cursorTo(12, 5)]
+[MOCK - cursorRestorePosition]
+
+[MOCK - cursorLeft]
+
+ pattern › f1
+[MOCK - cursorSavePosition]
+[MOCK - cursorLeft]
+
+
+ Pattern matches 1 file
+
+ › src/file-1.js
+[MOCK - cursorTo(13, 5)]
+[MOCK - cursorRestorePosition]
+
+[MOCK - cursorLeft]
+
+ pattern › f1
+[MOCK - cursorSavePosition]
+[MOCK - cursorLeft]
+
+
+ Pattern matches 1 file
+
+ › src/file-1.js
+[MOCK - cursorTo(13, 5)]
+[MOCK - cursorRestorePosition]
+`;
+
 exports[`can select a pattern that matches multiple files 1`] = `
 
 [MOCK - cursorLeft]

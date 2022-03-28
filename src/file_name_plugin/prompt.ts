@@ -8,6 +8,7 @@ import {
   printRestoredPatternCaret,
 } from 'jest-watcher';
 import { escapeStrForRegex } from 'jest-regex-util';
+import fuzzysearch from 'fuzzysearch';
 import type { Config } from '@jest/types';
 import {
   highlight,
@@ -91,14 +92,6 @@ export default class FileNamePatternPrompt extends PatternPrompt {
     path: string;
     context: { config: Config.ProjectConfig };
   }> {
-    let regex: RegExp;
-
-    try {
-      regex = new RegExp(pattern, 'i');
-    } catch (e) {
-      return [];
-    }
-
     return this._searchSources.reduce<
       Array<{
         path: string;
@@ -107,7 +100,9 @@ export default class FileNamePatternPrompt extends PatternPrompt {
     >((tests, { testPaths, config }) => {
       return tests.concat(
         testPaths
-          .filter((testPath) => regex.test(testPath))
+          .filter((testPath) =>
+            fuzzysearch(pattern.toLowerCase(), testPath.toLowerCase()),
+          )
           .map((path) => ({
             path,
             context: { config },
@@ -130,7 +125,7 @@ export default class FileNamePatternPrompt extends PatternPrompt {
     super.run(
       (value) => {
         onSuccess(
-          removeTrimmingDots(value).split('/').map(escapeStrForRegex).join('/'),
+          removeTrimmingDots(value).split('').map(escapeStrForRegex).join('.*'),
         );
       },
       onCancel,
