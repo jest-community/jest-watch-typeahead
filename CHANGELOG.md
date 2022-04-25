@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/jest-community/jest-watch-typeahead/compare/v1.0.0...v1.1.0) (2022-04-25)
+
+
+### Features
+
+* **deps:** add Jest 28 to peer dependency range ([#142](https://github.com/jest-community/jest-watch-typeahead/issues/142)) ([17a0f8d](https://github.com/jest-community/jest-watch-typeahead/commit/17a0f8d4a12b0fbb4843eee6e5b503a6cec1422c))
+
 # [1.0.0](https://github.com/jest-community/jest-watch-typeahead/compare/v0.6.5...v1.0.0) (2021-09-29)
 
 
