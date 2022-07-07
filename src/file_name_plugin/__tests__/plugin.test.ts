@@ -1,33 +1,8 @@
 import { KEYS } from 'jest-watcher';
 import type { Config } from '@jest/types';
-import { jest } from '@jest/globals';
 
 let pluginTester: typeof import('../../test_utils/pluginTester').default = null;
 let FileNamePlugin: typeof import('../plugin').default = null;
-
-jest.unstable_mockModule('ansi-escapes', () => ({
-  default: {
-    clearScreen: '[MOCK - clearScreen]',
-    cursorDown: (count = 1) => `[MOCK - cursorDown(${count})]`,
-    cursorLeft: '[MOCK - cursorLeft]',
-    cursorHide: '[MOCK - cursorHide]',
-    cursorRestorePosition: '[MOCK - cursorRestorePosition]',
-    cursorSavePosition: '[MOCK - cursorSavePosition]',
-    cursorShow: '[MOCK - cursorShow]',
-    cursorTo: (x, y) => `[MOCK - cursorTo(${x}, ${y})]`,
-  },
-}));
-
-jest.doMock('ansi-escapes', () => ({
-  clearScreen: '[MOCK - clearScreen]',
-  cursorDown: (count = 1) => `[MOCK - cursorDown(${count})]`,
-  cursorLeft: '[MOCK - cursorLeft]',
-  cursorHide: '[MOCK - cursorHide]',
-  cursorRestorePosition: '[MOCK - cursorRestorePosition]',
-  cursorSavePosition: '[MOCK - cursorSavePosition]',
-  cursorShow: '[MOCK - cursorShow]',
-  cursorTo: (x, y) => `[MOCK - cursorTo(${x}, ${y})]`,
-}));
 
 const projects: Config.ProjectConfig[] = [
   {

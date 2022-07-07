@@ -4,35 +4,10 @@ import {
   JestHookEmitter,
   UpdateConfigCallback,
 } from 'jest-watcher';
-import stripAnsi from 'strip-ansi';
 import { jest } from '@jest/globals';
 import type FileNamePlugin from '../file_name_plugin/plugin';
 import type TestNamePlugin from '../test_name_plugin/plugin';
 import type { PluginConfig } from '../types/Config';
-
-expect.addSnapshotSerializer({
-  test: (val) => typeof val === 'string',
-  print: (val) => stripAnsi(val as string),
-});
-
-/**
- * See https://github.com/facebook/jest/pull/7523 for more details
- */
-const CLEAR = '\x1B[2J\x1B[3J\x1B[H';
-expect.addSnapshotSerializer({
-  test: (val) => val.includes(CLEAR),
-  print: (val) => stripAnsi((val as string).replace(CLEAR, '[MOCK - clear]')),
-});
-
-/**
- * See https://github.com/facebook/jest/pull/7523 for more details
- */
-const WINDOWS_CLEAR = '\x1B[2J\x1B[0f';
-expect.addSnapshotSerializer({
-  test: (val) => val.includes(WINDOWS_CLEAR),
-  print: (val) =>
-    stripAnsi((val as string).replace(WINDOWS_CLEAR, '[MOCK - clear]')),
-});
 
 type Options = {
   stdout?: { columns?: number };

@@ -1,183 +1,189 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`can select a pattern that matches a describe block 1`] = `
-
-[MOCK - cursorLeft]
-
- pattern › s
-[MOCK - cursorSavePosition]
-[MOCK - cursorLeft]
-
-
- Pattern matches 4 tests from cached test suites
-
- › some description foo 1
-
- › some description bar 1
-
- › other description foo 2
-
- › other description bar 2
-[MOCK - cursorTo(12, 5)]
-[MOCK - cursorRestorePosition]
-
-[MOCK - cursorLeft]
-
- pattern › so
-[MOCK - cursorSavePosition]
-[MOCK - cursorLeft]
+"<eraseLine>
+<moveCursorToColumn1>
+<eraseScreenDown>
+<dim> pattern ›</> s
+<saveCursorPosition>
+<moveCursorToColumn1>
 
 
- Pattern matches 2 tests from cached test suites
+ Pattern matches 4 tests from <yellow>cached</> test suites
 
- › some description foo 1
+ <dim>›</> </>s</><dim>ome description foo 1</>
 
- › some description bar 1
-[MOCK - cursorTo(13, 5)]
-[MOCK - cursorRestorePosition]
+ <dim>›</> </>s</><dim>ome description bar 1</>
+
+ <dim>›</> <dim>other de</></>s</><dim>cription foo 2</>
+
+ <dim>›</> <dim>other de</></>s</><dim>cription bar 2</>
+<moveCursorToRow6Column13>
+<restoreCursorPosition>
+<eraseLine>
+<moveCursorToColumn1>
+<eraseScreenDown>
+<dim> pattern ›</> so
+<saveCursorPosition>
+<moveCursorToColumn1>
+
+
+ Pattern matches 2 tests from <yellow>cached</> test suites
+
+ <dim>›</> </>so</><dim>me description foo 1</>
+
+ <dim>›</> </>so</><dim>me description bar 1</>
+<moveCursorToRow6Column14>
+<restoreCursorPosition>
+"
 `;
 
 exports[`can select a pattern that matches multiple tests 1`] = `
-
-[MOCK - cursorLeft]
-
- pattern › f
-[MOCK - cursorSavePosition]
-[MOCK - cursorLeft]
-
-
- Pattern matches 2 tests from cached test suites
-
- › some description foo 1
-
- › other description foo 2
-[MOCK - cursorTo(12, 5)]
-[MOCK - cursorRestorePosition]
-
-[MOCK - cursorLeft]
-
- pattern › fo
-[MOCK - cursorSavePosition]
-[MOCK - cursorLeft]
+"<eraseLine>
+<moveCursorToColumn1>
+<eraseScreenDown>
+<dim> pattern ›</> f
+<saveCursorPosition>
+<moveCursorToColumn1>
 
 
- Pattern matches 2 tests from cached test suites
+ Pattern matches 2 tests from <yellow>cached</> test suites
 
- › some description foo 1
+ <dim>›</> <dim>some description </></>f</><dim>oo 1</>
 
- › other description foo 2
-[MOCK - cursorTo(13, 5)]
-[MOCK - cursorRestorePosition]
+ <dim>›</> <dim>other description </></>f</><dim>oo 2</>
+<moveCursorToRow6Column13>
+<restoreCursorPosition>
+<eraseLine>
+<moveCursorToColumn1>
+<eraseScreenDown>
+<dim> pattern ›</> fo
+<saveCursorPosition>
+<moveCursorToColumn1>
+
+
+ Pattern matches 2 tests from <yellow>cached</> test suites
+
+ <dim>›</> <dim>some description </></>fo</><dim>o 1</>
+
+ <dim>›</> <dim>other description </></>fo</><dim>o 2</>
+<moveCursorToRow6Column14>
+<restoreCursorPosition>
+"
 `;
 
 exports[`can use arrows to select a specific test 1`] = `
-
-[MOCK - cursorLeft]
-
- pattern › f
-[MOCK - cursorSavePosition]
-[MOCK - cursorLeft]
-
-
- Pattern matches 2 tests from cached test suites
-
- › some description foo 1
-
- › other description foo 2
-[MOCK - cursorTo(12, 5)]
-[MOCK - cursorRestorePosition]
-
-[MOCK - cursorLeft]
-
- pattern › f
-[MOCK - cursorSavePosition]
-[MOCK - cursorLeft]
+"<eraseLine>
+<moveCursorToColumn1>
+<eraseScreenDown>
+<dim> pattern ›</> f
+<saveCursorPosition>
+<moveCursorToColumn1>
 
 
- Pattern matches 2 tests from cached test suites
+ Pattern matches 2 tests from <yellow>cached</> test suites
 
- › some description foo 1
+ <dim>›</> <dim>some description </></>f</><dim>oo 1</>
 
- › other description foo 2
-[MOCK - cursorTo(12, 5)]
-[MOCK - cursorRestorePosition]
+ <dim>›</> <dim>other description </></>f</><dim>oo 2</>
+<moveCursorToRow6Column13>
+<restoreCursorPosition>
+<eraseLine>
+<moveCursorToColumn1>
+<eraseScreenDown>
+<dim> pattern ›</> f
+<saveCursorPosition>
+<moveCursorToColumn1>
 
-[MOCK - cursorLeft]
 
- pattern › f
-[MOCK - cursorSavePosition]
-[MOCK - cursorLeft]
+ Pattern matches 2 tests from <yellow>cached</> test suites
+
+ <dim>›</> <black><backgroundYellow>some description foo 1</></>
+
+ <dim>›</> <dim>other description </></>f</><dim>oo 2</>
+<moveCursorToRow6Column13>
+<restoreCursorPosition>
+<eraseLine>
+<moveCursorToColumn1>
+<eraseScreenDown>
+<dim> pattern ›</> f
+<saveCursorPosition>
+<moveCursorToColumn1>
 
 
- Pattern matches 2 tests from cached test suites
+ Pattern matches 2 tests from <yellow>cached</> test suites
 
- › some description foo 1
+ <dim>›</> <dim>some description </></>f</><dim>oo 1</>
 
- › other description foo 2
-[MOCK - cursorTo(12, 5)]
-[MOCK - cursorRestorePosition]
+ <dim>›</> <black><backgroundYellow>other description foo 2</></>
+<moveCursorToRow6Column13>
+<restoreCursorPosition>
+"
 `;
 
 exports[`shows the correct initial state 1`] = `
-[MOCK - cursorHide]
-[MOCK - clear]
+"<hideCursor>
+<clearTerminal>
 
-Pattern Mode Usage
- › Press Esc to exit pattern mode.
- › Press Enter to filter by a tests regex pattern.
-
-
-[MOCK - cursorShow]
-
-[MOCK - cursorLeft]
-
- pattern › 
-[MOCK - cursorSavePosition]
-[MOCK - cursorLeft]
+<bold>Pattern Mode Usage</>
+ <dim>› Press</> Esc <dim>to exit pattern mode.</>
+ <dim>› Press</> Enter <dim>to filter by a tests regex pattern.</>
 
 
- Start typing to filter by a test name regex pattern.
-[MOCK - cursorTo(11, 5)]
-[MOCK - cursorRestorePosition]
+<showCursor>
+<eraseLine>
+<moveCursorToColumn1>
+<eraseScreenDown>
+<dim> pattern ›</> 
+<saveCursorPosition>
+<moveCursorToColumn1>
+
+
+ <italic><yellow>Start typing to filter by a test name regex pattern.</></>
+<moveCursorToRow6Column12>
+<restoreCursorPosition>
+"
 `;
 
 exports[`shows the correct message when there are no cached tests 1`] = `
-[MOCK - cursorHide]
-[MOCK - clear]
+"<hideCursor>
+<clearTerminal>
 
-Pattern Mode Usage
- › Press Esc to exit pattern mode.
- › Press Enter to filter by a tests regex pattern.
-
-
-[MOCK - cursorShow]
-
-[MOCK - cursorLeft]
-
- pattern › 
-[MOCK - cursorSavePosition]
-[MOCK - cursorLeft]
+<bold>Pattern Mode Usage</>
+ <dim>› Press</> Esc <dim>to exit pattern mode.</>
+ <dim>› Press</> Enter <dim>to filter by a tests regex pattern.</>
 
 
- Start typing to filter by a test name regex pattern.
-[MOCK - cursorTo(11, 5)]
-[MOCK - cursorRestorePosition]
+<showCursor>
+<eraseLine>
+<moveCursorToColumn1>
+<eraseScreenDown>
+<dim> pattern ›</> 
+<saveCursorPosition>
+<moveCursorToColumn1>
+
+
+ <italic><yellow>Start typing to filter by a test name regex pattern.</></>
+<moveCursorToRow6Column12>
+<restoreCursorPosition>
+"
 `;
 
 exports[`test matching is case insensitive 1`] = `
+"<eraseLine>
+<moveCursorToColumn1>
+<eraseScreenDown>
+<dim> pattern ›</> fO
+<saveCursorPosition>
+<moveCursorToColumn1>
 
-[MOCK - cursorLeft]
 
- pattern › fO
-[MOCK - cursorSavePosition]
-[MOCK - cursorLeft]
+ Pattern matches 2 tests from <yellow>cached</> test suites
 
+ <dim>›</> <dim>some description </></>fo</><dim>o 1</>
 
- Pattern matches 2 tests from cached test suites
-
- › some description foo 1
-
- › other description foo 2
-[MOCK - cursorTo(13, 5)]
-[MOCK - cursorRestorePosition]
+ <dim>›</> <dim>other description </></>fo</><dim>o 2</>
+<moveCursorToRow6Column14>
+<restoreCursorPosition>
+"
 `;
