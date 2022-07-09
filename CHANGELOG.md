@@ -1,3 +1,16 @@
+# [2.0.0](https://github.com/jest-community/jest-watch-typeahead/compare/v1.1.0...v2.0.0) (2022-07-09)
+
+
+### Bug Fixes
+
+* **deps:** update dependency ansi-escapes to v5 ([#87](https://github.com/jest-community/jest-watch-typeahead/issues/87)) ([b990d44](https://github.com/jest-community/jest-watch-typeahead/commit/b990d44204454b9d756383b02e037ea206070219))
+* drop support for Node 12 and 17 ([0f4b1b6](https://github.com/jest-community/jest-watch-typeahead/commit/0f4b1b6d26cd29e2db80f53e4141c016a6bd5fbe))
+
+
+### BREAKING CHANGES
+
+* Drop Node 12 and Node 17
+
 # [1.1.0](https://github.com/jest-community/jest-watch-typeahead/compare/v1.0.0...v1.1.0) (2022-04-25)
 
 
