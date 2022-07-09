@@ -1,127 +1,131 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`can select a pattern that matches multiple files 1`] = `
-
-[MOCK - cursorLeft]
-
- pattern › f
-[MOCK - cursorSavePosition]
-[MOCK - cursorLeft]
+"<eraseLine>
+<moveCursorToColumn1>
+<eraseScreenDown>
+<dim> pattern ›</> f
+<saveCursorPosition>
+<moveCursorToColumn1>
 
 
  Pattern matches 3 files
 
- › src/foo.js
+ <dim>›</> <dim>src/</></>f</><dim>oo.js</>
 
- › src/file-1.js
+ <dim>›</> <dim>src/</></>f</><dim>ile-1.js</>
 
- › src/file-2.js
-[MOCK - cursorTo(12, 5)]
-[MOCK - cursorRestorePosition]
-
-[MOCK - cursorLeft]
-
- pattern › fi
-[MOCK - cursorSavePosition]
-[MOCK - cursorLeft]
+ <dim>›</> <dim>src/</></>f</><dim>ile-2.js</>
+<moveCursorToRow6Column13>
+<restoreCursorPosition>
+<eraseLine>
+<moveCursorToColumn1>
+<eraseScreenDown>
+<dim> pattern ›</> fi
+<saveCursorPosition>
+<moveCursorToColumn1>
 
 
  Pattern matches 2 files
 
- › src/file-1.js
+ <dim>›</> <dim>src/</></>fi</><dim>le-1.js</>
 
- › src/file-2.js
-[MOCK - cursorTo(13, 5)]
-[MOCK - cursorRestorePosition]
+ <dim>›</> <dim>src/</></>fi</><dim>le-2.js</>
+<moveCursorToRow6Column14>
+<restoreCursorPosition>
+"
 `;
 
 exports[`can use arrows to select a specific file 1`] = `
-
-[MOCK - cursorLeft]
-
- pattern › f
-[MOCK - cursorSavePosition]
-[MOCK - cursorLeft]
+"<eraseLine>
+<moveCursorToColumn1>
+<eraseScreenDown>
+<dim> pattern ›</> f
+<saveCursorPosition>
+<moveCursorToColumn1>
 
 
  Pattern matches 3 files
 
- › src/foo.js
+ <dim>›</> <dim>src/</></>f</><dim>oo.js</>
 
- › src/file-1.js
+ <dim>›</> <dim>src/</></>f</><dim>ile-1.js</>
 
- › src/file-2.js
-[MOCK - cursorTo(12, 5)]
-[MOCK - cursorRestorePosition]
-
-[MOCK - cursorLeft]
-
- pattern › fi
-[MOCK - cursorSavePosition]
-[MOCK - cursorLeft]
-
-
- Pattern matches 2 files
-
- › src/file-1.js
-
- › src/file-2.js
-[MOCK - cursorTo(13, 5)]
-[MOCK - cursorRestorePosition]
-
-[MOCK - cursorLeft]
-
- pattern › fi
-[MOCK - cursorSavePosition]
-[MOCK - cursorLeft]
+ <dim>›</> <dim>src/</></>f</><dim>ile-2.js</>
+<moveCursorToRow6Column13>
+<restoreCursorPosition>
+<eraseLine>
+<moveCursorToColumn1>
+<eraseScreenDown>
+<dim> pattern ›</> fi
+<saveCursorPosition>
+<moveCursorToColumn1>
 
 
  Pattern matches 2 files
 
- › src/file-1.js
+ <dim>›</> <dim>src/</></>fi</><dim>le-1.js</>
 
- › src/file-2.js
-[MOCK - cursorTo(13, 5)]
-[MOCK - cursorRestorePosition]
+ <dim>›</> <dim>src/</></>fi</><dim>le-2.js</>
+<moveCursorToRow6Column14>
+<restoreCursorPosition>
+<eraseLine>
+<moveCursorToColumn1>
+<eraseScreenDown>
+<dim> pattern ›</> fi
+<saveCursorPosition>
+<moveCursorToColumn1>
+
+
+ Pattern matches 2 files
+
+ <dim>›</> <black><backgroundYellow>src/file-1.js</></>
+
+ <dim>›</> <dim>src/</></>fi</><dim>le-2.js</>
+<moveCursorToRow6Column14>
+<restoreCursorPosition>
+"
 `;
 
 exports[`file matching is case insensitive 1`] = `
-
-[MOCK - cursorLeft]
-
- pattern › fI
-[MOCK - cursorSavePosition]
-[MOCK - cursorLeft]
+"<eraseLine>
+<moveCursorToColumn1>
+<eraseScreenDown>
+<dim> pattern ›</> fI
+<saveCursorPosition>
+<moveCursorToColumn1>
 
 
  Pattern matches 2 files
 
- › src/file-1.js
+ <dim>›</> <dim>src/</></>fi</><dim>le-1.js</>
 
- › src/file-2.js
-[MOCK - cursorTo(13, 5)]
-[MOCK - cursorRestorePosition]
+ <dim>›</> <dim>src/</></>fi</><dim>le-2.js</>
+<moveCursorToRow6Column14>
+<restoreCursorPosition>
+"
 `;
 
 exports[`shows the correct initial state 1`] = `
-[MOCK - cursorHide]
-[MOCK - clear]
+"<hideCursor>
+<clearTerminal>
 
-Pattern Mode Usage
- › Press Esc to exit pattern mode.
- › Press Enter to filter by a filenames regex pattern.
-
-
-[MOCK - cursorShow]
-
-[MOCK - cursorLeft]
-
- pattern › 
-[MOCK - cursorSavePosition]
-[MOCK - cursorLeft]
+<bold>Pattern Mode Usage</>
+ <dim>› Press</> Esc <dim>to exit pattern mode.</>
+ <dim>› Press</> Enter <dim>to filter by a filenames regex pattern.</>
 
 
- Start typing to filter by a filename regex pattern.
-[MOCK - cursorTo(11, 5)]
-[MOCK - cursorRestorePosition]
+<showCursor>
+<eraseLine>
+<moveCursorToColumn1>
+<eraseScreenDown>
+<dim> pattern ›</> 
+<saveCursorPosition>
+<moveCursorToColumn1>
+
+
+ <italic><yellow>Start typing to filter by a filename regex pattern.</></>
+<moveCursorToRow6Column12>
+<restoreCursorPosition>
+"
 `;
