@@ -47,9 +47,9 @@
     "@babel/preset-typescript": "^7.10.4",
     "@jest/globals": "^28.0.0",
     "@jest/types": "^28.0.0",
-    "@semantic-release/changelog": "^5.0.1",
-    "@semantic-release/git": "^9.0.0",
-    "@types/jest": "^27.0.0",
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/git": "^10.0.1",
+    "@types/jest": "^28.0.0",
     "@types/node": "^16.0.0",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
@@ -66,7 +66,7 @@
     "jest-serializer-ansi-escapes": "^1.0.1",
     "prettier": "^2.1.1",
     "rimraf": "^3.0.2",
-    "semantic-release": "^17.4.3",
+    "semantic-release": "^19.0.3",
     "semver": "^7.3.5",
     "typescript": "^4.0.2"
   },
@@ -94,7 +94,7 @@
     ]
   },
   "engines": {
-    "node": "^12.22.0 || ^14.17.0 || >=16.0.0"
+    "node": "^14.17.0 || ^16.10.0 || >=18.0.0"
   },
   "release": {
     "branches": [
@@ -108,8 +108,5 @@
       "@semantic-release/git",
       "@semantic-release/github"
     ]
-  },
-  "resolutions": {
-    "npm": "^8.0.0"
   }
 }
