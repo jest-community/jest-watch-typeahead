@@ -4,35 +4,35 @@ exports[`can select a pattern that matches a describe block 1`] = `
 "<eraseLine>
 <moveCursorToColumn1>
 <eraseScreenDown>
-<dim> pattern ›</> s
+<dim> pattern ›</intensity> s
 <saveCursorPosition>
 <moveCursorToColumn1>
 
 
- Pattern matches 4 tests from <yellow>cached</> test suites
+ Pattern matches 4 tests from <yellow>cached</color> test suites
 
- <dim>›</> </>s</><dim>ome description foo 1</>
+ <dim>›</intensity> </>s</><dim>ome description foo 1</intensity>
 
- <dim>›</> </>s</><dim>ome description bar 1</>
+ <dim>›</intensity> </>s</><dim>ome description bar 1</intensity>
 
- <dim>›</> <dim>other de</></>s</><dim>cription foo 2</>
+ <dim>›</intensity> <dim>other de</intensity></>s</><dim>cription foo 2</intensity>
 
- <dim>›</> <dim>other de</></>s</><dim>cription bar 2</>
+ <dim>›</intensity> <dim>other de</intensity></>s</><dim>cription bar 2</intensity>
 <moveCursorToRow6Column13>
 <restoreCursorPosition>
 <eraseLine>
 <moveCursorToColumn1>
 <eraseScreenDown>
-<dim> pattern ›</> so
+<dim> pattern ›</intensity> so
 <saveCursorPosition>
 <moveCursorToColumn1>
 
 
- Pattern matches 2 tests from <yellow>cached</> test suites
+ Pattern matches 2 tests from <yellow>cached</color> test suites
 
- <dim>›</> </>so</><dim>me description foo 1</>
+ <dim>›</intensity> </>so</><dim>me description foo 1</intensity>
 
- <dim>›</> </>so</><dim>me description bar 1</>
+ <dim>›</intensity> </>so</><dim>me description bar 1</intensity>
 <moveCursorToRow6Column14>
 <restoreCursorPosition>
 "
@@ -42,31 +42,31 @@ exports[`can select a pattern that matches multiple tests 1`] = `
 "<eraseLine>
 <moveCursorToColumn1>
 <eraseScreenDown>
-<dim> pattern ›</> f
+<dim> pattern ›</intensity> f
 <saveCursorPosition>
 <moveCursorToColumn1>
 
 
- Pattern matches 2 tests from <yellow>cached</> test suites
+ Pattern matches 2 tests from <yellow>cached</color> test suites
 
- <dim>›</> <dim>some description </></>f</><dim>oo 1</>
+ <dim>›</intensity> <dim>some description </intensity></>f</><dim>oo 1</intensity>
 
- <dim>›</> <dim>other description </></>f</><dim>oo 2</>
+ <dim>›</intensity> <dim>other description </intensity></>f</><dim>oo 2</intensity>
 <moveCursorToRow6Column13>
 <restoreCursorPosition>
 <eraseLine>
 <moveCursorToColumn1>
 <eraseScreenDown>
-<dim> pattern ›</> fo
+<dim> pattern ›</intensity> fo
 <saveCursorPosition>
 <moveCursorToColumn1>
 
 
- Pattern matches 2 tests from <yellow>cached</> test suites
+ Pattern matches 2 tests from <yellow>cached</color> test suites
 
- <dim>›</> <dim>some description </></>fo</><dim>o 1</>
+ <dim>›</intensity> <dim>some description </intensity></>fo</><dim>o 1</intensity>
 
- <dim>›</> <dim>other description </></>fo</><dim>o 2</>
+ <dim>›</intensity> <dim>other description </intensity></>fo</><dim>o 2</intensity>
 <moveCursorToRow6Column14>
 <restoreCursorPosition>
 "
@@ -76,46 +76,46 @@ exports[`can use arrows to select a specific test 1`] = `
 "<eraseLine>
 <moveCursorToColumn1>
 <eraseScreenDown>
-<dim> pattern ›</> f
+<dim> pattern ›</intensity> f
 <saveCursorPosition>
 <moveCursorToColumn1>
 
 
- Pattern matches 2 tests from <yellow>cached</> test suites
+ Pattern matches 2 tests from <yellow>cached</color> test suites
 
- <dim>›</> <dim>some description </></>f</><dim>oo 1</>
+ <dim>›</intensity> <dim>some description </intensity></>f</><dim>oo 1</intensity>
 
- <dim>›</> <dim>other description </></>f</><dim>oo 2</>
+ <dim>›</intensity> <dim>other description </intensity></>f</><dim>oo 2</intensity>
 <moveCursorToRow6Column13>
 <restoreCursorPosition>
 <eraseLine>
 <moveCursorToColumn1>
 <eraseScreenDown>
-<dim> pattern ›</> f
+<dim> pattern ›</intensity> f
 <saveCursorPosition>
 <moveCursorToColumn1>
 
 
- Pattern matches 2 tests from <yellow>cached</> test suites
+ Pattern matches 2 tests from <yellow>cached</color> test suites
 
- <dim>›</> <black><backgroundYellow>some description foo 1</></>
+ <dim>›</intensity> <black><backgroundYellow>some description foo 1</background></color>
 
- <dim>›</> <dim>other description </></>f</><dim>oo 2</>
+ <dim>›</intensity> <dim>other description </intensity></>f</><dim>oo 2</intensity>
 <moveCursorToRow6Column13>
 <restoreCursorPosition>
 <eraseLine>
 <moveCursorToColumn1>
 <eraseScreenDown>
-<dim> pattern ›</> f
+<dim> pattern ›</intensity> f
 <saveCursorPosition>
 <moveCursorToColumn1>
 
 
- Pattern matches 2 tests from <yellow>cached</> test suites
+ Pattern matches 2 tests from <yellow>cached</color> test suites
 
- <dim>›</> <dim>some description </></>f</><dim>oo 1</>
+ <dim>›</intensity> <dim>some description </intensity></>f</><dim>oo 1</intensity>
 
- <dim>›</> <black><backgroundYellow>other description foo 2</></>
+ <dim>›</intensity> <black><backgroundYellow>other description foo 2</background></color>
 <moveCursorToRow6Column13>
 <restoreCursorPosition>
 "
@@ -125,21 +125,21 @@ exports[`shows the correct initial state 1`] = `
 "<hideCursor>
 <clearTerminal>
 
-<bold>Pattern Mode Usage</>
- <dim>› Press</> Esc <dim>to exit pattern mode.</>
- <dim>› Press</> Enter <dim>to filter by a tests regex pattern.</>
+<bold>Pattern Mode Usage</intensity>
+ <dim>› Press</intensity> Esc <dim>to exit pattern mode.</intensity>
+ <dim>› Press</intensity> Enter <dim>to filter by a tests regex pattern.</intensity>
 
 
 <showCursor>
 <eraseLine>
 <moveCursorToColumn1>
 <eraseScreenDown>
-<dim> pattern ›</> 
+<dim> pattern ›</intensity> 
 <saveCursorPosition>
 <moveCursorToColumn1>
 
 
- <italic><yellow>Start typing to filter by a test name regex pattern.</></>
+ <italic><yellow>Start typing to filter by a test name regex pattern.</color></italic>
 <moveCursorToRow6Column12>
 <restoreCursorPosition>
 "
@@ -149,21 +149,21 @@ exports[`shows the correct message when there are no cached tests 1`] = `
 "<hideCursor>
 <clearTerminal>
 
-<bold>Pattern Mode Usage</>
- <dim>› Press</> Esc <dim>to exit pattern mode.</>
- <dim>› Press</> Enter <dim>to filter by a tests regex pattern.</>
+<bold>Pattern Mode Usage</intensity>
+ <dim>› Press</intensity> Esc <dim>to exit pattern mode.</intensity>
+ <dim>› Press</intensity> Enter <dim>to filter by a tests regex pattern.</intensity>
 
 
 <showCursor>
 <eraseLine>
 <moveCursorToColumn1>
 <eraseScreenDown>
-<dim> pattern ›</> 
+<dim> pattern ›</intensity> 
 <saveCursorPosition>
 <moveCursorToColumn1>
 
 
- <italic><yellow>Start typing to filter by a test name regex pattern.</></>
+ <italic><yellow>Start typing to filter by a test name regex pattern.</color></italic>
 <moveCursorToRow6Column12>
 <restoreCursorPosition>
 "
@@ -173,16 +173,16 @@ exports[`test matching is case insensitive 1`] = `
 "<eraseLine>
 <moveCursorToColumn1>
 <eraseScreenDown>
-<dim> pattern ›</> fO
+<dim> pattern ›</intensity> fO
 <saveCursorPosition>
 <moveCursorToColumn1>
 
 
- Pattern matches 2 tests from <yellow>cached</> test suites
+ Pattern matches 2 tests from <yellow>cached</color> test suites
 
- <dim>›</> <dim>some description </></>fo</><dim>o 1</>
+ <dim>›</intensity> <dim>some description </intensity></>fo</><dim>o 1</intensity>
 
- <dim>›</> <dim>other description </></>fo</><dim>o 2</>
+ <dim>›</intensity> <dim>other description </intensity></>fo</><dim>o 2</intensity>
 <moveCursorToRow6Column14>
 <restoreCursorPosition>
 "

@@ -72,7 +72,7 @@ describe('highlight', () => {
     );
 
     expect(highlight(rawPath, filePath, pattern)).toMatchInlineSnapshot(
-      `"<dim>__tests__/utils/experimentation/entry-point/</></>parse</><dim>EntryPoint.test.js</>"`,
+      `"<dim>__tests__/utils/experimentation/entry-point/</intensity></>parse</><dim>EntryPoint.test.js</intensity>"`,
     );
   });
 
@@ -82,7 +82,7 @@ describe('highlight', () => {
     );
 
     expect(highlight(rawPath, filePath, pattern)).toMatchInlineSnapshot(
-      `"<dim>...tils/experimentation/entry-point/</></>parse</><dim>EntryPoint.test.js</>"`,
+      `"<dim>...tils/experimentation/entry-point/</intensity></>parse</><dim>EntryPoint.test.js</intensity>"`,
     );
   });
 
@@ -92,7 +92,7 @@ describe('highlight', () => {
     );
 
     expect(highlight(rawPath, filePath, pattern)).toMatchInlineSnapshot(
-      `"<dim>./src/__tests__/utils/experimentation/entry-point/</></>parse</><dim>EntryPoint.test.js</>"`,
+      `"<dim>./src/__tests__/utils/experimentation/entry-point/</intensity></>parse</><dim>EntryPoint.test.js</intensity>"`,
     );
   });
 });
