@@ -4202,10 +4202,10 @@ jest-runtime@^28.1.2:
     slash "^3.0.0"
     strip-bom "^4.0.0"
 
-jest-serializer-ansi-escapes@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/jest-serializer-ansi-escapes/-/jest-serializer-ansi-escapes-1.0.1.tgz#4c26adb7e5d4cd382f7adeb32cf5b12a4ac27d96"
-  integrity sha512-qfDZgNHLXVVFwsAGD8obs1KirQG43K5N0zwDMmaXL8HkS1PcPMZosofp1eykETPPJMY+pQSZkprXPq120WMJtQ==
+jest-serializer-ansi-escapes@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/jest-serializer-ansi-escapes/-/jest-serializer-ansi-escapes-2.0.1.tgz#053fc7f2d8629ad127afb6a31e542b65c6ad7806"
+  integrity sha512-+BuVKZQutcejSuODTleG/CV+8OVONZSOSrtrQRG8isTLu367JVKK+/yaG2jGs5O6MPBZ88WNy5jg8hqhd/p6pw==
 
 jest-snapshot@^28.1.2:
   version "28.1.2"
