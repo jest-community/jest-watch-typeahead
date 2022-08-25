@@ -26,8 +26,8 @@
     "test": "cross-env NODE_OPTIONS=\"--experimental-vm-modules\" jest",
     "lint": "eslint .",
     "prebuild": "rimraf build",
-    "build": "babel --extensions .js,.ts src -d build && rimraf **/*.test.{js,ts},integration build/**/__tests__ build/test_utils",
-    "prepublish": "yarn build",
+    "build": "babel --extensions .js,.ts src -d build && rimraf 'build/**/*.test.{js,ts},integration' 'build/**/__tests__' build/test_utils",
+    "prepack": "yarn build",
     "format": "prettier --write \"**/*.js\" \"**/*.md\" \"**/*.ts\"",
     "typecheck": "yarn tsc -p ."
   },
