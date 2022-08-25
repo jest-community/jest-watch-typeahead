@@ -1,3 +1,10 @@
+## [2.1.1](https://github.com/jest-community/jest-watch-typeahead/compare/v2.1.0...v2.1.1) (2022-08-25)
+
+
+### Bug Fixes
+
+* add prepack script ([fdbc88a](https://github.com/jest-community/jest-watch-typeahead/commit/fdbc88a316258c7df4876ee8211880b8c14457e1))
+
 # [2.1.0](https://github.com/jest-community/jest-watch-typeahead/compare/v2.0.0...v2.1.0) (2022-08-25)
 
 
