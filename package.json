@@ -108,5 +108,6 @@
       "@semantic-release/git",
       "@semantic-release/github"
     ]
-  }
+  },
+  "packageManager": "yarn@3.2.3"
 }
