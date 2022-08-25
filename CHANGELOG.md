@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/jest-community/jest-watch-typeahead/compare/v2.0.0...v2.1.0) (2022-08-25)
+
+
+### Features
+
+* add support for Jest 29 ([bebd216](https://github.com/jest-community/jest-watch-typeahead/commit/bebd21679967ae8b7d9a2c4789f09c42e05285fc))
+
 # [2.0.0](https://github.com/jest-community/jest-watch-typeahead/compare/v1.1.0...v2.0.0) (2022-07-09)
 
 
