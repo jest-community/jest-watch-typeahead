@@ -1,3 +1,4 @@
+import { beforeAll, expect, it } from '@jest/globals';
 import { KEYS } from 'jest-watcher';
 import type { Config } from '@jest/types';
 

@@ -1,3 +1,5 @@
+import { beforeAll, expect, it } from '@jest/globals';
+
 let pluginTester: typeof import('../../test_utils/pluginTester').default = null;
 let TestNamePlugin: typeof import('../plugin').default = null;
 let KEYS: typeof import('jest-watcher').KEYS = null;

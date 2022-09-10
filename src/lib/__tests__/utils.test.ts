@@ -1,4 +1,5 @@
 import chalk from 'chalk';
+import { describe, expect, it, test } from '@jest/globals';
 import {
   trimAndFormatPath,
   formatTestNameByPattern,
@@ -6,7 +7,7 @@ import {
 } from '../utils';
 
 describe('trimAndFormatPath', () => {
-  test.each`
+  test.each<{ testPath: string; pad: number; columns: number }>`
     testPath                                           | pad  | columns
     ${'/project/src/gonna/fit/all.js'}                 | ${6} | ${80}
     ${'/project/src/trimmed_dir/foo.js'}               | ${6} | ${20}
@@ -23,7 +24,7 @@ describe('trimAndFormatPath', () => {
 });
 
 describe('formatTestNameByPattern', () => {
-  test.each`
+  test.each<{ testName: string; pattern: string; width: number }>`
     testName           | pattern   | width
     ${'the test name'} | ${'the'}  | ${30}
     ${'the test name'} | ${'the'}  | ${25}
