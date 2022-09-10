@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/jest-community/jest-watch-typeahead/compare/v2.1.1...v2.2.0) (2022-09-10)
+
+
+### Features
+
+* **deps:** update jest monorepo to v29 (major) ([#175](https://github.com/jest-community/jest-watch-typeahead/issues/175)) ([05f98ac](https://github.com/jest-community/jest-watch-typeahead/commit/05f98ace7a9317e65f9647d20d9b48a9903ad97f))
+
 ## [2.1.1](https://github.com/jest-community/jest-watch-typeahead/compare/v2.1.0...v2.1.1) (2022-08-25)
 
 
