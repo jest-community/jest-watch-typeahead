@@ -1,3 +1,11 @@
+## [2.2.1](https://github.com/jest-community/jest-watch-typeahead/compare/v2.2.0...v2.2.1) (2022-11-16)
+
+
+### Bug Fixes
+
+* **deps:** update dependency ansi-escapes to v6 ([#183](https://github.com/jest-community/jest-watch-typeahead/issues/183)) ([8e9713b](https://github.com/jest-community/jest-watch-typeahead/commit/8e9713bcce5bd8a039834a075f86ef8f2062e917))
+* **deps:** update dependency slash to v5 ([#186](https://github.com/jest-community/jest-watch-typeahead/issues/186)) ([726f0d1](https://github.com/jest-community/jest-watch-typeahead/commit/726f0d107fe19d8588c1351fb597bd1bf970a49c))
+
 # [2.2.0](https://github.com/jest-community/jest-watch-typeahead/compare/v2.1.1...v2.2.0) (2022-09-10)
 
 
