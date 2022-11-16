@@ -5682,7 +5682,7 @@ __metadata:
     ansi-escapes: ^6.0.0
     babel-jest: ^29.0.0
     babel-plugin-add-import-extension: ^1.6.0
-    chalk: ^4.0.0
+    chalk: ^5.0.0
     cross-env: ^7.0.3
     eslint: ^8.0.0
     eslint-config-airbnb-base: ^15.0.0
