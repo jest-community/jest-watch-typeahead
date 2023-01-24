@@ -1,3 +1,10 @@
+## [2.2.2](https://github.com/jest-community/jest-watch-typeahead/compare/v2.2.1...v2.2.2) (2023-01-24)
+
+
+### Bug Fixes
+
+* update chalk ([#211](https://github.com/jest-community/jest-watch-typeahead/issues/211)) ([8c2b064](https://github.com/jest-community/jest-watch-typeahead/commit/8c2b0647e9030305f8057b19051f9bdc087587fc))
+
 ## [2.2.1](https://github.com/jest-community/jest-watch-typeahead/compare/v2.2.0...v2.2.1) (2022-11-16)
 
 
