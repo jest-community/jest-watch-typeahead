@@ -1,8 +1,8 @@
 import {
   JestHook,
-  WatchPlugin,
-  JestHookEmitter,
-  UpdateConfigCallback,
+  type WatchPlugin,
+  type JestHookEmitter,
+  type UpdateConfigCallback,
 } from 'jest-watcher';
 import { jest } from '@jest/globals';
 import type FileNamePlugin from '../file_name_plugin/plugin';
