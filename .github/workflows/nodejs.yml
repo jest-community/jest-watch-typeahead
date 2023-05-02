@@ -65,6 +65,8 @@ jobs:
         run: yarn
       - name: run typecheck
         run: yarn typecheck
+      - name: run build
+        run: yarn build
       - name: run ESLint
         run: yarn lint
 
