@@ -2,7 +2,7 @@ import chalk from 'chalk';
 import ansiEscapes from 'ansi-escapes';
 import stringLength from 'string-length';
 import {
-  Prompt,
+  type Prompt,
   PatternPrompt,
   printPatternCaret,
   printRestoredPatternCaret,
@@ -22,7 +22,7 @@ import {
   printStartTyping,
   printTypeaheadItem,
 } from '../lib/pattern_mode_helpers';
-import scroll, { ScrollOptions } from '../lib/scroll';
+import scroll, { type ScrollOptions } from '../lib/scroll';
 
 export type SearchSources = Array<{
   config: Config.ProjectConfig;

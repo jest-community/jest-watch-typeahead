@@ -1,14 +1,14 @@
 import chalk from 'chalk';
 import ansiEscapes from 'ansi-escapes';
 import {
-  Prompt,
+  type Prompt,
   PatternPrompt,
   printPatternCaret,
   printRestoredPatternCaret,
 } from 'jest-watcher';
 import type { TestResult } from '@jest/test-result';
 import { escapeStrForRegex } from 'jest-regex-util';
-import scroll, { ScrollOptions } from '../lib/scroll';
+import scroll, { type ScrollOptions } from '../lib/scroll';
 import {
   formatTestNameByPattern,
   getTerminalWidth,

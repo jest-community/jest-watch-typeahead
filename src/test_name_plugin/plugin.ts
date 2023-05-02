@@ -1,9 +1,9 @@
 import {
   Prompt,
-  WatchPlugin,
-  JestHookSubscriber,
-  UpdateConfigCallback,
-  UsageData,
+  type WatchPlugin,
+  type JestHookSubscriber,
+  type UpdateConfigCallback,
+  type UsageData,
 } from 'jest-watcher';
 import type { Config } from '@jest/types';
 import type { TestResult } from '@jest/test-result';

@@ -67,7 +67,7 @@
     "rimraf": "^4.0.0",
     "semantic-release": "^20.0.0",
     "semver": "^7.3.5",
-    "typescript": "^4.0.2"
+    "typescript": "^5.0.4"
   },
   "peerDependencies": {
     "jest": "^27.0.0 || ^28.0.0 || ^29.0.0"

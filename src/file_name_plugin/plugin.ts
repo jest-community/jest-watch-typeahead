@@ -1,12 +1,12 @@
 import {
-  WatchPlugin,
+  type WatchPlugin,
   Prompt,
-  JestHookSubscriber,
-  UpdateConfigCallback,
-  UsageData,
+  type JestHookSubscriber,
+  type UpdateConfigCallback,
+  type UsageData,
 } from 'jest-watcher';
 import type { Config } from '@jest/types';
-import FileNamePatternPrompt, { SearchSources } from './prompt';
+import FileNamePatternPrompt, { type SearchSources } from './prompt';
 import type { PluginConfig } from '../types/Config';
 
 export default class FileNamePlugin implements WatchPlugin {

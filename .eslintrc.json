@@ -15,7 +15,17 @@
     "import/extensions": 0,
     "import/no-extraneous-dependencies": [
       2,
-      { "devDependencies": ["**/__tests__/**/*", "src/test_utils/pluginTester.ts"] }
+      {
+        "devDependencies": [
+          "**/__tests__/**/*",
+          "src/test_utils/pluginTester.ts"
+        ]
+      }
+    ],
+    "@typescript-eslint/no-import-type-side-effects": "error",
+    "@typescript-eslint/consistent-type-imports": [
+      "error",
+      { "disallowTypeAnnotations": false, "fixStyle": "inline-type-imports" }
     ]
   },
   "env": {
