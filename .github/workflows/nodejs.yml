@@ -48,10 +48,25 @@ jobs:
           cache: yarn
       - name: install
         run: yarn
-      - name: run typecheck
-        run: yarn typecheck
       - name: run tests
         run: yarn test --colors
+
+  lint:
+    name: Run ESLint and TypeScript
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: lts/*
+          cache: yarn
+      - name: install
+        run: yarn
+      - name: run typecheck
+        run: yarn typecheck
+      - name: run ESLint
+        run: yarn lint
 
   release:
     if:
