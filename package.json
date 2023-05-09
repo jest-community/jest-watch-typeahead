@@ -65,7 +65,7 @@
     "jest-serializer-ansi-escapes": "^2.0.1",
     "prettier": "^2.1.1",
     "rimraf": "^3.0.0",
-    "semantic-release": "^20.0.0",
+    "semantic-release": "^21.0.0",
     "semver": "^7.3.5",
     "typescript": "^5.0.4"
   },
