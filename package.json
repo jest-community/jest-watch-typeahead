@@ -111,6 +111,6 @@
   },
   "packageManager": "yarn@3.6.0",
   "resolutions": {
-    "ansi-escapes/type-fest": "^3.0.0"
+    "ansi-escapes/type-fest": "^4.0.0"
   }
 }
