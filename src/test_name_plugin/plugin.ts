@@ -1,5 +1,4 @@
-import {
-  Prompt,
+import jestWatcher, {
   type WatchPlugin,
   type JestHookSubscriber,
   type UpdateConfigCallback,
@@ -15,7 +14,7 @@ export default class TestNamePlugin implements WatchPlugin {
 
   _stdout: NodeJS.WriteStream;
 
-  _prompt: Prompt;
+  _prompt: jestWatcher.Prompt;
 
   _testResults: Array<TestResult>;
 
@@ -32,7 +31,7 @@ export default class TestNamePlugin implements WatchPlugin {
   }) {
     this._stdin = stdin;
     this._stdout = stdout;
-    this._prompt = new Prompt();
+    this._prompt = new jestWatcher.Prompt();
     this._testResults = [];
     this._usageInfo = {
       key: config.key || 't',

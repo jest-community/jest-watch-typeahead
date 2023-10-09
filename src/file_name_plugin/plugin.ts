@@ -1,6 +1,5 @@
-import {
+import jestWatcher, {
   type WatchPlugin,
-  Prompt,
   type JestHookSubscriber,
   type UpdateConfigCallback,
   type UsageData,
@@ -9,12 +8,14 @@ import type { Config } from '@jest/types';
 import FileNamePatternPrompt, { type SearchSources } from './prompt';
 import type { PluginConfig } from '../types/Config';
 
+const { Prompt } = jestWatcher;
+
 export default class FileNamePlugin implements WatchPlugin {
   _stdin: NodeJS.ReadStream;
 
   _stdout: NodeJS.WriteStream;
 
-  _prompt: Prompt;
+  _prompt: jestWatcher.Prompt;
 
   _projects: SearchSources;
 

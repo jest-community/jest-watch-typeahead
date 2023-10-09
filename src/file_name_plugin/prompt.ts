@@ -1,13 +1,8 @@
 import chalk from 'chalk';
 import ansiEscapes from 'ansi-escapes';
 import stringLength from 'string-length';
-import {
-  type Prompt,
-  PatternPrompt,
-  printPatternCaret,
-  printRestoredPatternCaret,
-} from 'jest-watcher';
-import { escapeStrForRegex } from 'jest-regex-util';
+import jestWatcher, { type Prompt } from 'jest-watcher';
+import jestRegexUtil from 'jest-regex-util';
 import type { Config } from '@jest/types';
 import {
   highlight,
@@ -28,6 +23,11 @@ export type SearchSources = Array<{
   config: Config.ProjectConfig;
   testPaths: Array<string>;
 }>;
+
+const { PatternPrompt, printPatternCaret, printRestoredPatternCaret } =
+  jestWatcher;
+
+const { escapeStrForRegex } = jestRegexUtil;
 
 export default class FileNamePatternPrompt extends PatternPrompt {
   _searchSources: SearchSources;

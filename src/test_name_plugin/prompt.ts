@@ -1,13 +1,8 @@
 import chalk from 'chalk';
 import ansiEscapes from 'ansi-escapes';
-import {
-  type Prompt,
-  PatternPrompt,
-  printPatternCaret,
-  printRestoredPatternCaret,
-} from 'jest-watcher';
+import jestWatcher, { type Prompt } from 'jest-watcher';
 import type { TestResult } from '@jest/test-result';
-import { escapeStrForRegex } from 'jest-regex-util';
+import jestRegexUtil from 'jest-regex-util';
 import scroll, { type ScrollOptions } from '../lib/scroll';
 import {
   formatTestNameByPattern,
@@ -21,6 +16,10 @@ import {
   printStartTyping,
   printTypeaheadItem,
 } from '../lib/pattern_mode_helpers';
+
+const { PatternPrompt, printPatternCaret, printRestoredPatternCaret } =
+  jestWatcher;
+const { escapeStrForRegex } = jestRegexUtil;
 
 export default class TestNamePatternPrompt extends PatternPrompt {
   _cachedTestResults: Array<TestResult>;

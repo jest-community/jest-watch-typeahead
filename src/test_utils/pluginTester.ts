@@ -1,5 +1,4 @@
-import {
-  JestHook,
+import jestWatcher, {
   type WatchPlugin,
   type JestHookEmitter,
   type UpdateConfigCallback,
@@ -13,6 +12,8 @@ type Options = {
   stdout?: { columns?: number };
   config?: PluginConfig;
 };
+
+const { JestHook } = jestWatcher;
 
 export default function pluginTester(
   Plugin: typeof TestNamePlugin | typeof FileNamePlugin,

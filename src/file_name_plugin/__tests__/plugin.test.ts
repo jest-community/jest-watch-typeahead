@@ -1,6 +1,8 @@
 import { beforeAll, expect, it } from '@jest/globals';
-import { KEYS } from 'jest-watcher';
+import jestWatcher from 'jest-watcher';
 import type { Config } from '@jest/types';
+
+const { KEYS } = jestWatcher;
 
 let pluginTester: typeof import('../../test_utils/pluginTester').default = null;
 let FileNamePlugin: typeof import('../plugin').default = null;
