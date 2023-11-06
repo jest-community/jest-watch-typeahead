@@ -2202,19 +2202,19 @@ __metadata:
   linkType: hard
 
 "@semantic-release/commit-analyzer@npm:^11.0.0":
-  version: 11.0.0
-  resolution: "@semantic-release/commit-analyzer@npm:11.0.0"
+  version: 11.1.0
+  resolution: "@semantic-release/commit-analyzer@npm:11.1.0"
   dependencies:
     conventional-changelog-angular: ^7.0.0
     conventional-commits-filter: ^4.0.0
     conventional-commits-parser: ^5.0.0
     debug: ^4.0.0
-    import-from: ^4.0.0
+    import-from-esm: ^1.0.3
     lodash-es: ^4.17.21
     micromatch: ^4.0.2
   peerDependencies:
     semantic-release: ">=20.1.0"
-  checksum: 4714b51128c1b0a7168ed800d5a34b0e37bac66e9d8165930d3d05a22d80b213d4076d993ddbb8d0023f9d8fd6c6630da9c0c1be55687a5dc278d6812442259e
+  checksum: 773e855bfee6d917f4145e1c85940cdf028d00efa197dabea4a86b8d31c6d5609767da147c93ec61d4cc36b74b1c10703482cc15ecab9c468c52e4e177863262
   languageName: node
   linkType: hard
 
@@ -2300,8 +2300,8 @@ __metadata:
   linkType: hard
 
 "@semantic-release/release-notes-generator@npm:^12.0.0":
-  version: 12.0.1
-  resolution: "@semantic-release/release-notes-generator@npm:12.0.1"
+  version: 12.1.0
+  resolution: "@semantic-release/release-notes-generator@npm:12.1.0"
   dependencies:
     conventional-changelog-angular: ^7.0.0
     conventional-changelog-writer: ^7.0.0
@@ -2309,13 +2309,13 @@ __metadata:
     conventional-commits-parser: ^5.0.0
     debug: ^4.0.0
     get-stream: ^7.0.0
-    import-from: ^4.0.0
+    import-from-esm: ^1.0.3
     into-stream: ^7.0.0
     lodash-es: ^4.17.21
     read-pkg-up: ^11.0.0
   peerDependencies:
     semantic-release: ">=20.1.0"
-  checksum: 2191e95c4e55ea78353b6ea7cf738804dc2a5c8376de4ffa4a93c16eb67cbe6056eec8f6d277fbc24a035105ec44aa239387817b52a998580ee41eefc190a53d
+  checksum: 7e177c77a66091364ffc419ba5deba0d8e1b58857da40fbd34712e8dbe5a8b18def19eba5c5cbefc396402573c334de789683ee276eee82edb9b347d6c17f71c
   languageName: node
   linkType: hard
 
@@ -5121,10 +5121,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"import-from@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "import-from@npm:4.0.0"
-  checksum: 1fa29c05b048da18914e91d9a529e5d9b91774bebbfab10e53f59bcc1667917672b971cf102fee857f142e5e433ce69fa1f0a596e1c7d82f9947a5ec352694b9
+"import-from-esm@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "import-from-esm@npm:1.0.3"
+  checksum: 6639907d79fa072ae4f5e2d6464effb83c5f453101a95605489c3ca3b1b7ec05fd0dfb4126c0219fc25bb5dc6e1d66e35afddd896f8f527dd92c57021cbe6ed0
   languageName: node
   linkType: hard
 
