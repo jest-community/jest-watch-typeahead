@@ -2511,19 +2511,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*":
+"@types/node@npm:*, @types/node@npm:^20.0.0":
   version: 20.10.0
   resolution: "@types/node@npm:20.10.0"
   dependencies:
     undici-types: ~5.26.4
   checksum: face395140d6f2f1755b91fdd3b697cf56aeb9e2514529ce88d56e56f261ad65be7269d863520a9406d73c338699ea68b418e8677584de0c1efeed09539b6f97
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:^14.0.0":
-  version: 14.18.63
-  resolution: "@types/node@npm:14.18.63"
-  checksum: be909061a54931778c71c49dc562586c32f909c4b6197e3d71e6dac726d8bd9fccb9f599c0df99f52742b68153712b5097c0f00cac4e279fa894b0ea6719a8fd
   languageName: node
   linkType: hard
 
@@ -6060,7 +6053,7 @@ __metadata:
     "@jest/types": ^29.0.0
     "@semantic-release/changelog": ^6.0.1
     "@semantic-release/git": ^10.0.1
-    "@types/node": ^14.0.0
+    "@types/node": ^20.0.0
     "@typescript-eslint/eslint-plugin": ^5.0.0
     "@typescript-eslint/parser": ^5.0.0
     ansi-escapes: ^6.0.0
