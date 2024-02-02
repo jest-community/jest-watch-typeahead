@@ -109,7 +109,7 @@
       "@semantic-release/github"
     ]
   },
-  "packageManager": "yarn@3.7.0",
+  "packageManager": "yarn@3.8.0",
   "resolutions": {
     "ansi-escapes/type-fest": "^3.0.0"
   }
