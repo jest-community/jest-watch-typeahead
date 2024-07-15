@@ -62,10 +62,10 @@
     "eslint-plugin-jest": "^27.0.0",
     "eslint-plugin-prettier": "^5.0.1",
     "jest": "^29.0.0",
-    "jest-serializer-ansi-escapes": "^2.0.1",
+    "jest-serializer-ansi-escapes": "^3.0.0",
     "prettier": "^3.1.0",
     "rimraf": "^5.0.0",
-    "semantic-release": "^22.0.0",
+    "semantic-release": "^24.0.0",
     "semver": "^7.3.5",
     "typescript": "^5.0.4"
   },
@@ -97,9 +97,6 @@
     "node": "^14.17.0 || ^16.10.0 || >=18.0.0"
   },
   "release": {
-    "branches": [
-      "main"
-    ],
     "plugins": [
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
