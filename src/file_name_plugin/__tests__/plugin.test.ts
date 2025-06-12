@@ -51,7 +51,7 @@ it('can use arrows to select a specific file', async () => {
 
   expect(updateConfigAndRun).toHaveBeenCalledWith({
     mode: 'watch',
-    testPathPattern: 'src/file-1\\.js',
+    testPathPatterns: ['src/file-1\\.js'],
   });
 });
 
@@ -77,7 +77,7 @@ it('can select a specific file that includes a regexp special character', async 
 
   expect(updateConfigAndRun).toHaveBeenCalledWith({
     mode: 'watch',
-    testPathPattern: 'src/file_\\(xyz\\)\\.js',
+    testPathPatterns: ['src/file_\\(xyz\\)\\.js'],
   });
 });
 
@@ -95,7 +95,7 @@ it('can select a pattern that matches multiple files', async () => {
 
   expect(updateConfigAndRun).toHaveBeenCalledWith({
     mode: 'watch',
-    testPathPattern: 'fi',
+    testPathPatterns: ['fi'],
   });
 });
 
@@ -152,6 +152,6 @@ it("selected file doesn't include trimming dots", async () => {
 
   expect(updateConfigAndRun).toHaveBeenCalledWith({
     mode: 'watch',
-    testPathPattern: 'ong_name_gonna_need_trimming\\.js',
+    testPathPatterns: ['ong_name_gonna_need_trimming\\.js'],
   });
 });
