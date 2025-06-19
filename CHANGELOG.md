@@ -1,3 +1,15 @@
+# [3.0.0](https://github.com/jest-community/jest-watch-typeahead/compare/v2.2.2...v3.0.0) (2025-06-19)
+
+
+### Features
+
+* Update for Jest 30 ([#377](https://github.com/jest-community/jest-watch-typeahead/issues/377)) ([3009a28](https://github.com/jest-community/jest-watch-typeahead/commit/3009a281bdb9a04eaad63e7645a953fec6a54ae8))
+
+
+### BREAKING CHANGES
+
+* Drop support for Jest 27, 28 & 29. Drop support for Node 14, 16, 19, 21 & 23
+
 ## [2.2.2](https://github.com/jest-community/jest-watch-typeahead/compare/v2.2.1...v2.2.2) (2023-01-24)
 
 
