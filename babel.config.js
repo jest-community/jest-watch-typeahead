@@ -1,5 +1,4 @@
 import { readFileSync } from 'fs';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import semver from 'semver';
 
 let pkg = readFileSync('./package.json', 'utf8');

@@ -73,7 +73,7 @@ export const highlight = (
 
   try {
     regexp = new RegExp(pattern, 'i');
-  } catch (e) {
+  } catch {
     return chalk.dim(filePath);
   }
 
@@ -116,7 +116,7 @@ export const formatTestNameByPattern = (
 
   try {
     regexp = new RegExp(pattern, 'i');
-  } catch (e) {
+  } catch {
     return chalk.dim(inlineTestName);
   }
 

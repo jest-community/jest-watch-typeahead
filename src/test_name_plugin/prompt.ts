@@ -84,7 +84,7 @@ export default class TestNamePatternPrompt extends PatternPrompt {
 
     try {
       regex = new RegExp(pattern, 'i');
-    } catch (e) {
+    } catch {
       return [];
     }
 
