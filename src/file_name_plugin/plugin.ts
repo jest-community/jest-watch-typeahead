@@ -59,7 +59,7 @@ export default class FileNamePlugin implements WatchPlugin {
       p.run((testPathPattern) => {
         updateConfigAndRun({
           mode: 'watch',
-          testPathPattern,
+          testPathPatterns: [testPathPattern],
         });
         res();
       }, rej);
