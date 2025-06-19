@@ -1,3 +1,10 @@
+## [3.0.1](https://github.com/jest-community/jest-watch-typeahead/compare/v3.0.0...v3.0.1) (2025-06-19)
+
+
+### Bug Fixes
+
+* update `ansi-escapes` and `string-length` ([#380](https://github.com/jest-community/jest-watch-typeahead/issues/380)) ([67d5bff](https://github.com/jest-community/jest-watch-typeahead/commit/67d5bff60ae901904644c8a24cec468239635d63))
+
 # [3.0.0](https://github.com/jest-community/jest-watch-typeahead/compare/v2.2.2...v3.0.0) (2025-06-19)
 
 

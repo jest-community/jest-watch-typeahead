@@ -1,6 +1,6 @@
 {
   "name": "jest-watch-typeahead",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "main": "build/index.js",
   "exports": {
     ".": "./build/index.js",
