@@ -29,15 +29,15 @@
     "build": "babel --extensions .js,.ts src -d build && rimraf --glob 'build/**/*.test.{js,ts},integration' 'build/**/__tests__' build/test_utils",
     "prepack": "yarn build",
     "format": "prettier --write \"**/*.js\" \"**/*.md\" \"**/*.ts\"",
-    "typecheck": "yarn tsc -p ."
+    "typecheck": "tsc -p ."
   },
   "dependencies": {
-    "ansi-escapes": "^6.0.0",
+    "ansi-escapes": "^7.0.0",
     "chalk": "^5.2.0",
     "jest-regex-util": "^30.0.0",
     "jest-watcher": "^30.0.0",
     "slash": "^5.0.0",
-    "string-length": "^5.0.1",
+    "string-length": "^6.0.0",
     "strip-ansi": "^7.0.1"
   },
   "devDependencies": {
@@ -109,6 +109,6 @@
   },
   "packageManager": "yarn@4.9.2",
   "resolutions": {
-    "ansi-escapes/type-fest": "^3.0.0"
+    "ansi-escapes/type-fest": "^4.0.0"
   }
 }
