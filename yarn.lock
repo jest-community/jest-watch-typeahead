@@ -2644,12 +2644,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^18.19.111":
-  version: 18.19.118
-  resolution: "@types/node@npm:18.19.118"
+"@types/node@npm:^22.0.0":
+  version: 22.16.3
+  resolution: "@types/node@npm:22.16.3"
   dependencies:
-    undici-types: "npm:~5.26.4"
-  checksum: 10c0/39ddf6a84f833bbcf5b5cd398e4f297adac0871fbf5387b5835f7c3f53e5002cae4db5eb42af8def261c2c4fd53afb3d884144c465aa2d020b6be95cb4dcd628
+    undici-types: "npm:~6.21.0"
+  checksum: 10c0/ea6829d0691713e216c15a767f87e412fa0f45c7ed4d49419098d967467e20a5dcdf66fee024e314deab2779f7e5282e1839ee918e845be27f14179247ec947a
   languageName: node
   linkType: hard
 
@@ -5772,7 +5772,7 @@ __metadata:
     "@jest/types": "npm:^30.0.0"
     "@semantic-release/changelog": "npm:^6.0.1"
     "@semantic-release/git": "npm:^10.0.1"
-    "@types/node": "npm:^18.19.111"
+    "@types/node": "npm:^22.0.0"
     ansi-escapes: "npm:^7.0.0"
     babel-jest: "npm:^30.0.0"
     babel-plugin-add-import-extension: "npm:^1.6.0"
@@ -8544,10 +8544,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"undici-types@npm:~5.26.4":
-  version: 5.26.5
-  resolution: "undici-types@npm:5.26.5"
-  checksum: 10c0/bb673d7876c2d411b6eb6c560e0c571eef4a01c1c19925175d16e3a30c4c428181fb8d7ae802a261f283e4166a0ac435e2f505743aa9e45d893f9a3df017b501
+"undici-types@npm:~6.21.0":
+  version: 6.21.0
+  resolution: "undici-types@npm:6.21.0"
+  checksum: 10c0/c01ed51829b10aa72fc3ce64b747f8e74ae9b60eafa19a7b46ef624403508a54c526ffab06a14a26b3120d055e1104d7abe7c9017e83ced038ea5cf52f8d5e04
   languageName: node
   linkType: hard
 
