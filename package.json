@@ -50,7 +50,7 @@
     "@jest/types": "^30.0.0",
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/git": "^10.0.1",
-    "@types/node": "^18.19.111",
+    "@types/node": "^22.0.0",
     "babel-jest": "^30.0.0",
     "babel-plugin-add-import-extension": "^1.6.0",
     "cross-env": "^7.0.3",
