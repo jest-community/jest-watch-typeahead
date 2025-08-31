@@ -5796,7 +5796,6 @@ __metadata:
     semver: "npm:^7.3.5"
     slash: "npm:^5.0.0"
     string-length: "npm:^6.0.0"
-    strip-ansi: "npm:^7.0.1"
     typescript: "npm:^5.0.4"
     typescript-eslint: "npm:^8.0.0"
   peerDependencies:
