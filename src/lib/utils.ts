@@ -1,7 +1,7 @@
 import path from 'path';
 import chalk from 'chalk';
 import slash from 'slash';
-import stripAnsi from 'strip-ansi';
+import { stripVTControlCharacters } from 'node:util';
 import type { Config } from '@jest/types';
 
 const TRIMMING_DOTS = '...';
@@ -77,8 +77,8 @@ export const highlight = (
     return chalk.dim(filePath);
   }
 
-  const strippedRawPath = stripAnsi(rawPath);
-  const strippedFilePath = stripAnsi(filePath);
+  const strippedRawPath = stripVTControlCharacters(rawPath);
+  const strippedFilePath = stripVTControlCharacters(filePath);
   const match = strippedRawPath.match(regexp);
 
   if (!match || match.index == null) {

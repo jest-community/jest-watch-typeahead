@@ -37,8 +37,7 @@
     "jest-regex-util": "^30.0.0",
     "jest-watcher": "^30.0.0",
     "slash": "^5.0.0",
-    "string-length": "^6.0.0",
-    "strip-ansi": "^7.0.1"
+    "string-length": "^6.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",

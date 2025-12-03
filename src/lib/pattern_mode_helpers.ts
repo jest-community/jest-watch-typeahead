@@ -1,5 +1,5 @@
 import chalk from 'chalk';
-import stripAnsi from 'strip-ansi';
+import { stripVTControlCharacters } from 'node:util';
 import type { Prompt } from 'jest-watcher';
 
 const pluralize = (count: number, text: string) =>
@@ -54,8 +54,8 @@ export const formatTypeaheadSelection = (
   prompt: Prompt,
 ): string => {
   if (index === activeIndex) {
-    prompt.setPromptSelection(stripAnsi(item));
-    return chalk.black.bgYellow(stripAnsi(item));
+    prompt.setPromptSelection(stripVTControlCharacters(item));
+    return chalk.black.bgYellow(stripVTControlCharacters(item));
   }
   return item;
 };
