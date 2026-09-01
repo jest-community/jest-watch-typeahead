@@ -4782,10 +4782,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globals@npm:^16.2.0":
-  version: 16.3.0
-  resolution: "globals@npm:16.3.0"
-  checksum: 10c0/c62dc20357d1c0bf2be4545d6c4141265d1a229bf1c3294955efb5b5ef611145391895e3f2729f8603809e81b30b516c33e6c2597573844449978606aad6eb38
+"globals@npm:^17.0.0":
+  version: 17.12.0
+  resolution: "globals@npm:17.12.0"
+  checksum: 10c0/8325cf8818c848871d17c32974c2c74e9c5f09c1b0e04421886f64f21e77c3e95f3ba25586743895a73acd860ada151132481d87d44a1f12993ae7758a694d03
   languageName: node
   linkType: hard
 
@@ -5785,7 +5785,7 @@ __metadata:
     eslint-plugin-import-x: "npm:^4.15.2"
     eslint-plugin-jest: "npm:^29.0.0"
     eslint-plugin-prettier: "npm:^5.0.1"
-    globals: "npm:^16.2.0"
+    globals: "npm:^17.0.0"
     jest: "npm:^30.0.0"
     jest-regex-util: "npm:^30.0.0"
     jest-serializer-ansi-escapes: "npm:^4.0.0"
